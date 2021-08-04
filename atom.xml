@@ -6,7 +6,7 @@
   <link href="https://www.blog.revelvy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.blog.revelvy.cn/"/>
-  <updated>2021-08-04T07:06:33.134Z</updated>
+  <updated>2021-08-04T16:42:42.905Z</updated>
   <id>https://www.blog.revelvy.cn/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Screw 快速入门</title>
+    <link href="https://www.blog.revelvy.cn/2021/08/05/screw-kuai-su-ru-men/"/>
+    <id>https://www.blog.revelvy.cn/2021/08/05/screw-kuai-su-ru-men/</id>
+    <published>2021-08-04T16:01:45.000Z</published>
+    <updated>2021-08-04T16:42:42.905Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;工作之余，在 Github 上看到一款开源的数据库文档生成工具 —— screw（螺丝钉）</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="Screw" scheme="https://www.blog.revelvy.cn/tags/Screw/"/>
+    
+    <category term="数据库文档生成工具" scheme="https://www.blog.revelvy.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E6%A1%A3%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="MySQL" scheme="https://www.blog.revelvy.cn/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>SpringBoot 自动配置原理</title>
     <link href="https://www.blog.revelvy.cn/2020/03/05/springboot-zi-dong-pei-zhi-yuan-li/"/>
     <id>https://www.blog.revelvy.cn/2020/03/05/springboot-zi-dong-pei-zhi-yuan-li/</id>
     <published>2020-03-05T03:54:45.000Z</published>
-    <updated>2021-08-04T07:06:33.134Z</updated>
+    <updated>2021-08-04T09:38:10.702Z</updated>
     
     
       
