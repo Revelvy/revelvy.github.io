@@ -70,4 +70,33 @@
     
   </entry>
   
+  <entry>
+    <title>Redis 事务</title>
+    <link href="https://www.blog.revelvy.cn/2020/01/06/redis-shi-wu/"/>
+    <id>https://www.blog.revelvy.cn/2020/01/06/redis-shi-wu/</id>
+    <published>2020-01-06T03:13:20.000Z</published>
+    <updated>2021-08-05T03:27:02.474Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h3&gt;&lt;p&gt;&lt;span class=&quot;github-emoji&quot;&gt;&lt;span&gt;⚡&lt;/span&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="Redis" scheme="https://www.blog.revelvy.cn/tags/Redis/"/>
+    
+    <category term="数据库" scheme="https://www.blog.revelvy.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="事务" scheme="https://www.blog.revelvy.cn/tags/%E4%BA%8B%E5%8A%A1/"/>
+    
+  </entry>
+  
 </feed>
