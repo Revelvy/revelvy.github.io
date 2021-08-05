@@ -46,6 +46,39 @@
   </entry>
   
   <entry>
+    <title>Jedis 快速入门</title>
+    <link href="https://www.blog.revelvy.cn/2021/01/07/jedis-kuai-su-ru-men/"/>
+    <id>https://www.blog.revelvy.cn/2021/01/07/jedis-kuai-su-ru-men/</id>
+    <published>2021-01-07T07:54:48.000Z</published>
+    <updated>2021-08-05T07:57:35.091Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h2&gt;&lt;p&gt;Redis 官方 Java 客户端开发包。&lt;/p&gt;
+&lt;p&gt;作用：使用 Java 操作 Redis 。&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="Redis" scheme="https://www.blog.revelvy.cn/tags/Redis/"/>
+    
+    <category term="Jedis" scheme="https://www.blog.revelvy.cn/tags/Jedis/"/>
+    
+    <category term="数据库" scheme="https://www.blog.revelvy.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
     <title>SpringBoot 自动配置原理</title>
     <link href="https://www.blog.revelvy.cn/2020/03/05/springboot-zi-dong-pei-zhi-yuan-li/"/>
     <id>https://www.blog.revelvy.cn/2020/03/05/springboot-zi-dong-pei-zhi-yuan-li/</id>
