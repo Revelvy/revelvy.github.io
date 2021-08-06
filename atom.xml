@@ -6,7 +6,7 @@
   <link href="https://www.blog.revelvy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.blog.revelvy.cn/"/>
-  <updated>2021-08-05T00:37:52.130Z</updated>
+  <updated>2021-08-06T10:14:51.840Z</updated>
   <id>https://www.blog.revelvy.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Redis 缓存穿透 击穿 雪崩</title>
+    <link href="https://www.blog.revelvy.cn/2021/08/06/redis-huan-cun-chuan-tou-ji-chuan-xue-beng/"/>
+    <id>https://www.blog.revelvy.cn/2021/08/06/redis-huan-cun-chuan-tou-ji-chuan-xue-beng/</id>
+    <published>2021-08-06T10:13:43.000Z</published>
+    <updated>2021-08-06T10:14:51.840Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;缓存穿透&quot;&gt;&lt;a href=&quot;#缓存穿透&quot; class=&quot;headerlink&quot; title=&quot;缓存穿透&quot;&gt;&lt;/a&gt;缓存穿透&lt;/h2&gt;&lt;p&gt;指用户想要查询一个数据，发现 Redis</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="Redis" scheme="https://www.blog.revelvy.cn/tags/Redis/"/>
+    
+    <category term="数据库" scheme="https://www.blog.revelvy.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>Screw 快速入门</title>
@@ -106,7 +133,7 @@
     <link href="https://www.blog.revelvy.cn/2020/01/20/redis-zhu-cong-fu-zhi/"/>
     <id>https://www.blog.revelvy.cn/2020/01/20/redis-zhu-cong-fu-zhi/</id>
     <published>2020-01-20T09:22:22.000Z</published>
-    <updated>2021-08-06T09:23:54.587Z</updated>
+    <updated>2021-08-06T09:30:17.991Z</updated>
     
     
       
