@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="RDB,AOF,Redis,数据库,数据持久化,Java">
+    <meta name="keywords" content="Redis,数据库,发布,订阅">
     <meta name="description" content="白竹竹,Spring Boot,Python,Django">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Redis 数据持久化 | 白竹竹</title>
+    <title>Redis 发布订阅 | 白竹竹</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -269,12 +269,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Redis 数据持久化</h1>
+                    <h1 class="description center-align post-title">Redis 发布订阅</h1>
                 </div>
             </div>
         </div>
@@ -398,18 +398,6 @@
                                 <span class="chip bg-color">数据库</span>
                             </a>
                         
-                            <a href="/tags/%E6%8C%81%E4%B9%85%E5%8C%96/">
-                                <span class="chip bg-color">持久化</span>
-                            </a>
-                        
-                            <a href="/tags/RDB/">
-                                <span class="chip bg-color">RDB</span>
-                            </a>
-                        
-                            <a href="/tags/AOF/">
-                                <span class="chip bg-color">AOF</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -431,7 +419,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-10
+                    2020-01-16
                 </div>
                 
 
@@ -440,14 +428,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    833
+                    419
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    1 分
                 </div>
                 
 
@@ -465,84 +453,48 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>Redis 是内存数据库，断电即失，所以我们为了保存数据，需要将数据进行持久化，即将数据保存为文件写入磁盘中。</p>
-<p>Redis 持久化的方式有两种，分别是 RDB 和 AOF ，它们各有优缺点，接下来让我们仔细探究。</p>
-<h2 id="RDB（Redis-DataBase）"><a href="#RDB（Redis-DataBase）" class="headerlink" title="RDB（Redis DataBase）"></a>RDB（Redis DataBase）</h2><h3 id="持久化流程"><a href="#持久化流程" class="headerlink" title="持久化流程"></a>持久化流程</h3><p><img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210806114552.png" alt="RDB 持久化流程图"></p>
-<p>Redis 会创建（ fork ）一个子进程来进行 RDB 持久化，在指定的时间间隔内，会先将内存中的数据写入到一个临时 rdb 快照文件中，待持久化过程结束后，再用这个临时快照文件替换上次持久化好的 rdb 快照文件。</p>
-<h3 id="持久化触发时机"><a href="#持久化触发时机" class="headerlink" title="持久化触发时机"></a>持久化触发时机</h3><p>   <span class="github-emoji"><span>💦</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a6.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>  满足 save 的规则时<br>   <span class="github-emoji"><span>💦</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a6.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>  执行 ﬂushall 命令时<br>   ​<span class="github-emoji"><span>💦</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a6.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>  停止 Redis 时</p>
-<h3 id="数据恢复"><a href="#数据恢复" class="headerlink" title="数据恢复"></a>数据恢复</h3><p>将 Redis 启动目录 “/usr/local/bin” 的快照文件 dump.rdb 直接读到内存里进行数据恢复。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> config get <span class="token function">dir</span> 
-<span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">"dir"</span> 
-<span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">"/usr/local/bin"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+                <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>Redis 的发布订阅( publish/subscribe )，是一种消息通信模式，消息发送者发布信息，消息订阅者（ Redis-client ）接收消息，可以用来构建网络聊天室、实时广播、实时提醒等即时通信应用，复杂点的就用消息中间件 MQ 。</p>
+<h3 id="发布订阅的流程图"><a href="#发布订阅的流程图" class="headerlink" title="发布订阅的流程图"></a>发布订阅的流程图</h3><p><img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210806150601.png"></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>subscribe channel</td>
+<td>订阅一个或多个频道</td>
+</tr>
+<tr>
+<td>unsubscribe channel</td>
+<td>取消订阅</td>
+</tr>
+<tr>
+<td>publish channel</td>
+<td>发布消息到频道</td>
+</tr>
+</tbody></table>
+<p>消息订阅者可以订阅多个频道，此处有 3 个订阅者同时订阅了 channel1 频道。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210806150613.png"></p>
+<p>消息发布者通过 PUBLISH 命令把消息发送到频道 channel1 ，所有的订阅者就可以收到消息 。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210806150618.png"></p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p><code>订阅端</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> SUBSCRIBE channel1  <span class="token comment"># 订阅频道 channel1</span>
+channel1 Reading messages<span class="token punctuation">..</span>. <span class="token punctuation">(</span>press Ctrl-C to quit<span class="token punctuation">)</span>  <span class="token comment"># 等待读取频道推送的消息 </span>
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">"subscribe"</span> 
+<span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">"channel1"</span> 
+<span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span> 
 
-<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><blockquote>
-<p> 优点： </p>
-<ol>
-<li> 高性能：整个数据持久化过程中，主进程不进行任何IO操作。</li>
-<li> 适合恢复大数据，对数据的完整性要不高，比 AOP 方式更快更高效。</li>
-</ol>
-<p>缺点： </p>
-<ol>
-<li> 数据持久化创建子进程时，会占用额外内存空间！ </li>
-<li> 数据持久化需要设置一定的时间间隔，如果 Redis 意外宕机，最后一次持久化后的数据可能丢失！</li>
-</ol>
-</blockquote>
-<h3 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h3><p>RDB 在主从复制的作用：一般放在从机上作为备用，15min备份一次就够了（规则：save 900 1）。</p>
-<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p><code>redis.conf</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">################################ 快照  ################################</span>
-<span class="token comment"># 持久化触发时机</span>
-save <span class="token number">900</span> <span class="token number">1</span>  <span class="token comment"># 若 900s 内，有至少 1 个 key 发生改变，就进行持久化操作</span>
-save <span class="token number">300</span> <span class="token number">10</span>
-save <span class="token number">60</span> <span class="token number">10000</span>
-<span class="token comment"># 持久化出错是否仍继续工作</span>
-stop-writes-on-bgsave-error <span class="token function">yes</span>
-<span class="token comment"># 是否压缩 .rdb 文件（消耗CPU资源）</span>
-rdbcompression <span class="token function">yes</span>
-<span class="token comment"># 保存 .rdb 文件时是否做检查校验并自动修复</span>
-rdbchecksum <span class="token function">yes</span>
-<span class="token comment"># 导出 .rdb 文件的文件名</span>
-dbfilename dump.rdb
-<span class="token comment"># .rdb 文件保存路径</span>
-<span class="token function">dir</span> ./<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">"message"</span>  <span class="token comment"># 消息</span>
+<span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">"channel1"</span>  <span class="token comment"># 频道 </span>
+<span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">"hello"</span>  <span class="token comment"># 消息的具体内容 </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="AOF（Append-Only-File）"><a href="#AOF（Append-Only-File）" class="headerlink" title="AOF（Append Only File）"></a>AOF（Append Only File）</h2><h3 id="持久化流程-1"><a href="#持久化流程-1" class="headerlink" title="持久化流程"></a>持久化流程</h3><p><img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210806114553.png" alt="AOF 持久化流程图"></p>
-<p>将所有的写操作命令以日志形式记录下来。</p>
-<h3 id="数据恢复-1"><a href="#数据恢复-1" class="headerlink" title="数据恢复"></a>数据恢复</h3><p>恢复时根据 .aof 文件，执行全部命令。</p>
-<p>若 .aof 文件损坏，则可以用 AOF 文件修复工具修复：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ redis-check-aof --fix appendonly.aof<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><code>发布端</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> PUBLISH kuangshenshuo <span class="token string">"hello"</span>   <span class="token comment"># 发布者发布消息到频道！</span>
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h3 id="优缺点-1"><a href="#优缺点-1" class="headerlink" title="优缺点"></a>优缺点</h3><blockquote>
-<p>优点： </p>
-<ol>
-<li>每一次修改都同步，文件的完整高。</li>
-<li>同步间隔设置为每秒同步一次时，可能会丢失一秒的数据。</li>
-<li>同步间隔设置为从不同步时，效率最高。</li>
-</ol>
-<p>缺点： </p>
-<ol>
-<li>当数据文件很大时，数据恢复速度慢。 </li>
-<li>运行效率低。</li>
-</ol>
-</blockquote>
-<h3 id="配置文件-1"><a href="#配置文件-1" class="headerlink" title="配置文件"></a>配置文件</h3><p><code>redis.conf</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">############################## 仅附加模式 ###############################</span>
-<span class="token comment"># 默认不开启 aof 模式，因为在大部分情况下默认的 rdb 持久化已经够用了</span>
-appendonly no
-<span class="token comment"># aof 持久化的文件的名字</span>
-appendfilename <span class="token string">"appendonly.aof"</span>
-<span class="token comment"># appendfsync always  # 每次修改都会同步，速度慢会消耗性能！</span>
-appendfsync everysec  <span class="token comment"># 每秒执行一次同步，可能会丢失这1s的数据！</span>
-<span class="token comment"># appendfsync no  # 不执行同步，操作系统自己同步数据，速度最快！</span>
-
-<span class="token comment"># 是否开启重写</span>
-no-appendfsync-on-rewrite no
-<span class="token comment"># 重写规则</span>
-auto-aof-rewrite-percentage <span class="token number">100</span>
-auto-aof-rewrite-min-size 64mb  <span class="token comment"># 当数据文件大于 64mb 时，会创建一个新的子进程进行记录</span>
-
-aof-load-truncated <span class="token function">yes</span>
-aof-use-rdb-preamble <span class="token function">yes</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>通过 SUBSCRIBE 命令订阅某频道后，redis-server 里维护了一个字典，字典的键就是很多频道，而字典的值则是一个链表，链表中保存了所有订阅这个 channel 的客户端。SUBSCRIBE 命令的关键， 就是将客户端添加到给定 channel 的订阅链表中。 通过 PUBLISH 命令向订阅者发送消息，redis-server 会使用给定的频道作为键，在它所维护的 channel 字典中查找记录了订阅这个频道的所有客户端的链表，遍历这个链表，将消息发布给所有订阅者。 </p>
 
                 
             </div>
@@ -569,7 +521,7 @@ aof-use-rdb-preamble <span class="token function">yes</span><span aria-hidden="t
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.blog.revelvy.cn/2020/01/10/redis-shu-ju-chi-jiu-hua/">https://www.blog.revelvy.cn/2020/01/10/redis-shu-ju-chi-jiu-hua/</a>
+                    <a href="https://www.blog.revelvy.cn/2020/01/16/redis-fa-bu-ding-yue/">https://www.blog.revelvy.cn/2020/01/16/redis-fa-bu-ding-yue/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -613,18 +565,6 @@ aof-use-rdb-preamble <span class="token function">yes</span><span aria-hidden="t
                             
                                 <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
                                     <span class="chip bg-color">数据库</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%8C%81%E4%B9%85%E5%8C%96/">
-                                    <span class="chip bg-color">持久化</span>
-                                </a>
-                            
-                                <a href="/tags/RDB/">
-                                    <span class="chip bg-color">RDB</span>
-                                </a>
-                            
-                                <a href="/tags/AOF/">
-                                    <span class="chip bg-color">AOF</span>
                                 </a>
                             
                         </div>
@@ -800,31 +740,31 @@ aof-use-rdb-preamble <span class="token function">yes</span><span aria-hidden="t
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/01/16/redis-fa-bu-ding-yue/">
+                <a href="/2020/03/05/springboot-zi-dong-pei-zhi-yuan-li/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Redis 发布订阅">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="SpringBoot 自动配置原理">
                         
-                        <span class="card-title">Redis 发布订阅</span>
+                        <span class="card-title">SpringBoot 自动配置原理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Redis 的发布、订阅功能
+                            SpringBoot 自动配置原理
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-16
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-05
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
                                 </a>
                             
                             
@@ -834,12 +774,8 @@ aof-use-rdb-preamble <span class="token function">yes</span><span aria-hidden="t
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Redis/">
-                        <span class="chip bg-color">Redis</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
+                    <a href="/tags/SpringBoot/">
+                        <span class="chip bg-color">SpringBoot</span>
                     </a>
                     
                 </div>
@@ -853,24 +789,24 @@ aof-use-rdb-preamble <span class="token function">yes</span><span aria-hidden="t
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/01/07/jedis-kuai-su-ru-men/">
+                <a href="/2020/01/10/redis-shu-ju-chi-jiu-hua/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Jedis 快速入门">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Redis 数据持久化">
                         
-                        <span class="card-title">Jedis 快速入门</span>
+                        <span class="card-title">Redis 数据持久化</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Jedis 快速入门
+                            详解 Redis 数据持久化的两种方式及其配置： RDB 和 AOF
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-10
                             </span>
                         <span class="publish-author">
                             
@@ -891,16 +827,20 @@ aof-use-rdb-preamble <span class="token function">yes</span><span aria-hidden="t
                         <span class="chip bg-color">Redis</span>
                     </a>
                     
-                    <a href="/tags/Jedis/">
-                        <span class="chip bg-color">Jedis</span>
-                    </a>
-                    
                     <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
                         <span class="chip bg-color">数据库</span>
                     </a>
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/tags/%E6%8C%81%E4%B9%85%E5%8C%96/">
+                        <span class="chip bg-color">持久化</span>
+                    </a>
+                    
+                    <a href="/tags/RDB/">
+                        <span class="chip bg-color">RDB</span>
+                    </a>
+                    
+                    <a href="/tags/AOF/">
+                        <span class="chip bg-color">AOF</span>
                     </a>
                     
                 </div>

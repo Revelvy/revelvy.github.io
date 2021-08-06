@@ -102,18 +102,45 @@
   </entry>
   
   <entry>
+    <title>Redis 发布订阅</title>
+    <link href="https://www.blog.revelvy.cn/2020/01/16/redis-fa-bu-ding-yue/"/>
+    <id>https://www.blog.revelvy.cn/2020/01/16/redis-fa-bu-ding-yue/</id>
+    <published>2020-01-16T07:26:00.000Z</published>
+    <updated>2021-08-06T07:27:48.699Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;Redis 的发布订阅( publish/subscribe )，是一种消息通信模式，消息发送者发布信息，消息订阅者（</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="Redis" scheme="https://www.blog.revelvy.cn/tags/Redis/"/>
+    
+    <category term="数据库" scheme="https://www.blog.revelvy.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Redis 数据持久化</title>
     <link href="https://www.blog.revelvy.cn/2020/01/10/redis-shu-ju-chi-jiu-hua/"/>
     <id>https://www.blog.revelvy.cn/2020/01/10/redis-shu-ju-chi-jiu-hua/</id>
     <published>2020-01-10T04:16:01.000Z</published>
-    <updated>2021-08-06T04:18:51.288Z</updated>
+    <updated>2021-08-06T04:22:35.486Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;Redis 是内存数据库，断电即失，所以我们为了保存数据，需要将数据进行持久化（即将数据保存为文件写入磁盘中）。&lt;/p&gt;
+    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;Redis 是内存数据库，断电即失，所以我们为了保存数据，需要将数据进行持久化，即将数据保存为文件写入磁盘中。&lt;/p&gt;
 &lt;p&gt;Redis</summary>
         
       
