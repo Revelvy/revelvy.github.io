@@ -428,7 +428,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    873
+                    881
                 </div>
                 
 
@@ -454,7 +454,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h2><p>指用户想要查询一个数据，发现 Redis 内存数据库没有（缓存没有命中），于是向持久层数据库查询，发现也没有，于是本次查询失败。当用户很多的时候，缓存都没有命中（秒杀），于是都去了请求持久层数据库，造成巨大查询压力，出现缓存穿透。 </p>
-<p>理解：缓存和数据库都查不到数据。</p>
+<p><span class="github-emoji"><span>⭐</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 理解：缓存和数据库都查不到数据。</p>
 <h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="布隆过滤器"><a href="#布隆过滤器" class="headerlink" title="布隆过滤器"></a>布隆过滤器</h4><p>一种数据结构，对所有可能查询的参数以 hash 形式存储，在控制层先进行校验，不符合则丢弃，从而缓解查询压力。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210806180935.png"></p>
 <h4 id="缓存空对象"><a href="#缓存空对象" class="headerlink" title="缓存空对象"></a>缓存空对象</h4><p>当缓存和存储层都不命中后，即使返回的空对象也将其缓存起来，同时会设置一个过期时间，之后再访问这个数据将会从缓存中获取，保护了数据库。<br>但这种方法会存在两个问题： </p>
@@ -464,11 +464,12 @@
 </ol>
 <p><img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210806180943.png"></p>
 <h2 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h2><p>指一个热点数据 key ，在这个 key 失效瞬间，大量并发请求访问这个 key ，导致单点持续不停地扛着大并发访问，穿破缓存再直接请求数据库，并且回写缓存，导使数据库瞬间压力过大，相当于在一个屏障上凿开了一个洞。</p>
-<p>理解：因缓存过期导致单点访问量太大。</p>
+<p><span class="github-emoji"><span>⭐</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 理解：因缓存过期导致单点访问量太大。</p>
 <h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="设置热点数据永不过期"><a href="#设置热点数据永不过期" class="headerlink" title="设置热点数据永不过期"></a>设置热点数据永不过期</h4><p>从缓存层来看，设置过期时间永久，就不会出现热点 key 过期后产生的问题。 </p>
 <h4 id="加互斥锁"><a href="#加互斥锁" class="headerlink" title="加互斥锁"></a>加互斥锁</h4><p>加分布式锁，保证对于每个 key 同时只有一个线程去查询后端服务，其他线程没有获得分布式锁的权限只能等待。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210806180939.png"></p>
 <h2 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h2><p>指在某一个时间段，缓存集中过期失效。<br>其实集中过期，倒不是非常致命，比较致命的缓存雪崩，是缓存服务器某个节点宕机或断网。因为自然形成的缓存雪崩，一定是在某个时间段集中创建缓存，这个时候，数据库也是可以顶住压力的。无非就是对数据库产生周期性的压力而已。而缓存服务节点的宕机，对数据库服务器造成的压力是不可预知的，很有可能瞬间就把数据库压垮。 </p>
+<p><span class="github-emoji"><span>⭐</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 理解：缓存集体失效。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210806180952.png"></p>
 <h3 id="解决方案-2"><a href="#解决方案-2" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="Redis-高可用"><a href="#Redis-高可用" class="headerlink" title="Redis 高可用"></a>Redis 高可用</h4><p>增设几台 Redis，搭建集群（ 异地多活 ），一台挂掉之后其他的还可以继续工作。</p>
 <h4 id="限流降级"><a href="#限流降级" class="headerlink" title="限流降级"></a>限流降级</h4><p>在缓存失效后，通过加锁或队列来控制读数据库写缓存的线程数量，比如对某个 key 只允许一个线程查询数据和写缓存，其他线程等待。 </p>
