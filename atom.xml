@@ -46,44 +46,11 @@
   </entry>
   
   <entry>
-    <title>Jedis 快速入门</title>
-    <link href="https://www.blog.revelvy.cn/2021/01/07/jedis-kuai-su-ru-men/"/>
-    <id>https://www.blog.revelvy.cn/2021/01/07/jedis-kuai-su-ru-men/</id>
-    <published>2021-01-07T07:54:48.000Z</published>
-    <updated>2021-08-05T07:59:18.569Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h2&gt;&lt;p&gt;Redis 官方 Java 客户端开发包。&lt;/p&gt;
-&lt;p&gt;作用：使用 Java 操作 Redis 。&lt;/p&gt;
-&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-    <category term="Redis" scheme="https://www.blog.revelvy.cn/tags/Redis/"/>
-    
-    <category term="Jedis" scheme="https://www.blog.revelvy.cn/tags/Jedis/"/>
-    
-    <category term="数据库" scheme="https://www.blog.revelvy.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
     <title>SpringBoot整合Redis</title>
     <link href="https://www.blog.revelvy.cn/2020/04/01/springboot-zheng-he-redis/"/>
     <id>https://www.blog.revelvy.cn/2020/04/01/springboot-zheng-he-redis/</id>
     <published>2020-04-01T11:10:02.000Z</published>
-    <updated>2021-08-05T11:12:22.021Z</updated>
+    <updated>2021-08-05T11:18:01.375Z</updated>
     
     
       
@@ -131,6 +98,73 @@
     
     
     <category term="SpringBoot" scheme="https://www.blog.revelvy.cn/tags/SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis 数据持久化</title>
+    <link href="https://www.blog.revelvy.cn/2020/01/10/redis-shu-ju-chi-jiu-hua/"/>
+    <id>https://www.blog.revelvy.cn/2020/01/10/redis-shu-ju-chi-jiu-hua/</id>
+    <published>2020-01-10T04:16:01.000Z</published>
+    <updated>2021-08-06T04:18:51.288Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;Redis 是内存数据库，断电即失，所以我们为了保存数据，需要将数据进行持久化（即将数据保存为文件写入磁盘中）。&lt;/p&gt;
+&lt;p&gt;Redis</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="Redis" scheme="https://www.blog.revelvy.cn/tags/Redis/"/>
+    
+    <category term="数据库" scheme="https://www.blog.revelvy.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="持久化" scheme="https://www.blog.revelvy.cn/tags/%E6%8C%81%E4%B9%85%E5%8C%96/"/>
+    
+    <category term="RDB" scheme="https://www.blog.revelvy.cn/tags/RDB/"/>
+    
+    <category term="AOF" scheme="https://www.blog.revelvy.cn/tags/AOF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Jedis 快速入门</title>
+    <link href="https://www.blog.revelvy.cn/2020/01/07/jedis-kuai-su-ru-men/"/>
+    <id>https://www.blog.revelvy.cn/2020/01/07/jedis-kuai-su-ru-men/</id>
+    <published>2020-01-07T07:54:48.000Z</published>
+    <updated>2021-08-06T04:16:29.974Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h2&gt;&lt;p&gt;Redis 官方 Java 客户端开发包。&lt;/p&gt;
+&lt;p&gt;作用：使用 Java 操作 Redis 。&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="Redis" scheme="https://www.blog.revelvy.cn/tags/Redis/"/>
+    
+    <category term="Jedis" scheme="https://www.blog.revelvy.cn/tags/Jedis/"/>
+    
+    <category term="数据库" scheme="https://www.blog.revelvy.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
     
   </entry>
   

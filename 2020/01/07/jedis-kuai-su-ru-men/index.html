@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Redis,数据库,事务,transaction">
+    <meta name="keywords" content="Jedis,Redis,数据库,Java">
     <meta name="description" content="白竹竹,Spring Boot,Python,Django">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Redis 事务 | 白竹竹</title>
+    <title>Jedis 快速入门 | 白竹竹</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -269,12 +269,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Redis 事务</h1>
+                    <h1 class="description center-align post-title">Jedis 快速入门</h1>
                 </div>
             </div>
         </div>
@@ -394,12 +394,16 @@
                                 <span class="chip bg-color">Redis</span>
                             </a>
                         
+                            <a href="/tags/Jedis/">
+                                <span class="chip bg-color">Jedis</span>
+                            </a>
+                        
                             <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
                                 <span class="chip bg-color">数据库</span>
                             </a>
                         
-                            <a href="/tags/%E4%BA%8B%E5%8A%A1/">
-                                <span class="chip bg-color">事务</span>
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
                             </a>
                         
                     </div>
@@ -423,7 +427,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-06
+                    2020-01-07
                 </div>
                 
 
@@ -432,14 +436,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    903
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    7 分
                 </div>
                 
 
@@ -457,118 +461,209 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p><span class="github-emoji"><span>⚡</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Redis 事务本质：一组命令的集合。</p>
-<p><span class="github-emoji"><span>⚡</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Redis 单条命令具有原子性，但 Redis 事务没有原子性、隔离性（不存在隔离级别）。</p>
-<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><p><span class="github-emoji"><span>🌠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f320.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 一次性：一个事务中的所有待执行命令都会被一次性放入队列中，即序列化。<br><span class="github-emoji"><span>🌠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f320.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 顺序性：按顺序执行：先进先出。<br><span class="github-emoji"><span>🌠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f320.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 排他性：互不干扰。</p>
-<h3 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h3><p><span class="github-emoji"><span>1⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> ​开启一组事务：multi<br><span class="github-emoji"><span>2⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0032-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> ​命令入队：……<br><span class="github-emoji"><span>3⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0033-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 废弃这组事务：discard<br><span class="github-emoji"><span>4⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0034-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> ​执行事务：exec</p>
-<p><code>执行一组事务</code></p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> multi
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">set</span> k1 v1
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> get k1
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">exec</span>
-<span class="token number">1</span><span class="token punctuation">)</span> OK
-<span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">"v1"</span>
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">keys</span> <span class="token operator">*</span>
-<span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">"k1"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>Redis 官方 Java 客户端开发包。</p>
+<p>作用：使用 Java 操作 Redis 。</p>
+<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><h3 id="one-导入依赖"><a href="#one-导入依赖" class="headerlink" title=":one: 导入依赖"></a><span class="github-emoji"><span>1⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 导入依赖</h3><p><code>pom.xml</code></p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>redis.clients<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>jedis<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>3.6.3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><code>中途废弃事务</code></p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> multi
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">set</span> k1 v1
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> get k1
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">discard</span>
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">keys</span> <span class="token operator">*</span>
-<span class="token punctuation">(</span>empty list <span class="token operator">or</span> <span class="token keyword">set</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><h4 id="bug-编译时异常"><a href="#bug-编译时异常" class="headerlink" title=":bug: 编译时异常"></a><span class="github-emoji"><span>🐛</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f41b.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 编译时异常</h4><p>事务中有语法错误的命令时，所有命令都不会被执行</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> multi
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">set</span> k1 v1
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> getset k1  <span class="token comment"># 语法错误的命令</span>
-<span class="token punctuation">(</span>error<span class="token punctuation">)</span> ERR wrong number <span class="token keyword">of</span> arguments <span class="token keyword">for</span> <span class="token string">'getset'</span> command
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">set</span> k2 v2
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">exec</span>
-<span class="token punctuation">(</span>error<span class="token punctuation">)</span> EXECABORT <span class="token keyword">Transaction</span> discarded because <span class="token keyword">of</span> previous <span class="token keyword">errors</span><span class="token punctuation">.</span>
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">keys</span> <span class="token operator">*</span>
-<span class="token punctuation">(</span>empty list <span class="token operator">or</span> <span class="token keyword">set</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="bug-运行时异常"><a href="#bug-运行时异常" class="headerlink" title=":bug: 运行时异常"></a><span class="github-emoji"><span>🐛</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f41b.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 运行时异常</h4><p>除了错误命令不被执行抛异常之外，其他正确命令可以正常执行（说明了 Redis 事务没有原子性）</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> multi
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">set</span> k1 <span class="token string">"v1"</span>
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> incr k1  <span class="token comment"># 语法正确但运行时错误（字符串不能+1）</span>
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">set</span> k2 v2
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">exec</span>
-<span class="token number">1</span><span class="token punctuation">)</span> OK
-<span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> ERR <span class="token keyword">value</span> <span class="token operator">is</span> <span class="token operator">not</span> an <span class="token keyword">integer</span> <span class="token operator">or</span> <span class="token keyword">out</span> <span class="token keyword">of</span> range
-<span class="token number">3</span><span class="token punctuation">)</span> OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">keys</span> <span class="token operator">*</span>
-<span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">"k2"</span>
-<span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">"k1"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h3><blockquote>
-<p> 悲观锁和乐观锁</p>
-<p> 悲观锁：认为什么时候都会出问题，无论做什么都会加锁，性能低。</p>
-<p> 乐观锁：认为什么时候都不会出问题，无论做什么都不会加锁。</p>
+<h3 id="two-Linux-Redis-远程服务端配置"><a href="#two-Linux-Redis-远程服务端配置" class="headerlink" title=":two: Linux Redis 远程服务端配置"></a><span class="github-emoji"><span>2⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0032-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Linux Redis 远程服务端配置</h3><p>本例使用部署在本地的 CentOS 虚拟机搭建 Redis 服务，在 IDEA 测试连接之前，需开启 Redis 服务并做相关设置。</p>
+<blockquote>
+<p>Redis 的原配置文件路径（不修改用作备份）：/opt/redis-5.0.12/redis.conf<br>Redis 的自定义配置文件路径：/usr/local/bin/rconfig/redis.conf</p>
 </blockquote>
-<p><strong><code>不同场景实现乐观锁的方式</code></strong></p>
-<p><span class="github-emoji"><span>💜</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f49c.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 数据库 ：用 version 字段，即为数据增加一个版本标识（先获取 version ，更新时再比较 version）</p>
-<p><span class="github-emoji"><span>💛</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f49b.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>  Redis ：用 watch 实现</p>
-<p><span class="github-emoji"><span>1⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span><strong><code>不使用 watch 正常执行事务</code></strong></p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">set</span> money <span class="token number">100</span>
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">set</span> <span class="token keyword">out</span> <span class="token number">0</span>
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> watch money  <span class="token comment"># 监控钱包</span>
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> multi
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> decrby money <span class="token number">2</span>  <span class="token comment"># 钱包扣除 2 块钱</span>
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> incrby <span class="token keyword">out</span> <span class="token number">2</span>  <span class="token comment"># 总计花出去 2 块钱</span>
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">exec</span>  <span class="token comment"># 事务执行成功后，会自动取消监控 watch </span>
-<span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">integer</span><span class="token punctuation">)</span> <span class="token number">98</span>
-<span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">integer</span><span class="token punctuation">)</span> <span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="设置公网接口、关闭保护模式"><a href="#设置公网接口、关闭保护模式" class="headerlink" title="设置公网接口、关闭保护模式"></a>设置公网接口、关闭保护模式</h4><p>Redis 默认只能从本机访问，我们想要从本地连接到服务器上的 Redis 服务，需要修改配置文件，首先设置 bind ，bind 绑定的 IP 不是请求来源 IP ，而是 Redis 上服务器本身接收请求的网络接口的 IP ，此处设置监听接口的配置有两种方案：第一种是直接取消 Redis 默认只能从本机访问的注释，此时就允许了所有公网 IP 都可以连接该服务器上的 Redis 服务。第二种是绑定公网接口 IP ，让 Redis 只监听 IPv4 的本地回环接口和公网接口（推荐），然后关闭 Redis 的保护模式。</p>
+<p>针对不同的环境，查看公网接口的方式是一样的，都是使用 ifconfig 查看当前服务器的网络接口。</p>
+<p><span class="github-emoji"><span>📌</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 本机虚拟机</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ ifconfig
+docker0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+        inet6 fe80::42:a4ff:fe2a:17fd  prefixlen 64  scopeid 0x20&lt;link&gt;
+        ether 02:42:a4:2a:17:fd  txqueuelen 0  (Ethernet)
+        RX packets 101375  bytes 17406789 (16.6 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 138351  bytes 372190211 (354.9 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+ens33: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
+        inet 192.168.34.130  netmask 255.255.255.0  broadcast 192.168.34.255
+        inet6 fe80::b060:e396:f9fb:f8ee  prefixlen 64  scopeid 0x20&lt;link&gt;
+        ether 00:0c:29:39:24:89  txqueuelen 1000  (Ethernet)
+        RX packets 1031326  bytes 1493603587 (1.3 GiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 408748  bytes 39063819 (37.2 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 68  bytes 5916 (5.7 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 68  bytes 5916 (5.7 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+virbr0: flags=4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu 1500
+        inet 192.168.122.1  netmask 255.255.255.0  broadcast 192.168.122.255
+        ether 52:54:00:30:98:90  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><span class="github-emoji"><span>2⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0032-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span><strong><code>使用 watch 实现乐观锁</code></strong></p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># 开启第一个连接（线程 1）</span>
-$ redis<span class="token operator">-</span>cli <span class="token operator">-</span>p <span class="token number">6379</span>
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">set</span> money <span class="token number">100</span>
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">set</span> <span class="token keyword">out</span> <span class="token number">0</span>
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> watch money  <span class="token comment"># 监控钱包【加监控/加锁】</span>
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> multi
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> decrby money <span class="token number">2</span>  <span class="token comment"># 钱包扣除 2 块钱</span>
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> incrby <span class="token keyword">out</span> <span class="token number">2</span>  <span class="token comment"># 总计花出去 2 块钱</span>
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">exec</span>  <span class="token comment"># 事务执行失败（执行前，被线程 2 插队修改了值）【比对监视值是否变化，不变则执行成功】</span>
-<span class="token punctuation">(</span>nill<span class="token punctuation">)</span>
-<span class="token comment"># 若事务执行失败，先解除监视/解锁，再重新监视/加锁</span>
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> unwatch
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> watch
-OK<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">网络接口</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">docker0</td>
+<td align="left">安装 docker 时自动创建的</td>
+</tr>
+<tr>
+<td align="left">ens33</td>
+<td align="left">虚拟机接口</td>
+</tr>
+<tr>
+<td align="left">lo</td>
+<td align="left">本地回环接口</td>
+</tr>
+</tbody></table>
+<p>此时 Redis 配置文件应设置为：</p>
+<p><code>redis.conf</code></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">bind 127.0.0.1 192.168.34.130
+protected-mode no<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># 开启第二个连接（线程 2）</span>
-$ redis<span class="token operator">-</span>cli <span class="token operator">-</span>p <span class="token number">6379</span>
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> get money
-<span class="token number">98</span>
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">set</span> money <span class="token number">999</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><span class="github-emoji"><span>📌</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> ​云服务器</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ ifconfig
+docker0   Link encap:Ethernet  HWaddr 3A:F3:20:12:AE:6A
+          inet addr:192.168.42.1  Bcast:0.0.0.0  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:362879 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:894703 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:28218097 (26.9 MiB)  TX bytes:1326305089 (1.2 GiB)
+eth0      Link encap:Ethernet  HWaddr 00:16:3E:08:18:35
+          inet addr:10.25.102.37  Bcast:10.25.103.255  Mask:255.255.252.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:4958304 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:2766733 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:534516269 (509.7 MiB)  TX bytes:13382719049 (12.4 GiB)
+eth1      Link encap:Ethernet  HWaddr 00:16:3E:08:13:6B
+          inet addr:120.76.207.156  Bcast:120.76.207.255  Mask:255.255.252.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:13183600 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:14070363 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:6460933699 (6.0 GiB)  TX bytes:8462002985 (7.8 GiB)
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:156288093 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:156288093 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:19039024606 (17.7 GiB)  TX bytes:19039024606 (17.7 GiB)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">网络接口</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">docker0</td>
+<td align="left">安装 docker 时自动创建的网桥</td>
+</tr>
+<tr>
+<td align="left">eth0</td>
+<td align="left">阿里云内网接口</td>
+</tr>
+<tr>
+<td align="left">eth1</td>
+<td align="left">阿里云公网接口</td>
+</tr>
+<tr>
+<td align="left">lo</td>
+<td align="left">本地回环接口</td>
+</tr>
+</tbody></table>
+<p>此时 Redis 配置文件应设置为：</p>
+<p><code>redis.conf</code></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">bind 127.0.0.1 120.76.207.156
+protected-mode no<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="重启-Redis"><a href="#重启-Redis" class="headerlink" title="重启 Redis"></a>重启 Redis</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 启动 Redis 服务端 （默认无密码）</span>
+$ redis-server /usr/local/bin/rconfig/redis.conf
+<span class="token comment"># 查看 Redis 进程，检查是否启动成功</span>
+$ <span class="token function">ps</span> -ef<span class="token operator">|</span><span class="token function">grep</span> redis
+<span class="token punctuation">[</span>root@localhost bin<span class="token punctuation">]</span><span class="token comment"># ps -ef|grep redis</span>
+root      <span class="token number">52979</span>      <span class="token number">1</span>  <span class="token number">0</span> <span class="token number">12</span>:39 ?        00:00:00 redis-server <span class="token number">127.0</span>.0.1:6379
+root      <span class="token number">52994</span>   <span class="token number">3457</span>  <span class="token number">0</span> <span class="token number">12</span>:39 pts/0    00:00:00 <span class="token function">grep</span> --color<span class="token operator">=</span>auto redis
+<span class="token comment"># 停止 Redis</span>
+$ redis-cli -h <span class="token number">127.0</span>.0.1 -p <span class="token number">6379</span> <span class="token function">shutdown</span>
+$ redis-cli -h <span class="token number">127.0</span>.0.1 -p <span class="token number">6379</span> -a password <span class="token function">shutdown</span>  <span class="token comment"># 有密码时使用</span>
+<span class="token comment"># 开启连接</span>
+$ redis-cli -h <span class="token number">127.0</span>.0.1 -p <span class="token number">6379</span>
+$ redis-cli -h <span class="token function">host</span> -p port -a password  <span class="token comment"># 有密码时使用</span>
+<span class="token comment"># 测试连接（返回 PONG 时则连接成功）</span>
+<span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> <span class="token function">ping</span>
+<span class="token comment"># 退出连接</span>
+<span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> <span class="token builtin class-name">exit</span>
+<span class="token comment"># 停止 Redis 并 退出连接</span>
+<span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> <span class="token function">shutdown</span>
+not connected<span class="token operator">&gt;</span> <span class="token builtin class-name">exit</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="开放端口"><a href="#开放端口" class="headerlink" title="开放端口"></a>开放端口</h4><p><span class="github-emoji"><span>📌</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 本机虚拟机</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 防火墙启停（停掉的话，就不需后续的端口操作了）</span>
+systemctl start/restart/stop firewalld
+<span class="token comment"># 端口</span>
+$ firewall-cmd --list-ports
+$ firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">6379</span>/tcp --permanent
+$ firewall-cmd --zone<span class="token operator">=</span>public --remove-port<span class="token operator">=</span><span class="token number">6379</span>/tcp --permanent<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><span class="github-emoji"><span>📌</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 云服务器</p>
+<p>配置安全组策略，开放对应端口，此处不做过多阐述。</p>
+<h3 id="three-测试连接"><a href="#three-测试连接" class="headerlink" title=":three:  测试连接"></a><span class="github-emoji"><span>3⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0033-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>  测试连接</h3><p><code>pom.xml</code></p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.alibaba<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>fastjson<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>1.2.75<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 测试 Redis 连接</span>
+<span class="token annotation punctuation">@Test</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">redisTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token punctuation">{</span>
+    <span class="token class-name">Jedis</span> jedis <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Jedis</span><span class="token punctuation">(</span><span class="token string">"192.168.34.130"</span><span class="token punctuation">,</span><span class="token number">6379</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>jedis<span class="token punctuation">.</span><span class="token function">ping</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 测试 Redis 事务</span>
+<span class="token annotation punctuation">@Test</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">redisTransactionTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Jedis</span> jedis <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Jedis</span><span class="token punctuation">(</span><span class="token string">"192.168.34.130"</span><span class="token punctuation">,</span> <span class="token number">6379</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    jedis<span class="token punctuation">.</span><span class="token function">flushDB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">JSONObject</span> jsonObject <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JSONObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    jsonObject<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">,</span> <span class="token string">"world"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    jsonObject<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">,</span> <span class="token string">"kuangshen"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">Transaction</span> multi <span class="token operator">=</span> jedis<span class="token punctuation">.</span><span class="token function">multi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">String</span> result <span class="token operator">=</span> jsonObject<span class="token punctuation">.</span><span class="token function">toJSONString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// jedis.watch(result)</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        multi<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"k1"</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        multi<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"k2"</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        multi<span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        multi<span class="token punctuation">.</span><span class="token function">discard</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>jedis<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"k1"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// {"name":"kuangshen","hello":"world"}</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>jedis<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"k2"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// {"name":"kuangshen","hello":"world"}</span>
+        jedis<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -595,7 +690,7 @@ $ redis<span class="token operator">-</span>cli <span class="token operator">-</
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.blog.revelvy.cn/2020/01/06/redis-shi-wu/">https://www.blog.revelvy.cn/2020/01/06/redis-shi-wu/</a>
+                    <a href="https://www.blog.revelvy.cn/2020/01/07/jedis-kuai-su-ru-men/">https://www.blog.revelvy.cn/2020/01/07/jedis-kuai-su-ru-men/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -637,12 +732,16 @@ $ redis<span class="token operator">-</span>cli <span class="token operator">-</
                                     <span class="chip bg-color">Redis</span>
                                 </a>
                             
+                                <a href="/tags/Jedis/">
+                                    <span class="chip bg-color">Jedis</span>
+                                </a>
+                            
                                 <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
                                     <span class="chip bg-color">数据库</span>
                                 </a>
                             
-                                <a href="/tags/%E4%BA%8B%E5%8A%A1/">
-                                    <span class="chip bg-color">事务</span>
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
                                 </a>
                             
                         </div>
@@ -818,24 +917,24 @@ $ redis<span class="token operator">-</span>cli <span class="token operator">-</
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/01/07/jedis-kuai-su-ru-men/">
+                <a href="/2020/01/10/redis-shu-ju-chi-jiu-hua/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Jedis 快速入门">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Redis 数据持久化">
                         
-                        <span class="card-title">Jedis 快速入门</span>
+                        <span class="card-title">Redis 数据持久化</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Jedis 快速入门
+                            详解 Redis 数据持久化的两种方式及其配置： RDB 和 AOF
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-07
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-10
                         </span>
                         <span class="publish-author">
                             
@@ -856,16 +955,20 @@ $ redis<span class="token operator">-</span>cli <span class="token operator">-</
                         <span class="chip bg-color">Redis</span>
                     </a>
                     
-                    <a href="/tags/Jedis/">
-                        <span class="chip bg-color">Jedis</span>
-                    </a>
-                    
                     <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
                         <span class="chip bg-color">数据库</span>
                     </a>
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/tags/%E6%8C%81%E4%B9%85%E5%8C%96/">
+                        <span class="chip bg-color">持久化</span>
+                    </a>
+                    
+                    <a href="/tags/RDB/">
+                        <span class="chip bg-color">RDB</span>
+                    </a>
+                    
+                    <a href="/tags/AOF/">
+                        <span class="chip bg-color">AOF</span>
                     </a>
                     
                 </div>
@@ -876,7 +979,7 @@ $ redis<span class="token operator">-</span>cli <span class="token operator">-</
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2020/01/06/redis-shi-wu/">
@@ -910,7 +1013,6 @@ $ redis<span class="token operator">-</span>cli <span class="token operator">-</
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
