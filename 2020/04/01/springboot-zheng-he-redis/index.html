@@ -443,7 +443,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    13 分
                 </div>
                 
 
@@ -478,7 +478,19 @@
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
   <span class="token key atrule">redis</span><span class="token punctuation">:</span>
     <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">6379</span>
-    <span class="token key atrule">host</span><span class="token punctuation">:</span> 192.168.34.130<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token key atrule">host</span><span class="token punctuation">:</span> 192.168.34.130
+    <span class="token comment">#密码</span>
+<span class="token comment">#    password: root</span>
+    <span class="token key atrule">lettuce</span><span class="token punctuation">:</span>
+      <span class="token key atrule">pool</span><span class="token punctuation">:</span>
+        <span class="token comment">#最大连接数，默认8</span>
+        <span class="token key atrule">max-active</span><span class="token punctuation">:</span> <span class="token number">1024</span>
+        <span class="token comment">#最大连接阻塞等待时间，默认-1</span>
+        <span class="token key atrule">max-wait</span><span class="token punctuation">:</span> 10000ms
+        <span class="token comment">#最大空闲连接</span>
+        <span class="token key atrule">max-idle</span><span class="token punctuation">:</span> <span class="token number">200</span>
+        <span class="token comment">#最小空闲连接</span>
+        <span class="token key atrule">min-idle</span><span class="token punctuation">:</span> <span class="token number">5</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="测试（默认模板）"><a href="#测试（默认模板）" class="headerlink" title="测试（默认模板）"></a>测试（默认模板）</h2><p>我们可以在 Redis 的自动装配类 <strong>RedisAutoConfiguration</strong> 的源码中查看其默认提供的模板 <strong>RedisTemplate</strong> 。</p>
 <h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><p><code>RedisAutoConfiguration.java</code></p>
