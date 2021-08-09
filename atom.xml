@@ -6,7 +6,7 @@
   <link href="https://www.blog.revelvy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.blog.revelvy.cn/"/>
-  <updated>2021-08-06T10:17:10.046Z</updated>
+  <updated>2021-08-09T04:43:13.079Z</updated>
   <id>https://www.blog.revelvy.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>RabbitMQ 队列模式</title>
+    <link href="https://www.blog.revelvy.cn/2021/08/09/rabbitmq-dui-lie-mo-shi/"/>
+    <id>https://www.blog.revelvy.cn/2021/08/09/rabbitmq-dui-lie-mo-shi/</id>
+    <published>2021-08-09T04:41:00.000Z</published>
+    <updated>2021-08-09T04:43:13.079Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;RabbitMQ 消息队列有多种模式：简单、工作、发布订阅、路由、主体、RPC</summary>
+        
+      
+    
+    
+    
+    <category term="中间件" scheme="https://www.blog.revelvy.cn/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+    
+    
+    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
+    
+    <category term="RabbitMQ" scheme="https://www.blog.revelvy.cn/tags/RabbitMQ/"/>
+    
+    <category term="分布式消息中间件" scheme="https://www.blog.revelvy.cn/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>Redis 缓存穿透 击穿 雪崩</title>
