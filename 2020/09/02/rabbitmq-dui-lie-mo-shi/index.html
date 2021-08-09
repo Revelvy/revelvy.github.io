@@ -423,7 +423,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-09
+                    2020-09-02
                 </div>
                 
 
@@ -470,7 +470,7 @@
 <p>简单模式下只有生产者、队列、消费者都只有一个。</p>
 <blockquote>
 <p>声明队列：channel.queueDeclare(QUEUE_NAME, false, false, false, null);</p>
-<p>第一个参数 queue：队列名称<br>第二个参数 durable ：是否持久化<br>第三个参数 Exclusive：<br>    排他队列，如果一个队列被声明为排他队列，该队列仅对首次声明它的连接可见，并在连接断开时自动删除。<br>    注意三点：</p>
+<p>参数一 queue：队列名称<br>参数二 durable ：是否持久化<br>参数三 Exclusive：<br>    排他队列，如果一个队列被声明为排他队列，该队列仅对首次声明它的连接可见，并在连接断开时自动删除。<br>    注意：</p>
 <ol>
 <li><p> 排他队列是基于连接可见的，同一连接的不同通道是可以同时访问同一个连接创建的排他队列的。</p>
 </li>
@@ -479,7 +479,7 @@
 <li><p>即使该队列是持久化的，一旦连接关闭或者客户端退出，该排他队列都会被自动删除的。<br>   这种队列适用于只限于一个客户端发送读取消息的应用场景。</p>
 </li>
 </ol>
-<p>第四个参数 Auto-delete：<br>   自动删除，如果该队列没有任何订阅的消费者的话，该队列会被自动删除。这种队列适用于临时队列。</p>
+<p>参数四 Auto-delete：<br>   自动删除，如果该队列没有任何订阅的消费者的话，该队列会被自动删除。这种队列适用于临时队列。</p>
 </blockquote>
 <p>定义生产者：</p>
 <p><code>Send.java</code></p>
@@ -693,7 +693,11 @@
 <p><img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210809123402.png"></p>
 <h3 id="公平"><a href="#公平" class="headerlink" title="公平"></a>公平</h3><p>改进轮询模式，当不同消费者消费能力不同时，能者多劳，即处理快的帮慢的。</p>
 <blockquote>
-<p>优点：<br>    避免资源浪费<br>    节约处理时间</p>
+<p>优点：</p>
+<ol>
+<li>避免资源浪费</li>
+<li>节约处理时间</li>
+</ol>
 </blockquote>
 <p><code>Send.java</code></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
@@ -1445,7 +1449,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.blog.revelvy.cn/2021/08/09/rabbitmq-dui-lie-mo-shi/">https://www.blog.revelvy.cn/2021/08/09/rabbitmq-dui-lie-mo-shi/</a>
+                    <a href="https://www.blog.revelvy.cn/2020/09/02/rabbitmq-dui-lie-mo-shi/">https://www.blog.revelvy.cn/2020/09/02/rabbitmq-dui-lie-mo-shi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1664,30 +1668,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/08/09/rabbitmq-dui-lie-mo-shi/">
+                <a href="/2020/09/03/rabbitmq-shi-wu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="RabbitMQ 队列模式">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="RabbitMQ 事务">
                         
-                        <span class="card-title">RabbitMQ 队列模式</span>
+                        <span class="card-title">RabbitMQ 事务</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            详解 RabbitMQ 的队列模式
+                            详解 RabbitMQ 的事务
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-09
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-03
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1700,7 +1703,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1727,31 +1729,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/08/06/redis-huan-cun-chuan-tou-ji-chuan-xue-beng/">
+                <a href="/2020/05/02/swagger-kuai-su-ru-men/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Redis 缓存穿透 击穿 雪崩">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Swagger 快速入门">
                         
-                        <span class="card-title">Redis 缓存穿透 击穿 雪崩</span>
+                        <span class="card-title">Swagger 快速入门</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            详解 Redis 缓存穿透、缓存击穿、缓存雪崩
+                            Swagger 快速入门
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-02
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
                                 </a>
                             
                             
@@ -1761,12 +1763,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Redis/">
-                        <span class="chip bg-color">Redis</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
+                    <a href="/tags/SpringBoot/">
+                        <span class="chip bg-color">SpringBoot</span>
+                    </a>
+                    
+                    <a href="/tags/Swagger/">
+                        <span class="chip bg-color">Swagger</span>
                     </a>
                     
                 </div>
