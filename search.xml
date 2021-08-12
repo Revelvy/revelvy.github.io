@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>浏览器安装扩展程序的教程</title>
+      <link href="/2021/08/12/liu-lan-qi-an-zhuang-kuo-zhan-cheng-xu-de-jiao-cheng/"/>
+      <url>/2021/08/12/liu-lan-qi-an-zhuang-kuo-zhan-cheng-xu-de-jiao-cheng/</url>
+      
+        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p><span class="github-emoji"><span>☀</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2600.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 浏览器扩展程序能够让浏览器的功能更加多样化，针对不同类型的浏览器，安装的方式不尽相同。</p><h2 id="360-安全浏览器"><a href="#360-安全浏览器" class="headerlink" title="360 安全浏览器"></a>360 安全浏览器</h2><p><span class="github-emoji"><span>1⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 在浏览器地址栏输入：<strong>se://extensions/</strong> 进入添加扩展程序的页面，勾选 <strong>开发者模式</strong>：</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812161546.png"></p><p><span class="github-emoji"><span>2⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0032-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 将准备好的扩展程序拖拽到此页面：</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812163755.gif"></p><p><span class="github-emoji"><span>3⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0033-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 当你看到右上角出现扩展图标时，即安装成功！</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812164002.png"></p><h2 id="Chrome-浏览器"><a href="#Chrome-浏览器" class="headerlink" title="Chrome 浏览器"></a>Chrome 浏览器</h2><p>将浏览器地址栏的地址修改为：<strong>chrome://extensions/</strong> ，同理。</p><h2 id="QQ-浏览器"><a href="#QQ-浏览器" class="headerlink" title="QQ 浏览器"></a>QQ 浏览器</h2><p>将浏览器地址栏的地址修改为：<strong>qqbrowser://extensions/manage</strong> ，同理。</p><h2 id="Firefox-浏览器"><a href="#Firefox-浏览器" class="headerlink" title="Firefox 浏览器"></a>Firefox 浏览器</h2><p>有空再更…</p><h2 id="Microsoft-Edge-浏览器"><a href="#Microsoft-Edge-浏览器" class="headerlink" title="Microsoft Edge 浏览器"></a>Microsoft Edge 浏览器</h2><p>有空再更…</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows 小技巧 </tag>
+            
+            <tag> 浏览器扩展程序 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Redis 缓存穿透 击穿 雪崩</title>
       <link href="/2021/08/06/redis-huan-cun-chuan-tou-ji-chuan-xue-beng/"/>
       <url>/2021/08/06/redis-huan-cun-chuan-tou-ji-chuan-xue-beng/</url>

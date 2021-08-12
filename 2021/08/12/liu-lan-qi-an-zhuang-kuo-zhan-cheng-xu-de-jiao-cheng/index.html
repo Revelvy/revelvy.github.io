@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Redis,数据库,缓存穿透,缓存击穿,缓存雪崩">
+    <meta name="keywords" content="Windows 小技巧,浏览器扩展程序">
     <meta name="description" content="白竹竹,Spring Boot,Python,Django">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Redis 缓存穿透 击穿 雪崩 | 白竹竹</title>
+    <title>浏览器安装扩展程序的教程 | 白竹竹</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -269,12 +269,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Redis 缓存穿透 击穿 雪崩</h1>
+                    <h1 class="description center-align post-title">浏览器安装扩展程序的教程</h1>
                 </div>
             </div>
         </div>
@@ -390,12 +390,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Redis/">
-                                <span class="chip bg-color">Redis</span>
+                            <a href="/tags/Windows-%E5%B0%8F%E6%8A%80%E5%B7%A7/">
+                                <span class="chip bg-color">Windows 小技巧</span>
                             </a>
                         
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                <span class="chip bg-color">数据库</span>
+                            <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F/">
+                                <span class="chip bg-color">浏览器扩展程序</span>
                             </a>
                         
                     </div>
@@ -406,8 +406,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                数据库
+                            <a href="/categories/Windows/" class="post-category">
+                                Windows
                             </a>
                         
                     </div>
@@ -419,7 +419,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-06
+                    2021-08-12
                 </div>
                 
 
@@ -428,14 +428,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    881
+                    174
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -453,27 +453,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h2><p>指用户想要查询一个数据，发现 Redis 内存数据库没有（缓存没有命中），于是向持久层数据库查询，发现也没有，于是本次查询失败。当用户很多的时候，缓存都没有命中（秒杀），于是都去了请求持久层数据库，造成巨大查询压力，出现缓存穿透。 </p>
-<p><span class="github-emoji"><span>⭐</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 理解：缓存和数据库都查不到数据。</p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="布隆过滤器"><a href="#布隆过滤器" class="headerlink" title="布隆过滤器"></a>布隆过滤器</h4><p>一种数据结构，对所有可能查询的参数以 hash 形式存储，在控制层先进行校验，不符合则丢弃，从而缓解查询压力。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210806180935.png"></p>
-<h4 id="缓存空对象"><a href="#缓存空对象" class="headerlink" title="缓存空对象"></a>缓存空对象</h4><p>当缓存和存储层都不命中后，即使返回的空对象也将其缓存起来，同时会设置一个过期时间，之后再访问这个数据将会从缓存中获取，保护了数据库。<br>但这种方法会存在两个问题： </p>
-<ol>
-<li>如果缓存空值，意味着缓存层需要更多的空间存储更多的键。</li>
-<li>即使对空值设置了过期时间，还是会存在缓存层和存储层的数据会有一段时间窗口的不一致，这对于需要保持一致性的业务会有影响。 </li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210806180943.png"></p>
-<h2 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h2><p>指一个热点数据 key ，在这个 key 失效瞬间，大量并发请求访问这个 key ，导致单点持续不停地扛着大并发访问，穿破缓存再直接请求数据库，并且回写缓存，导使数据库瞬间压力过大，相当于在一个屏障上凿开了一个洞。</p>
-<p><span class="github-emoji"><span>⭐</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 理解：因缓存过期导致单点访问量太大。</p>
-<h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="设置热点数据永不过期"><a href="#设置热点数据永不过期" class="headerlink" title="设置热点数据永不过期"></a>设置热点数据永不过期</h4><p>从缓存层来看，设置过期时间永久，就不会出现热点 key 过期后产生的问题。 </p>
-<h4 id="加互斥锁"><a href="#加互斥锁" class="headerlink" title="加互斥锁"></a>加互斥锁</h4><p>加分布式锁，保证对于每个 key 同时只有一个线程去查询后端服务，其他线程没有获得分布式锁的权限只能等待。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210806180939.png"></p>
-<h2 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h2><p>指在某一个时间段，缓存集中过期失效。<br>其实集中过期，倒不是非常致命，比较致命的缓存雪崩，是缓存服务器某个节点宕机或断网。因为自然形成的缓存雪崩，一定是在某个时间段集中创建缓存，这个时候，数据库也是可以顶住压力的。无非就是对数据库产生周期性的压力而已。而缓存服务节点的宕机，对数据库服务器造成的压力是不可预知的，很有可能瞬间就把数据库压垮。 </p>
-<p><span class="github-emoji"><span>⭐</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 理解：缓存集体失效。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210806180952.png"></p>
-<h3 id="解决方案-2"><a href="#解决方案-2" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="Redis-高可用"><a href="#Redis-高可用" class="headerlink" title="Redis 高可用"></a>Redis 高可用</h4><p>增设几台 Redis，搭建集群（ 异地多活 ），一台挂掉之后其他的还可以继续工作。</p>
-<h4 id="限流降级"><a href="#限流降级" class="headerlink" title="限流降级"></a>限流降级</h4><p>在缓存失效后，通过加锁或队列来控制读数据库写缓存的线程数量，比如对某个 key 只允许一个线程查询数据和写缓存，其他线程等待。 </p>
-<h4 id="数据预热"><a href="#数据预热" class="headerlink" title="数据预热"></a>数据预热</h4><p>在正式部署之前，先把可能的数据先预先访问一遍，将部分未来可能大量访问的数据就会加载到缓存中。在即将发生大并发访问前手动触发加载缓存不同的 key，设置不同的过期时间，让缓存失效的时间点尽量均匀。 </p>
+                <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p><span class="github-emoji"><span>☀</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2600.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 浏览器扩展程序能够让浏览器的功能更加多样化，针对不同类型的浏览器，安装的方式不尽相同。</p>
+<h2 id="360-安全浏览器"><a href="#360-安全浏览器" class="headerlink" title="360 安全浏览器"></a>360 安全浏览器</h2><p><span class="github-emoji"><span>1⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 在浏览器地址栏输入：<strong>se://extensions/</strong> 进入添加扩展程序的页面，勾选 <strong>开发者模式</strong>：</p>
+<p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812161546.png"></p>
+<p><span class="github-emoji"><span>2⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0032-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 将准备好的扩展程序拖拽到此页面：</p>
+<p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812163755.gif"></p>
+<p><span class="github-emoji"><span>3⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0033-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 当你看到右上角出现扩展图标时，即安装成功！</p>
+<p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812164002.png"></p>
+<h2 id="Chrome-浏览器"><a href="#Chrome-浏览器" class="headerlink" title="Chrome 浏览器"></a>Chrome 浏览器</h2><p>将浏览器地址栏的地址修改为：<strong>chrome://extensions/</strong> ，同理。</p>
+<h2 id="QQ-浏览器"><a href="#QQ-浏览器" class="headerlink" title="QQ 浏览器"></a>QQ 浏览器</h2><p>将浏览器地址栏的地址修改为：<strong>qqbrowser://extensions/manage</strong> ，同理。</p>
+<h2 id="Firefox-浏览器"><a href="#Firefox-浏览器" class="headerlink" title="Firefox 浏览器"></a>Firefox 浏览器</h2><p>有空再更…</p>
+<h2 id="Microsoft-Edge-浏览器"><a href="#Microsoft-Edge-浏览器" class="headerlink" title="Microsoft Edge 浏览器"></a>Microsoft Edge 浏览器</h2><p>有空再更…</p>
 
                 
             </div>
@@ -500,7 +490,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.blog.revelvy.cn/2021/08/06/redis-huan-cun-chuan-tou-ji-chuan-xue-beng/">https://www.blog.revelvy.cn/2021/08/06/redis-huan-cun-chuan-tou-ji-chuan-xue-beng/</a>
+                    <a href="https://www.blog.revelvy.cn/2021/08/12/liu-lan-qi-an-zhuang-kuo-zhan-cheng-xu-de-jiao-cheng/">https://www.blog.revelvy.cn/2021/08/12/liu-lan-qi-an-zhuang-kuo-zhan-cheng-xu-de-jiao-cheng/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -538,12 +528,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Redis/">
-                                    <span class="chip bg-color">Redis</span>
+                                <a href="/tags/Windows-%E5%B0%8F%E6%8A%80%E5%B7%A7/">
+                                    <span class="chip bg-color">Windows 小技巧</span>
                                 </a>
                             
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                    <span class="chip bg-color">数据库</span>
+                                <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F/">
+                                    <span class="chip bg-color">浏览器扩展程序</span>
                                 </a>
                             
                         </div>
@@ -715,9 +705,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/08/12/liu-lan-qi-an-zhuang-kuo-zhan-cheng-xu-de-jiao-cheng/">
                     <div class="card-image">
@@ -735,9 +726,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -750,6 +741,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -772,23 +764,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/08/05/screw-kuai-su-ru-men/">
+                <a href="/2021/08/06/redis-huan-cun-chuan-tou-ji-chuan-xue-beng/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210805000743.png" class="responsive-img" alt="Screw 快速入门">
                         
-                        <span class="card-title">Screw 快速入门</span>
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Redis 缓存穿透 击穿 雪崩">
+                        
+                        <span class="card-title">Redis 缓存穿透 击穿 雪崩</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            高效快捷的数据库文档生成工具
+                            详解 Redis 缓存穿透、缓存击穿、缓存雪崩
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-06
                             </span>
                         <span class="publish-author">
                             
@@ -805,16 +798,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/MySQL/">
-                        <span class="chip bg-color">MySQL</span>
+                    <a href="/tags/Redis/">
+                        <span class="chip bg-color">Redis</span>
                     </a>
                     
-                    <a href="/tags/Screw/">
-                        <span class="chip bg-color">Screw</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E6%A1%A3%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/">
-                        <span class="chip bg-color">数据库文档生成工具</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
                     </a>
                     
                 </div>
