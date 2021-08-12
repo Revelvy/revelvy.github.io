@@ -6,7 +6,7 @@
   <link href="https://www.blog.revelvy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.blog.revelvy.cn/"/>
-  <updated>2021-08-12T10:39:30.281Z</updated>
+  <updated>2021-08-12T15:14:35.849Z</updated>
   <id>https://www.blog.revelvy.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.blog.revelvy.cn/2021/08/12/liu-lan-qi-an-zhuang-kuo-zhan-cheng-xu-de-jiao-cheng/"/>
     <id>https://www.blog.revelvy.cn/2021/08/12/liu-lan-qi-an-zhuang-kuo-zhan-cheng-xu-de-jiao-cheng/</id>
     <published>2021-08-12T08:07:42.000Z</published>
-    <updated>2021-08-12T10:39:30.281Z</updated>
+    <updated>2021-08-12T15:14:35.849Z</updated>
     
     
       
@@ -100,6 +100,31 @@
   </entry>
   
   <entry>
+    <title>MySQL 锁</title>
+    <link href="https://www.blog.revelvy.cn/2021/05/07/mysql-suo/"/>
+    <id>https://www.blog.revelvy.cn/2021/05/07/mysql-suo/</id>
+    <published>2021-05-07T14:25:12.000Z</published>
+    <updated>2021-08-12T14:25:39.932Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;&lt;span class=&quot;github-emoji&quot;&gt;&lt;span&gt;🌠&lt;/span&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="MySQL" scheme="https://www.blog.revelvy.cn/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>RabbitMQ 事务</title>
     <link href="https://www.blog.revelvy.cn/2020/09/03/rabbitmq-shi-wu/"/>
     <id>https://www.blog.revelvy.cn/2020/09/03/rabbitmq-shi-wu/</id>
@@ -158,6 +183,110 @@
   </entry>
   
   <entry>
+    <title>MySQL 索引</title>
+    <link href="https://www.blog.revelvy.cn/2020/05/06/mysql-suo-yin/"/>
+    <id>https://www.blog.revelvy.cn/2020/05/06/mysql-suo-yin/</id>
+    <published>2020-05-06T14:24:24.000Z</published>
+    <updated>2021-08-12T14:33:27.046Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;&lt;span class=&quot;github-emoji&quot;&gt;&lt;span&gt;🌠&lt;/span&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="MySQL" scheme="https://www.blog.revelvy.cn/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL 数据类型</title>
+    <link href="https://www.blog.revelvy.cn/2020/05/05/mysql-shu-ju-lei-xing/"/>
+    <id>https://www.blog.revelvy.cn/2020/05/05/mysql-shu-ju-lei-xing/</id>
+    <published>2020-05-05T14:23:40.000Z</published>
+    <updated>2021-08-12T14:34:02.816Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-数值&quot;&gt;&lt;a href=&quot;#1-数值&quot; class=&quot;headerlink&quot; title=&quot;1. 数值&quot;&gt;&lt;/a&gt;1. 数值&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;tinyint                    1字节&lt;/li&gt;
+&lt;li&gt;smallint     </summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="MySQL" scheme="https://www.blog.revelvy.cn/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL 事务</title>
+    <link href="https://www.blog.revelvy.cn/2020/05/04/mysql-shi-wu/"/>
+    <id>https://www.blog.revelvy.cn/2020/05/04/mysql-shi-wu/</id>
+    <published>2020-05-04T14:22:03.000Z</published>
+    <updated>2021-08-12T14:23:22.899Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;Transation，将一组 SQL 放在一个批次去执行，要么都成功，要么都失败。&lt;/p&gt;
+&lt;h2 id=&quot;SQL-测试&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="MySQL" scheme="https://www.blog.revelvy.cn/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL 存储引擎</title>
+    <link href="https://www.blog.revelvy.cn/2020/05/03/mysql-cun-chu-yin-qing/"/>
+    <id>https://www.blog.revelvy.cn/2020/05/03/mysql-cun-chu-yin-qing/</id>
+    <published>2020-05-03T14:20:07.000Z</published>
+    <updated>2021-08-12T14:34:57.469Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;存储引擎 / 表格类型&lt;/p&gt;
+&lt;h2 id=&quot;种类&quot;&gt;&lt;a href=&quot;#种类&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="MySQL" scheme="https://www.blog.revelvy.cn/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Swagger 快速入门</title>
     <link href="https://www.blog.revelvy.cn/2020/05/02/swagger-kuai-su-ru-men/"/>
     <id>https://www.blog.revelvy.cn/2020/05/02/swagger-kuai-su-ru-men/</id>
@@ -208,9 +337,9 @@
     <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-    <category term="MySQL" scheme="https://www.blog.revelvy.cn/tags/MySQL/"/>
-    
     <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
+    
+    <category term="MySQL" scheme="https://www.blog.revelvy.cn/tags/MySQL/"/>
     
   </entry>
   
@@ -219,7 +348,7 @@
     <link href="https://www.blog.revelvy.cn/2020/04/02/shiro-kuai-su-ru-men/"/>
     <id>https://www.blog.revelvy.cn/2020/04/02/shiro-kuai-su-ru-men/</id>
     <published>2020-04-02T12:29:54.000Z</published>
-    <updated>2021-08-06T12:34:31.579Z</updated>
+    <updated>2021-08-12T15:01:45.496Z</updated>
     
     
       
@@ -248,7 +377,7 @@
     <link href="https://www.blog.revelvy.cn/2020/04/01/springboot-zheng-he-redis/"/>
     <id>https://www.blog.revelvy.cn/2020/04/01/springboot-zheng-he-redis/</id>
     <published>2020-04-01T11:10:02.000Z</published>
-    <updated>2021-08-07T13:56:11.628Z</updated>
+    <updated>2021-08-12T14:52:51.304Z</updated>
     
     
       
@@ -264,11 +393,11 @@
     <category term="SpringBoot" scheme="https://www.blog.revelvy.cn/categories/SpringBoot/"/>
     
     
-    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
-    
     <category term="Redis" scheme="https://www.blog.revelvy.cn/tags/Redis/"/>
     
     <category term="数据库" scheme="https://www.blog.revelvy.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
     
     <category term="SpringBoot" scheme="https://www.blog.revelvy.cn/tags/SpringBoot/"/>
     
@@ -279,7 +408,7 @@
     <link href="https://www.blog.revelvy.cn/2020/03/05/springboot-zi-dong-pei-zhi-yuan-li/"/>
     <id>https://www.blog.revelvy.cn/2020/03/05/springboot-zi-dong-pei-zhi-yuan-li/</id>
     <published>2020-03-05T03:54:45.000Z</published>
-    <updated>2021-08-05T00:38:36.393Z</updated>
+    <updated>2021-08-12T14:53:02.076Z</updated>
     
     
       
@@ -304,7 +433,7 @@
     <link href="https://www.blog.revelvy.cn/2020/01/20/redis-zhu-cong-fu-zhi/"/>
     <id>https://www.blog.revelvy.cn/2020/01/20/redis-zhu-cong-fu-zhi/</id>
     <published>2020-01-20T09:22:22.000Z</published>
-    <updated>2021-08-06T09:30:17.991Z</updated>
+    <updated>2021-08-12T14:58:55.750Z</updated>
     
     
       
@@ -414,13 +543,13 @@
     <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
-    
     <category term="Redis" scheme="https://www.blog.revelvy.cn/tags/Redis/"/>
     
     <category term="Jedis" scheme="https://www.blog.revelvy.cn/tags/Jedis/"/>
     
     <category term="数据库" scheme="https://www.blog.revelvy.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
     
   </entry>
   
@@ -450,66 +579,6 @@
     <category term="数据库" scheme="https://www.blog.revelvy.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     <category term="事务" scheme="https://www.blog.revelvy.cn/tags/%E4%BA%8B%E5%8A%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring MVC</title>
-    <link href="https://www.blog.revelvy.cn/2020/01/05/spring-mvc/"/>
-    <id>https://www.blog.revelvy.cn/2020/01/05/spring-mvc/</id>
-    <published>2020-01-05T04:25:06.000Z</published>
-    <updated>2021-08-12T04:33:22.892Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;h3 id=&quot;MVC&quot;&gt;&lt;a href=&quot;#MVC&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Spring" scheme="https://www.blog.revelvy.cn/categories/Spring/"/>
-    
-    
-    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
-    
-    <category term="Spring" scheme="https://www.blog.revelvy.cn/tags/Spring/"/>
-    
-    <category term="Spring MVC" scheme="https://www.blog.revelvy.cn/tags/Spring-MVC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring AOP</title>
-    <link href="https://www.blog.revelvy.cn/2020/01/02/spring-aop/"/>
-    <id>https://www.blog.revelvy.cn/2020/01/02/spring-aop/</id>
-    <published>2020-01-02T13:40:04.000Z</published>
-    <updated>2021-08-11T13:52:04.887Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;Aspect Oriented Programing&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;OOP</summary>
-        
-      
-    
-    
-    
-    <category term="Spring" scheme="https://www.blog.revelvy.cn/categories/Spring/"/>
-    
-    
-    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
-    
-    <category term="Spring" scheme="https://www.blog.revelvy.cn/tags/Spring/"/>
-    
-    <category term="Spring AOP" scheme="https://www.blog.revelvy.cn/tags/Spring-AOP/"/>
     
   </entry>
   

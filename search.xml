@@ -87,6 +87,31 @@
     
     
     <entry>
+      <title>MySQL 锁</title>
+      <link href="/2021/05/07/mysql-suo/"/>
+      <url>/2021/05/07/mysql-suo/</url>
+      
+        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p><span class="github-emoji"><span>🌠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f320.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 概念</p><p>数据库是一个多用户使用的共享资源。当多个用户并发地存取数据时，很容易产生多个事务同时存取同一数据的情况。为了实现并发控制，避免存取不正确的数据，破坏数据库的一致性。因而就需要加锁。当事务在对某个数据对象进行操作前，先向系统发出请求，对其加锁。加锁后事务就控制了该数据对象，在该事务释放锁之前，其他事务不能操作该对象。</p><h2 id="种类"><a href="#种类" class="headerlink" title="种类"></a>种类</h2><table><thead><tr><th>种类</th><th></th><th></th></tr></thead><tbody><tr><td>表锁</td><td>操作时锁一张表</td><td>开销小，加锁快；不会死锁；锁颗粒大，锁冲突的概率高，并发度低</td></tr><tr><td>页面锁</td><td></td><td>界于两者之间；会死锁；并发度一般</td></tr><tr><td>行锁</td><td>操作时锁一行数据，适合高并发</td><td>开销大，加锁慢；会死锁；锁颗粒最小，锁冲突的概率低，并发度高</td></tr></tbody></table><h2 id="优化策略"><a href="#优化策略" class="headerlink" title="优化策略"></a>优化策略</h2><ol><li><p>读写分离；</p></li><li><p>分段加锁；</p></li><li><p>减少锁持有的时间；</p></li><li><p>多线程尽量以相同的顺序去获取资源，不能将锁的粒度过于细化，不然可能会出现线程的加锁和释放次数过多，反而效率不如一次加一把大锁。</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>RabbitMQ 事务</title>
       <link href="/2020/09/03/rabbitmq-shi-wu/"/>
       <url>/2020/09/03/rabbitmq-shi-wu/</url>
@@ -145,6 +170,106 @@
     
     
     <entry>
+      <title>MySQL 索引</title>
+      <link href="/2020/05/06/mysql-suo-yin/"/>
+      <url>/2020/05/06/mysql-suo-yin/</url>
+      
+        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p><span class="github-emoji"><span>🌠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f320.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 概念</p><p>index，高效获取数据的数据结构（排好序的快速查找数据结构）。</p><blockquote><p>数据库除了维护数据，还维护着一个满足特定查找算法的数据结构，它以某种方式指向数据，这样就可以在这些数据结构基础上实现高级查找算法。</p></blockquote><p><span class="github-emoji"><span>🌟</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 作用</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. 提高数据检索速度。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. 提高表和表之间的连接速度。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. 创建唯一性索引，保证数据库表中每一行数据的唯一性。</p><p><span class="github-emoji"><span>📜</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 存储</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;以索引文件的形式存在磁盘上。</p><p><span class="github-emoji"><span>📜</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 原则</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="github-emoji"><span>✔</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> ​适合加索引：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;主键自动建立唯一索引<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;频繁查询、需要排序的字段<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查询中与其他表关联的字段，外键关系<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查询中排序的字段<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查询中统计或分组字段</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="github-emoji"><span>❌</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 不宜加索引<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据变动频繁的表（不但更新值还更新树）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据量少、特殊数据类型如 text<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据重复值多，分布平均，查询中很少涉及的字段</p><p><span class="github-emoji"><span>📜</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 优点</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;提高数据检索效率，降低数据库IO成本。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过索引列对数据排序，降低数据排序成本，降低CPU消耗。</p><p><span class="github-emoji"><span>📜</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 缺点</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. 占用额外空间：索引实际上也是一张表，保存了主键和索引字段，并指向实体表的记录。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. 降低维护速度：索引提高查询速度，降低更新表的速度，如 insert update delete，因为更新表时，MySQL 不仅要保存数据，还要保存一下索引文件每次更新添加了索引列的字段，都会调整因为更新所带来的键值变化后的索引信息。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. 耗时：创建和维护索引需要耗费时间，这个时间随着数据量的增加而增加，需花时间研究优秀的索引或优化查询。</p><p><span class="github-emoji"><span>📜</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 为什么不真正删除数据？<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了数据分析和索引。</p><p><span class="github-emoji"><span>📜</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 索引选择</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;索引列中不同值的数目和表中记录数之比，如表2000条数据，表索引列有1980个不同的值，索引选择性1980/2000=0.99，越接近于1，索引效率越高。</p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 底层数据结构</span><span class="token keyword">BTREE</span> （默认）适合索引：    主键自动建立唯一索引    频繁作为查询条件的字段    查询中与其他表关联的字段，外键关系    查询中排序的字段    查询中统计或分组字段不适合索引    经常增删改的表，频繁更新的字段（不但更新值还更新树）    <span class="token keyword">where</span>条件里用不到的字段    表记录太少    数据重复且分布平均的表字段<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> <span class="token keyword">index</span> <span class="token keyword">from</span> <span class="token punctuation">`</span>表名<span class="token punctuation">`</span><span class="token punctuation">;</span>                                 <span class="token comment">-- 显示索引</span><span class="token keyword">create</span> <span class="token keyword">index</span> 索引名 <span class="token keyword">on</span> 表名<span class="token punctuation">(</span><span class="token punctuation">`</span>字段<span class="token punctuation">`</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                     <span class="token comment">-- 创建索引 (索引名：id_表名_字段名)</span><span class="token keyword">alter</span> <span class="token keyword">table</span> <span class="token punctuation">`</span>表名<span class="token punctuation">`</span> <span class="token keyword">add</span> fulltext <span class="token keyword">index</span> 索引名 <span class="token punctuation">`</span>字段<span class="token punctuation">`</span><span class="token punctuation">;</span>     <span class="token comment">-- 修改为全文索引</span><span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token punctuation">`</span>表名<span class="token punctuation">`</span><span class="token punctuation">;</span>                           <span class="token comment">-- 分析SQL执行情况</span><span class="token comment">-- 索引失效</span>单值索引复合索引eg<span class="token punctuation">.</span><span class="token comment">-- 表 user 中有字段：id name email</span><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token keyword">user</span> <span class="token keyword">where</span> name<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">;</span>  <span class="token comment">-- 统计用户习惯，发现用户特别喜欢用name检索</span><span class="token keyword">create</span> <span class="token keyword">index</span> idx_user_name <span class="token keyword">on</span> <span class="token keyword">user</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment">-- 单值索引</span><span class="token keyword">create</span> <span class="token keyword">index</span> idx_user_nameEmail <span class="token keyword">on</span> <span class="token keyword">user</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>email<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">-- 多值索引</span><span class="token comment">-- 测试（插入100万条数据）</span><span class="token keyword">delimiter</span> $$<span class="token keyword">create</span> <span class="token keyword">function</span> mock_data<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">returns</span> <span class="token keyword">int</span><span class="token keyword">begin</span><span class="token keyword">declare</span> num <span class="token keyword">int</span> <span class="token keyword">default</span> <span class="token number">100000</span><span class="token punctuation">;</span><span class="token keyword">declare</span> i <span class="token keyword">int</span> <span class="token keyword">default</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token keyword">while</span> i<span class="token operator">&lt;</span>num <span class="token keyword">do</span><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>app_user<span class="token punctuation">`</span><span class="token punctuation">(</span><span class="token punctuation">`</span>name<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token punctuation">`</span>eamil<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token punctuation">`</span>phone<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token punctuation">`</span>num<span class="token punctuation">`</span><span class="token punctuation">)</span><span class="token keyword">VALUES</span><span class="token punctuation">(</span>CONCAT<span class="token punctuation">(</span>用户<span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'123123@qq.com'</span><span class="token punctuation">,</span>FLOOR<span class="token punctuation">(</span>RAND<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">set</span> i <span class="token operator">=</span> i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token keyword">end</span> <span class="token keyword">while</span><span class="token punctuation">;</span><span class="token keyword">return</span> i<span class="token punctuation">;</span><span class="token keyword">end</span><span class="token punctuation">;</span><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> app_user <span class="token keyword">where</span> <span class="token punctuation">`</span>name<span class="token punctuation">`</span> <span class="token operator">=</span> <span class="token string">'用户9999'</span><span class="token punctuation">;</span>  <span class="token comment">-- 慢</span><span class="token keyword">create</span> <span class="token keyword">index</span> id_app_user_name <span class="token keyword">on</span> app_user<span class="token punctuation">(</span><span class="token punctuation">`</span>name<span class="token punctuation">`</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> app_user <span class="token keyword">where</span> <span class="token punctuation">`</span>name<span class="token punctuation">`</span> <span class="token operator">=</span> <span class="token string">'用户9999'</span><span class="token punctuation">;</span>  <span class="token comment">-- 快</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="常规索引（默认）"><a href="#常规索引（默认）" class="headerlink" title="常规索引（默认）"></a>常规索引（默认）</h2><pre class="line-numbers language-none"><code class="language-none">INDEX / KEY<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h2 id="主键索引"><a href="#主键索引" class="headerlink" title="主键索引"></a>主键索引</h2><pre class="line-numbers language-none"><code class="language-none">PRIMARY KEY作用：保证每一行数据都是唯一的，不可重复<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h2 id="唯一索引"><a href="#唯一索引" class="headerlink" title="唯一索引"></a>唯一索引</h2><pre class="line-numbers language-none"><code class="language-none">UNIQUE KEY作用：保证值唯一，避免重复的列，可重复<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h2 id="全文索引"><a href="#全文索引" class="headerlink" title="全文索引"></a>全文索引</h2><pre class="line-numbers language-none"><code class="language-none">FullText特定的数据库才有 快速定位<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h2 id="哈希索引"><a href="#哈希索引" class="headerlink" title="哈希索引"></a>哈希索引</h2><h2 id="BTREE索引"><a href="#BTREE索引" class="headerlink" title="BTREE索引"></a>BTREE索引</h2><h2 id="RTREE索引"><a href="#RTREE索引" class="headerlink" title="RTREE索引"></a>RTREE索引</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MySQL 数据类型</title>
+      <link href="/2020/05/05/mysql-shu-ju-lei-xing/"/>
+      <url>/2020/05/05/mysql-shu-ju-lei-xing/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-数值"><a href="#1-数值" class="headerlink" title="1. 数值"></a>1. 数值</h2><ul><li>tinyint                    1字节</li><li>smallint                  2字节</li><li>mediumint              3字节</li><li><strong>int          标准整数   4字节</strong></li><li>bigint                       8字节</li><li>float        浮点数      4字节</li><li>double    浮点数      8字节</li><li><strong>decimal  字符串形式浮点数（金融计算时使用）</strong></li></ul><h2 id="2-字符串"><a href="#2-字符串" class="headerlink" title="2. 字符串"></a>2. 字符串</h2><ul><li><strong>char</strong>       <strong>固定字符串   0~255</strong></li><li><strong>varchar  可变字符串   0~65535</strong></li><li>tinytext                        2^8-1</li><li><strong>text         文本             2^16-1</strong></li></ul><blockquote><p>char 和 varchar 的区别：</p><ol><li>概念：char 是固定字符串，varchar 是可变字符串；</li><li>存储：存储 char 时会用空格填满声明的长度；</li><li>检索：检索 char 时会删除空格；</li></ol></blockquote><h2 id="3-日期时间"><a href="#3-日期时间" class="headerlink" title="3. 日期时间"></a>3. 日期时间</h2><ul><li>date            YYYY-MM-DD</li><li>time            HH:mm:ss</li><li><strong>datetime    YYYY-MM-DD HH:mm:ss</strong></li><li><strong>timestamp  时间戳</strong> </li><li>year</li></ul><h2 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a>NULL</h2><p>表示 UNKNOWN（未知），不表示 “ “(空字符串)。</p><p>对 NULL 这个值的任何比较都会生产一个 NULL 值。不能把任何值与一个 NULL 值进行比较，并在逻辑上希望获得一个答案。一般使用 IS NULL 来进行 NULL 判断。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MySQL 事务</title>
+      <link href="/2020/05/04/mysql-shi-wu/"/>
+      <url>/2020/05/04/mysql-shi-wu/</url>
+      
+        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>Transation，将一组 SQL 放在一个批次去执行，要么都成功，要么都失败。</p><h2 id="SQL-测试"><a href="#SQL-测试" class="headerlink" title="SQL 测试"></a>SQL 测试</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">set</span> autocommit <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">-- 关闭事务自动提交（默认开启）</span><span class="token keyword">start</span> transation     <span class="token comment">-- 开启一组事务</span>    <span class="token keyword">insert</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>    <span class="token keyword">insert</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token keyword">rollback</span>             <span class="token comment">-- 回滚</span><span class="token keyword">commit</span>               <span class="token comment">-- 提交（提交完就不能回滚了，持久化）</span><span class="token keyword">set</span> autocommit <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>  <span class="token comment">-- 开启事务自动提交（默认开启）</span><span class="token keyword">savepoint</span>             <span class="token comment">-- 存档点</span><span class="token keyword">rollback</span> <span class="token keyword">to</span> <span class="token keyword">savepoint</span> <span class="token comment">-- 回滚到存档点</span><span class="token keyword">release</span> <span class="token keyword">savepoint</span>     <span class="token comment">-- 删除存档点</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><p><span class="github-emoji"><span>1⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 一致 Consistency：一个事务的操作前后状态一致 ( 最终一致性：总数不变 不超过1000) 。<br><span class="github-emoji"><span>2⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0032-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 隔离 Isolation ：多个用户并发访问数据库时，数据库为每个用户开启各自的事务，使其相互隔离、互不影响。<br><span class="github-emoji"><span>3⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0033-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 持久 Durability ：一个事务提交后，数据就会被持久化到数据库，不因外界原因（宕机断电）丢失数据。<br><span class="github-emoji"><span>4⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0034-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 原子 Atomicity ：一个事务中的所有操作，要么全部成功，要么全部失败。</p><p><span class="github-emoji"><span>⭐</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 理解：一个池子！</p><p><span class="github-emoji"><span>🐋</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f40b.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 栗子：</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812212146.png"></p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812212527.png"></p><h2 id="事务隔离级别-InnoDB"><a href="#事务隔离级别-InnoDB" class="headerlink" title="事务隔离级别 InnoDB"></a>事务隔离级别 InnoDB</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><ol><li><p>脏读：一个事务读取到了另一个事务未提交的数据，导致前后数据不一致。</p></li><li><p>不可重复读：在同一个事务中重复读取同一数据时，导致前后数据不一致。（不一定是错误，可能是场合不对） —— 违背一致性原则</p></li><li><p>幻读：一个事务读取到了另一个事务插入的数据，导致前后数据不一致。（数据变多了 一般是影响行 多了一行）</p></li></ol><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><table><thead><tr><th>事务隔离级别（由低到高）</th><th>脏读</th><th>不可重复度</th><th>幻读</th></tr></thead><tbody><tr><td>READ_UNCOMMITTED 读未提交</td><td>√</td><td>√</td><td>√</td></tr><tr><td>READ_COMMITTED      读已提交</td><td>×</td><td>√</td><td>√</td></tr><tr><td>REPEATABLE_READ     可重复读（默认）</td><td>×</td><td>×</td><td>√</td></tr><tr><td>SERIALIZABLE               可串行化</td><td>×</td><td>×</td><td>×</td></tr></tbody></table><p>读未提交，不能避免所有问题；</p><p>读已提交，避免了脏读；</p><p>可重复读，避免了脏读、不可重复读；</p><p>可串行化，避免所有问题，但是不用，因为这样会让 SQL 排队，即不能并发，会降低性能。</p><h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ SELECT @@tx_isolation  <span class="token comment"># 查看 MySQL 默认隔离级别</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h2 id="事务传播机制"><a href="#事务传播机制" class="headerlink" title="事务传播机制"></a>事务传播机制</h2><pre class="line-numbers language-none"><code class="language-none">REQUIRE   好男人 有事务就加入，没就自己创建SUPPORTS  懒男人 有事务就加入，没有就不创建MANDATORY 渣男   有事务就加入，没有就抛异常REQUIRES_NEW   有要求的男人 即使有事务，也要自己创建NOT_SUPPORTED  要减肥的男人 挂起当前事务，新建连接执行自己的事务自动提交NEVER          有怪癖的男人 从不执行事务，抛异常挂起：在同一线程内，采用不同的连接，第一个连接有事务，第二个连接没有事务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812214040.png"></p><pre class="line-numbers language-none"><code class="language-none">一次事务 = 打开连接 + 通过AOP切入事务 + 提交addAccount  REQUIREcreateUser  REQUIRE<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812214046.png"></p><pre class="line-numbers language-none"><code class="language-none">一次事务 = 打开连接 + 通过AOP切入事务 + 提交addAccount  REQUIREcreateUser  NOT_SUPPORTED  AOP切入事务失效 没有通过代理对象执行目标对象而直接调用模目标对象方法<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812214049.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MySQL 存储引擎</title>
+      <link href="/2020/05/03/mysql-cun-chu-yin-qing/"/>
+      <url>/2020/05/03/mysql-cun-chu-yin-qing/</url>
+      
+        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>存储引擎 / 表格类型</p><h2 id="种类"><a href="#种类" class="headerlink" title="种类"></a>种类</h2><p>INNODB、MyISAM、ISAM、Heap、Merge</p><p>XtraDB：高性能存储引擎，替代 InnoDB，可用于需要更高性能的环境。</p><h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ show engines<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812205711.png"></p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ show variables like <span class="token string">'%storage_engine%'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812205731.png"></p><h2 id="InnoDB-和-MyISAM-的区别"><a href="#InnoDB-和-MyISAM-的区别" class="headerlink" title="InnoDB 和 MyISAM 的区别"></a>InnoDB 和 MyISAM 的区别</h2><table><thead><tr><th></th><th>InnoDB（默认）</th><th>MyISAM</th></tr></thead><tbody><tr><td>存储（TB）</td><td>64</td><td>256</td></tr><tr><td><strong>外键</strong></td><td>√</td><td></td></tr><tr><td><strong>事务</strong></td><td>√</td><td></td></tr><tr><td>索引</td><td>√</td><td>√</td></tr><tr><td>缓存</td><td>缓存索引 真实数据（对内存要求高）</td><td>缓存索引</td></tr><tr><td><strong>锁颗粒</strong></td><td>行锁<br>每次操作是对一行加锁，适合高并发</td><td>表锁<br>每次操作是对整张表加锁</td></tr><tr><td>表空间</td><td>大</td><td>小</td></tr><tr><td>优点</td><td>事务<br>（适合频繁修改、安全性要求高的应用）</td><td>性能（节约空间 速度快）<br>（适合以查询、插入为主的应用）</td></tr><tr><td>组成文件</td><td>*.frm 表结构文件 ibdata1</td><td>* .frm 表结构文件（图书馆架子）<br> * .MYD 数据文件（图书）<br> * .MYI 索引文件（图书索引）</td></tr></tbody></table><p>InnoDB：</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;支持事务；外键；<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;锁颗粒为行锁，每次操作是对一行加锁，适合高并发；<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;组成文件只有表结构文件；</p><p>MyISAM：</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;不支持事务，但每次查询都是原子的；<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;索颗粒为表锁，每次操作是对整张表加锁；<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;组成文件有 3 种，表结构文件、数据文件、索引文件；</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Swagger 快速入门</title>
       <link href="/2020/05/02/swagger-kuai-su-ru-men/"/>
       <url>/2020/05/02/swagger-kuai-su-ru-men/</url>
@@ -190,9 +315,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> Java </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -246,11 +371,11 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> Redis </tag>
             
             <tag> 数据库 </tag>
+            
+            <tag> Java </tag>
             
             <tag> SpringBoot </tag>
             
@@ -393,13 +518,13 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> Redis </tag>
             
             <tag> Jedis </tag>
             
             <tag> 数据库 </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
