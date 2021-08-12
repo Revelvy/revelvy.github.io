@@ -8,7 +8,7 @@
       <link href="/2021/08/12/liu-lan-qi-an-zhuang-kuo-zhan-cheng-xu-de-jiao-cheng/"/>
       <url>/2021/08/12/liu-lan-qi-an-zhuang-kuo-zhan-cheng-xu-de-jiao-cheng/</url>
       
-        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p><span class="github-emoji"><span>☀</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2600.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 浏览器扩展程序能够让浏览器的功能更加多样化，针对不同类型的浏览器，安装的方式不尽相同。</p><h2 id="360-安全浏览器"><a href="#360-安全浏览器" class="headerlink" title="360 安全浏览器"></a>360 安全浏览器</h2><p><span class="github-emoji"><span>1⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 在浏览器地址栏输入：<strong>se://extensions/</strong> 进入添加扩展程序的页面，勾选 <strong>开发者模式</strong>：</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812161546.png"></p><p><span class="github-emoji"><span>2⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0032-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 将准备好的扩展程序拖拽到此页面：</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812163755.gif"></p><p><span class="github-emoji"><span>3⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0033-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 当你看到右上角出现扩展图标时，即安装成功！</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812164002.png"></p><h2 id="Chrome-浏览器"><a href="#Chrome-浏览器" class="headerlink" title="Chrome 浏览器"></a>Chrome 浏览器</h2><p>将浏览器地址栏的地址修改为：<strong>chrome://extensions/</strong> ，同理。</p><h2 id="QQ-浏览器"><a href="#QQ-浏览器" class="headerlink" title="QQ 浏览器"></a>QQ 浏览器</h2><p>将浏览器地址栏的地址修改为：<strong>qqbrowser://extensions/manage</strong> ，同理。</p><h2 id="Firefox-浏览器"><a href="#Firefox-浏览器" class="headerlink" title="Firefox 浏览器"></a>Firefox 浏览器</h2><p>有空再更…</p><h2 id="Microsoft-Edge-浏览器"><a href="#Microsoft-Edge-浏览器" class="headerlink" title="Microsoft Edge 浏览器"></a>Microsoft Edge 浏览器</h2><p>有空再更…</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p><span class="github-emoji"><span>☀</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2600.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 浏览器扩展程序能够让浏览器的功能更加多样化，针对不同类型的浏览器，安装的方式不尽相同。</p><h2 id="360-安全浏览器"><a href="#360-安全浏览器" class="headerlink" title="360 安全浏览器"></a>360 安全浏览器</h2><p><span class="github-emoji"><span>1⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 在浏览器地址栏输入：<strong>se://extensions/</strong> 进入添加扩展程序的页面，勾选 <strong>开发者模式</strong>：</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812161546.png"></p><p><span class="github-emoji"><span>2⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0032-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 将准备好的扩展程序拖拽到此页面：</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812163755.gif"></p><p><span class="github-emoji"><span>3⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0033-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 当你看到右上角出现扩展图标时，即安装成功！</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812164002.png"></p><h2 id="Chrome-浏览器"><a href="#Chrome-浏览器" class="headerlink" title="Chrome 浏览器"></a>Chrome 浏览器</h2><p>将浏览器地址栏的地址修改为：<strong>chrome://extensions/</strong> ，同理。</p><h2 id="QQ-浏览器"><a href="#QQ-浏览器" class="headerlink" title="QQ 浏览器"></a>QQ 浏览器</h2><p>将浏览器地址栏的地址修改为：<strong>qqbrowser://extensions/manage</strong> ，同理。</p><h2 id="Microsoft-Edge-浏览器"><a href="#Microsoft-Edge-浏览器" class="headerlink" title="Microsoft Edge 浏览器"></a>Microsoft Edge 浏览器</h2><p>将浏览器地址栏的地址修改为：<strong>edge://extensions/</strong> ，同理。</p><h2 id="Firefox-浏览器"><a href="#Firefox-浏览器" class="headerlink" title="Firefox 浏览器"></a>Firefox 浏览器</h2><p>火狐浏览器比较特别，不支持从 Chrome 浏览器扩展商店下载而来的扩展程序，但是，我们仍可以通过火狐附加组件里的开发者中心上传扩展程序。</p><blockquote><p>注意：</p><ol><li><p>建议使用国际版的火狐浏览器。</p></li><li><p>不保证所有被移植的扩展程序可用。</p></li></ol></blockquote><p><span class="github-emoji"><span>1⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 在浏览器地址输入：<a href="https://addons.mozilla.org/zh-CN/developers/">https://addons.mozilla.org/zh-CN/developers/</a> 进入 <strong>开发者中心</strong>，点击 <strong>提交新附加组件</strong>：</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812181328.png"></p><p><span class="github-emoji"><span>2⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0032-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 选择 <strong>我自己托管</strong>，点击 <strong>继续</strong>：</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812183652.png"></p><p><span class="github-emoji"><span>3⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0033-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 点击 <strong>选择文件</strong>，选择你想要上传的扩展程序：</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812181727.png"></p><p><span class="github-emoji"><span>4⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0034-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 等待扩展程序上传成功，点击 <strong>签名附加组件</strong>：</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812181854.png"></p><p><span class="github-emoji"><span>5⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0035-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 选择 <strong>否</strong>，点击 <strong>继续</strong>，再跳转到 <strong>我的提交</strong>，在此页面可以看到扩展程序是否上传成功：</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812183725.png"></p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812182118.png"></p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812182304.png"></p><p><span class="github-emoji"><span>6⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0036-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 点进扩展程序，点击 <strong>查看全部</strong>，等待状态显示“已核准”，就可以使用了：</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812182410.png"></p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812182441.png"></p><p><span class="github-emoji"><span>7⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0037-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 点击 <strong>.xpi 文件</strong>，添加扩展程序到浏览器里，大功告成！</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812183911.png"></p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812183209.png"></p>]]></content>
       
       
       <categories>
@@ -20,7 +20,7 @@
       
         <tags>
             
-            <tag> Windows 小技巧 </tag>
+            <tag> Windows 技巧 </tag>
             
             <tag> 浏览器扩展程序 </tag>
             
@@ -190,9 +190,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -246,11 +246,11 @@
       
         <tags>
             
+            <tag> Java </tag>
+            
             <tag> Redis </tag>
             
             <tag> 数据库 </tag>
-            
-            <tag> Java </tag>
             
             <tag> SpringBoot </tag>
             
@@ -393,13 +393,13 @@
       
         <tags>
             
+            <tag> Java </tag>
+            
             <tag> Redis </tag>
             
             <tag> Jedis </tag>
             
             <tag> 数据库 </tag>
-            
-            <tag> Java </tag>
             
         </tags>
       
