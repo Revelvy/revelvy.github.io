@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="MySQL,数据库,索引">
+    <meta name="keywords" content="Redis,数据库,缓存穿透,缓存击穿,缓存雪崩">
     <meta name="description" content="白竹竹,Spring Boot,Python,Django">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>MySQL 索引 | 白竹竹</title>
+    <title>Redis 缓存穿透 击穿 雪崩 | 白竹竹</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -269,12 +269,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">MySQL 索引</h1>
+                    <h1 class="description center-align post-title">Redis 缓存穿透 击穿 雪崩</h1>
                 </div>
             </div>
         </div>
@@ -390,8 +390,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/MySQL/">
-                                <span class="chip bg-color">MySQL</span>
+                            <a href="/tags/Redis/">
+                                <span class="chip bg-color">Redis</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
                             </a>
                         
                     </div>
@@ -415,7 +419,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-06
+                    2020-08-06
                 </div>
                 
 
@@ -424,14 +428,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    904
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    3 分
                 </div>
                 
 
@@ -449,76 +453,28 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p><span class="github-emoji"><span>🌠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f320.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 概念</p>
-<p>index，高效获取数据的数据结构（排好序的快速查找数据结构）。</p>
-<blockquote>
-<p>数据库除了维护数据，还维护着一个满足特定查找算法的数据结构，它以某种方式指向数据，这样就可以在这些数据结构基础上实现高级查找算法。</p>
-</blockquote>
-<p><span class="github-emoji"><span>🌟</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 作用</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. 提高数据检索速度。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. 提高表和表之间的连接速度。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. 创建唯一性索引，保证数据库表中每一行数据的唯一性。</p>
-<p><span class="github-emoji"><span>📜</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 存储</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;以索引文件的形式存在磁盘上。</p>
-<p><span class="github-emoji"><span>📜</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 原则</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="github-emoji"><span>✔</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> ​适合加索引：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;主键自动建立唯一索引<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;频繁查询、需要排序的字段<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查询中与其他表关联的字段，外键关系<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查询中排序的字段<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查询中统计或分组字段</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="github-emoji"><span>❌</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 不宜加索引<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据变动频繁的表（不但更新值还更新树）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据量少、特殊数据类型如 text<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据重复值多，分布平均，查询中很少涉及的字段</p>
-<p><span class="github-emoji"><span>📜</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 优点</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;提高数据检索效率，降低数据库IO成本。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过索引列对数据排序，降低数据排序成本，降低CPU消耗。</p>
-<p><span class="github-emoji"><span>📜</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 缺点</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. 占用额外空间：索引实际上也是一张表，保存了主键和索引字段，并指向实体表的记录。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. 降低维护速度：索引提高查询速度，降低更新表的速度，如 insert update delete，因为更新表时，MySQL 不仅要保存数据，还要保存一下索引文件每次更新添加了索引列的字段，都会调整因为更新所带来的键值变化后的索引信息。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. 耗时：创建和维护索引需要耗费时间，这个时间随着数据量的增加而增加，需花时间研究优秀的索引或优化查询。</p>
-<p><span class="github-emoji"><span>📜</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 为什么不真正删除数据？<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了数据分析和索引。</p>
-<p><span class="github-emoji"><span>📜</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 为什么索引失效？</p>
+                <h2 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h2><p>指用户想要查询一个数据，发现 Redis 内存数据库没有（缓存没有命中），于是向持久层数据库查询，发现也没有（数据库也没有命中），于是本次查询失败。即当用户很多时，缓存都没有命中（秒杀），于是都去了请求持久层数据库，造成巨大查询压力，出现缓存穿透。 </p>
+<p><span class="github-emoji"><span>⭐</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 理解：缓存和数据库都查不到数据（都没有命中）。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="布隆过滤器"><a href="#布隆过滤器" class="headerlink" title="布隆过滤器"></a>布隆过滤器</h4><p>一种数据结构，对所有可能查询的参数以 hash 形式存储，在控制层先进行校验，不符合则丢弃，从而缓解查询压力。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210806180935.png"></p>
+<h4 id="缓存空对象"><a href="#缓存空对象" class="headerlink" title="缓存空对象"></a>缓存空对象</h4><p>当缓存和数据库都没有命中后，即使返回的空对象也将其缓存起来，同时设置一个过期时间，之后再访问这个数据将会直接从缓存中获取，保护了数据库。<br>但这种方法会存在两个问题： </p>
 <ol>
-<li>以“%”开头的 LIKE 语句，模糊匹配。</li>
-<li>OR 语句前后没有同时使用索引。</li>
-<li>数据类型出现隐式转化（如 varchar 不加单引号的话可能会自动转换为 int 型）。</li>
+<li>如果缓存空值，意味着缓存层需要额外空间存储更多的键。</li>
+<li>即使对空值设置了过期时间，还是会存在缓存层和存储层的数据会有一段时间窗口的不一致，这对于需要保持一致性的业务会有影响。 </li>
 </ol>
-<p><span class="github-emoji"><span>📜</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 索引选择</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;索引列中不同值的数目和表中记录数之比，如表2000条数据，表索引列有1980个不同的值，索引选择性1980/2000=0.99，越接近于1，索引效率越高。</p>
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> <span class="token keyword">index</span> <span class="token keyword">from</span> <span class="token punctuation">`</span>表名<span class="token punctuation">`</span><span class="token punctuation">;</span>                                 <span class="token comment">-- 显示表的所有索引</span>
-<span class="token keyword">create</span> <span class="token keyword">index</span> 索引名 <span class="token keyword">on</span> 表名<span class="token punctuation">(</span><span class="token punctuation">`</span>字段<span class="token punctuation">`</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                     <span class="token comment">-- 创建索引 (索引名：id_表名_字段名)</span>
-<span class="token keyword">alter</span> <span class="token keyword">table</span> <span class="token punctuation">`</span>表名<span class="token punctuation">`</span> <span class="token keyword">add</span> fulltext <span class="token keyword">index</span> 索引名 <span class="token punctuation">`</span>字段<span class="token punctuation">`</span><span class="token punctuation">;</span>     <span class="token comment">-- 修改为全文索引</span>
-<span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token punctuation">`</span>表名<span class="token punctuation">`</span><span class="token punctuation">;</span>                           <span class="token comment">-- 分析SQL执行情况</span>
-<span class="token comment">-- 索引失效</span>
-	单值索引
-	复合索引
-eg<span class="token punctuation">.</span>
-<span class="token comment">-- 表 user 中有字段：id name email</span>
-<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token keyword">user</span> <span class="token keyword">where</span> name<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">;</span>  <span class="token comment">-- 统计用户习惯，发现用户特别喜欢用name检索</span>
-<span class="token keyword">create</span> <span class="token keyword">index</span> idx_user_name <span class="token keyword">on</span> <span class="token keyword">user</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment">-- 单值索引</span>
-<span class="token keyword">create</span> <span class="token keyword">index</span> idx_user_nameEmail <span class="token keyword">on</span> <span class="token keyword">user</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>email<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">-- 多值索引</span>
-<span class="token comment">-- 测试（插入100万条数据）</span>
-<span class="token keyword">delimiter</span> $$
-<span class="token keyword">create</span> <span class="token keyword">function</span> mock_data<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">returns</span> <span class="token keyword">int</span>
-<span class="token keyword">begin</span>
-	<span class="token keyword">declare</span> num <span class="token keyword">int</span> <span class="token keyword">default</span> <span class="token number">100000</span><span class="token punctuation">;</span>
-	<span class="token keyword">declare</span> i <span class="token keyword">int</span> <span class="token keyword">default</span> <span class="token number">0</span><span class="token punctuation">;</span>
-	<span class="token keyword">while</span> i<span class="token operator">&lt;</span>num <span class="token keyword">do</span>
-		<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>app_user<span class="token punctuation">`</span><span class="token punctuation">(</span><span class="token punctuation">`</span>name<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token punctuation">`</span>eamil<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token punctuation">`</span>phone<span class="token punctuation">`</span><span class="token punctuation">,</span><span class="token punctuation">`</span>num<span class="token punctuation">`</span><span class="token punctuation">)</span>
-		<span class="token keyword">VALUES</span><span class="token punctuation">(</span>CONCAT<span class="token punctuation">(</span>用户<span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'123123@qq.com'</span><span class="token punctuation">,</span>FLOOR<span class="token punctuation">(</span>RAND<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token keyword">set</span> i <span class="token operator">=</span> i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
-	<span class="token keyword">end</span> <span class="token keyword">while</span><span class="token punctuation">;</span>
-	<span class="token keyword">return</span> i<span class="token punctuation">;</span>
-<span class="token keyword">end</span><span class="token punctuation">;</span>
-<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> app_user <span class="token keyword">where</span> <span class="token punctuation">`</span>name<span class="token punctuation">`</span> <span class="token operator">=</span> <span class="token string">'用户9999'</span><span class="token punctuation">;</span>  <span class="token comment">-- 慢</span>
-<span class="token keyword">create</span> <span class="token keyword">index</span> id_app_user_name <span class="token keyword">on</span> app_user<span class="token punctuation">(</span><span class="token punctuation">`</span>name<span class="token punctuation">`</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> app_user <span class="token keyword">where</span> <span class="token punctuation">`</span>name<span class="token punctuation">`</span> <span class="token operator">=</span> <span class="token string">'用户9999'</span><span class="token punctuation">;</span>  <span class="token comment">-- 快</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210806180943.png"></p>
+<h2 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h2><p>指一个热点数据 key ，在这个 key 失效瞬间，大量并发请求访问这个 key ，导致单点持续不停地扛着大并发访问，穿破缓存再直接请求数据库，并且回写缓存，导使数据库瞬间压力过大，相当于在一个屏障上凿开了一个洞。</p>
+<p><span class="github-emoji"><span>⭐</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 理解：因缓存单个过期，导致单点访问量过大。</p>
+<h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="设置热点数据永不过期"><a href="#设置热点数据永不过期" class="headerlink" title="设置热点数据永不过期"></a>设置热点数据永不过期</h4><p>从缓存层来看，设置过期时间永久，就不会出现热点 key 过期后产生的问题。 </p>
+<h4 id="加互斥锁"><a href="#加互斥锁" class="headerlink" title="加互斥锁"></a>加互斥锁</h4><p>加分布式锁，保证对于每个 key 同时只有一个线程去查询后端服务，其他线程没有获得分布式锁的权限只能等待。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210806180939.png"></p>
+<h2 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h2><p>指在某一个时间段，缓存集中过期失效。<br>其实集中过期，倒不是非常致命，比较致命的缓存雪崩，是缓存服务器某个节点宕机或断网。因为自然形成的缓存雪崩，一定是在某个时间段集中创建缓存，这个时候，数据库也是可以顶住压力的。无非就是对数据库产生周期性的压力而已。而缓存服务节点的宕机，对数据库服务器造成的压力是不可预知的，很有可能瞬间就把数据库压垮。 </p>
+<p><span class="github-emoji"><span>⭐</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 理解：因缓存集体过期，导致访问量过大。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210806180952.png"></p>
+<h3 id="解决方案-2"><a href="#解决方案-2" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="Redis-高可用"><a href="#Redis-高可用" class="headerlink" title="Redis 高可用"></a>Redis 高可用</h4><p>增设几台 Redis，搭建集群（ 异地多活 ），一台挂掉之后其他的还可以继续工作。</p>
+<h4 id="限流降级"><a href="#限流降级" class="headerlink" title="限流降级"></a>限流降级</h4><p>在缓存失效后，通过加锁或队列来控制读数据库写缓存的线程数量，比如对某个 key 只允许一个线程查询数据和写缓存，其他线程等待。 </p>
+<h4 id="数据预热"><a href="#数据预热" class="headerlink" title="数据预热"></a>数据预热</h4><p>在正式部署之前，先把可能的数据先预先访问一遍，将部分未来可能大量访问的数据就会加载到缓存中。在即将发生大并发访问前手动触发加载缓存不同的 key，设置不同的过期时间，让缓存失效的时间点尽量均匀。 </p>
 
-<h2 id="常规索引（默认）"><a href="#常规索引（默认）" class="headerlink" title="常规索引（默认）"></a>常规索引（默认）</h2><pre class="line-numbers language-none"><code class="language-none">INDEX / KEY<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="主键索引"><a href="#主键索引" class="headerlink" title="主键索引"></a>主键索引</h2><pre class="line-numbers language-none"><code class="language-none">PRIMARY KEY
-作用：保证每一行数据都是唯一的，不可重复<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2 id="唯一索引"><a href="#唯一索引" class="headerlink" title="唯一索引"></a>唯一索引</h2><pre class="line-numbers language-none"><code class="language-none">UNIQUE KEY
-作用：保证值唯一，避免重复的列，可重复<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2 id="全文索引"><a href="#全文索引" class="headerlink" title="全文索引"></a>全文索引</h2><pre class="line-numbers language-none"><code class="language-none">FullText
-特定的数据库才有 快速定位<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2 id="哈希索引"><a href="#哈希索引" class="headerlink" title="哈希索引"></a>哈希索引</h2><h2 id="BTREE索引（底层）"><a href="#BTREE索引（底层）" class="headerlink" title="BTREE索引（底层）"></a>BTREE索引（底层）</h2><h2 id="RTREE索引"><a href="#RTREE索引" class="headerlink" title="RTREE索引"></a>RTREE索引</h2>
                 
             </div>
             <hr/>
@@ -544,7 +500,7 @@ eg<span class="token punctuation">.</span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.blog.revelvy.cn/2020/05/06/mysql-suo-yin/">https://www.blog.revelvy.cn/2020/05/06/mysql-suo-yin/</a>
+                    <a href="https://www.blog.revelvy.cn/2020/08/06/redis-huan-cun-chuan-tou-ji-chuan-xue-beng/">https://www.blog.revelvy.cn/2020/08/06/redis-huan-cun-chuan-tou-ji-chuan-xue-beng/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -582,8 +538,12 @@ eg<span class="token punctuation">.</span>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/MySQL/">
-                                    <span class="chip bg-color">MySQL</span>
+                                <a href="/tags/Redis/">
+                                    <span class="chip bg-color">Redis</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
                                 </a>
                             
                         </div>
@@ -759,6 +719,63 @@ eg<span class="token punctuation">.</span>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/2020/09/02/rabbitmq-dui-lie-mo-shi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="RabbitMQ 队列模式">
+                        
+                        <span class="card-title">RabbitMQ 队列模式</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            详解 RabbitMQ 的队列模式
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-02
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="post-category">
+                                    中间件
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/RabbitMQ/">
+                        <span class="chip bg-color">RabbitMQ</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/">
+                        <span class="chip bg-color">分布式消息中间件</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2020/05/07/mysql-si-chong-yu-yan/">
                     <div class="card-image">
                         
@@ -775,61 +792,8 @@ eg<span class="token punctuation">.</span>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-07
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
-                    <a href="/tags/MySQL/">
-                        <span class="chip bg-color">MySQL</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/05/06/mysql-yue-shu/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="MySQL 约束">
-                        
-                        <span class="card-title">MySQL 约束</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            细述 MySQL 的约束
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-07
                             </span>
                         <span class="publish-author">
                             

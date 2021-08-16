@@ -424,7 +424,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    333
+                    458
                 </div>
                 
 
@@ -452,6 +452,18 @@
                 <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>存储引擎 / 表格类型</p>
 <h2 id="种类"><a href="#种类" class="headerlink" title="种类"></a>种类</h2><p>INNODB、MyISAM、ISAM、Heap、Merge</p>
 <p>XtraDB：高性能存储引擎，替代 InnoDB，可用于需要更高性能的环境。</p>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/8.0/en/innodb-limits.html">innoDB限制的官方文档: https://dev.mysql.com/doc/refman/8.0/en/innodb-limits.html</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/8.0/en/myisam-storage-engine.html">myisam限制的官方文档: https://dev.mysql.com/doc/refman/8.0/en/myisam-storage-engine.html</a></p>
+</li>
+<li><p>innoDB</p>
+<p>最多 1017 列, 最多 64 个二级索引, 单个索引最多包含 16 列, 索引最大长度 767 字节，行大小最大 65536 字节</p>
+</li>
+<li><p>mysiam</p>
+<p>最多 4096 列, 最多 64 个二级索引, 单个索引最多包含 16 列, 索引最大长度 1000 字节, 行大小最大 65536 字节</p>
+</li>
+</ul>
 <h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ show engines<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812205711.png"></p>
@@ -509,7 +521,7 @@
 <tr>
 <td>组成文件</td>
 <td>*.frm 表结构文件 ibdata1</td>
-<td>* .frm 表结构文件（图书馆架子）<br> * .MYD 数据文件（图书）<br> * .MYI 索引文件（图书索引）</td>
+<td>* .frm 表结构文件（图书馆架子）<br> * .MYD 数据文件（MYData 图书）<br> * .MYI 索引文件（MYIndex 图书索引）</td>
 </tr>
 </tbody></table>
 <p>InnoDB：</p>

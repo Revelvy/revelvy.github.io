@@ -424,7 +424,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    233
+                    318
                 </div>
                 
 
@@ -450,20 +450,32 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="1-数值"><a href="#1-数值" class="headerlink" title="1. 数值"></a>1. 数值</h2><ul>
-<li>tinyint                    1字节</li>
-<li>smallint                  2字节</li>
-<li>mediumint              3字节</li>
-<li><strong>int          标准整数   4字节</strong></li>
-<li>bigint                       8字节</li>
-<li>float        浮点数      4字节</li>
-<li>double    浮点数      8字节</li>
-<li><strong>decimal  字符串形式浮点数（金融计算时使用）</strong></li>
+<li><p>tinyint                    1字节</p>
+</li>
+<li><p>smallint                  2字节</p>
+</li>
+<li><p>mediumint              3字节</p>
+</li>
+<li><p><strong>int          标准整数   4字节</strong></p>
+</li>
+<li><p>bigint                       8字节</p>
+</li>
+<li><p>float        浮点数      4字节</p>
+</li>
+<li><p>double    浮点数      8字节</p>
+</li>
+<li><p><strong>decimal  字符串形式浮点数（金融计算时使用）</strong></p>
+<p>salary DECIMAL(9,2)：9 代表总位数，而 2 代表小数点位数，范围 - 9999999.99 到 9999999.99。</p>
+</li>
 </ul>
 <h2 id="2-字符串"><a href="#2-字符串" class="headerlink" title="2. 字符串"></a>2. 字符串</h2><ul>
 <li><strong>char</strong>       <strong>固定字符串   0~255</strong></li>
 <li><strong>varchar  可变字符串   0~65535</strong></li>
 <li>tinytext                        2^8-1</li>
-<li><strong>text         文本             2^16-1</strong></li>
+<li><strong>text         大量字符串             2^16-1</strong></li>
+<li>blob         大量字符串 + 二进制</li>
+<li>enum      枚举</li>
+<li>set          集合</li>
 </ul>
 <blockquote>
 <p>char 和 varchar 的区别：</p>
@@ -472,16 +484,32 @@
 <li>存储：存储 char 时会用空格填满声明的长度；</li>
 <li>检索：检索 char 时会删除空格；</li>
 </ol>
+<p>text 和 blob 的区别：</p>
+<ol>
+<li>概念：text 是一个不区分大小写的 blob；</li>
+<li>存储：blog 不仅能存储大量字符串，而且还能存储二进制数据；</li>
+<li>排序和比较：blog 在排序和比较时区分大小写；</li>
+</ol>
 </blockquote>
 <h2 id="3-日期时间"><a href="#3-日期时间" class="headerlink" title="3. 日期时间"></a>3. 日期时间</h2><ul>
-<li>date            YYYY-MM-DD</li>
-<li>time            HH:mm:ss</li>
-<li><strong>datetime    YYYY-MM-DD HH:mm:ss</strong></li>
-<li><strong>timestamp  时间戳</strong> </li>
-<li>year</li>
+<li><p>date            YYYY-MM-DD</p>
+</li>
+<li><p>time            HH:mm:ss</p>
+</li>
+<li><p><strong>datetime    YYYY-MM-DD HH:mm:ss</strong></p>
+</li>
+<li><p><strong>timestamp  时间戳</strong></p>
+<p>作用：每当行被更改时，将会获取当前时间戳。</p>
+<blockquote>
+<p>Unix 和 MySQL 时间戳相互转换</p>
+<pre><code>MySQL 时间戳转为 Unix 时间戳：UNIX_TIMESTAMP
+Unix 时间戳转为 MySQL 时间戳：FROM_UNIXTIME
+</code></pre>
+</blockquote>
+</li>
+<li><p>year</p>
+</li>
 </ul>
-<h2 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a>NULL</h2><p>表示 UNKNOWN（未知），不表示 “ “(空字符串)。</p>
-<p>对 NULL 这个值的任何比较都会生产一个 NULL 值。不能把任何值与一个 NULL 值进行比较，并在逻辑上希望获得一个答案。一般使用 IS NULL 来进行 NULL 判断。</p>
 
                 
             </div>
@@ -723,19 +751,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/05/06/mysql-suo-yin/">
+                <a href="/2020/05/06/mysql-yue-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="MySQL 索引">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="MySQL 约束">
                         
-                        <span class="card-title">MySQL 索引</span>
+                        <span class="card-title">MySQL 约束</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            详解 MySQL 的索引
+                            细述 MySQL 的约束
                         
                     </div>
                     <div class="publish-info">
@@ -756,6 +784,10 @@
                 </div>
                 
                 <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
                     
                     <a href="/tags/MySQL/">
                         <span class="chip bg-color">MySQL</span>

@@ -424,7 +424,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    730
+                    783
                 </div>
                 
 
@@ -450,6 +450,9 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>Transation，将一组 SQL 放在一个批次去执行，要么都成功，要么都失败。</p>
+<blockquote>
+<p>MySQL 默认自动提交事务，但如果表类型是使用 InnoDB 或 BDB 的话，就可以使用事务处理，先关闭事务自动提交，然后手动提交、回滚、存档事务。</p>
+</blockquote>
 <h2 id="SQL-测试"><a href="#SQL-测试" class="headerlink" title="SQL 测试"></a>SQL 测试</h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">set</span> autocommit <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">-- 关闭事务自动提交（默认开启）</span>
 <span class="token keyword">start</span> transation     <span class="token comment">-- 开启一组事务</span>
     <span class="token keyword">insert</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>

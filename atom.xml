@@ -44,33 +44,6 @@
   </entry>
   
   <entry>
-    <title>Redis 缓存穿透 击穿 雪崩</title>
-    <link href="https://www.blog.revelvy.cn/2021/08/06/redis-huan-cun-chuan-tou-ji-chuan-xue-beng/"/>
-    <id>https://www.blog.revelvy.cn/2021/08/06/redis-huan-cun-chuan-tou-ji-chuan-xue-beng/</id>
-    <published>2021-08-06T10:13:43.000Z</published>
-    <updated>2021-08-06T10:17:10.046Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;缓存穿透&quot;&gt;&lt;a href=&quot;#缓存穿透&quot; class=&quot;headerlink&quot; title=&quot;缓存穿透&quot;&gt;&lt;/a&gt;缓存穿透&lt;/h2&gt;&lt;p&gt;指用户想要查询一个数据，发现 Redis</summary>
-        
-      
-    
-    
-    
-    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-    <category term="Redis" scheme="https://www.blog.revelvy.cn/tags/Redis/"/>
-    
-    <category term="数据库" scheme="https://www.blog.revelvy.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Screw 快速入门</title>
     <link href="https://www.blog.revelvy.cn/2021/08/05/screw-kuai-su-ru-men/"/>
     <id>https://www.blog.revelvy.cn/2021/08/05/screw-kuai-su-ru-men/</id>
@@ -183,11 +156,65 @@
   </entry>
   
   <entry>
+    <title>Redis 缓存穿透 击穿 雪崩</title>
+    <link href="https://www.blog.revelvy.cn/2020/08/06/redis-huan-cun-chuan-tou-ji-chuan-xue-beng/"/>
+    <id>https://www.blog.revelvy.cn/2020/08/06/redis-huan-cun-chuan-tou-ji-chuan-xue-beng/</id>
+    <published>2020-08-06T10:13:43.000Z</published>
+    <updated>2021-08-16T02:07:39.151Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;缓存穿透&quot;&gt;&lt;a href=&quot;#缓存穿透&quot; class=&quot;headerlink&quot; title=&quot;缓存穿透&quot;&gt;&lt;/a&gt;缓存穿透&lt;/h2&gt;&lt;p&gt;指用户想要查询一个数据，发现 Redis</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="Redis" scheme="https://www.blog.revelvy.cn/tags/Redis/"/>
+    
+    <category term="数据库" scheme="https://www.blog.revelvy.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL 四种语言</title>
+    <link href="https://www.blog.revelvy.cn/2020/05/07/mysql-si-chong-yu-yan/"/>
+    <id>https://www.blog.revelvy.cn/2020/05/07/mysql-si-chong-yu-yan/</id>
+    <published>2020-05-07T03:40:24.000Z</published>
+    <updated>2021-08-16T04:22:56.482Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;DDL-数据定义语言&quot;&gt;&lt;a href=&quot;#DDL-数据定义语言&quot; class=&quot;headerlink&quot; title=&quot;DDL 数据定义语言&quot;&gt;&lt;/a&gt;DDL</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
+    
+    <category term="MySQL" scheme="https://www.blog.revelvy.cn/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>MySQL 索引</title>
     <link href="https://www.blog.revelvy.cn/2020/05/06/mysql-suo-yin/"/>
     <id>https://www.blog.revelvy.cn/2020/05/06/mysql-suo-yin/</id>
     <published>2020-05-06T14:24:24.000Z</published>
-    <updated>2021-08-12T14:33:27.046Z</updated>
+    <updated>2021-08-16T04:48:19.490Z</updated>
     
     
       
@@ -208,11 +235,39 @@
   </entry>
   
   <entry>
+    <title>MySQL 约束</title>
+    <link href="https://www.blog.revelvy.cn/2020/05/06/mysql-yue-shu/"/>
+    <id>https://www.blog.revelvy.cn/2020/05/06/mysql-yue-shu/</id>
+    <published>2020-05-06T03:40:14.000Z</published>
+    <updated>2021-08-16T03:42:04.867Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;CONSTRAINT，往表中插入数据时，对数据的约束。&lt;/p&gt;
+&lt;h2 id=&quot;非空&quot;&gt;&lt;a href=&quot;#非空&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
+    
+    <category term="MySQL" scheme="https://www.blog.revelvy.cn/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>MySQL 数据类型</title>
     <link href="https://www.blog.revelvy.cn/2020/05/05/mysql-shu-ju-lei-xing/"/>
     <id>https://www.blog.revelvy.cn/2020/05/05/mysql-shu-ju-lei-xing/</id>
     <published>2020-05-05T14:23:40.000Z</published>
-    <updated>2021-08-12T14:34:02.816Z</updated>
+    <updated>2021-08-16T04:32:45.813Z</updated>
     
     
       
@@ -220,8 +275,7 @@
         
         
     <summary type="html">&lt;h2 id=&quot;1-数值&quot;&gt;&lt;a href=&quot;#1-数值&quot; class=&quot;headerlink&quot; title=&quot;1. 数值&quot;&gt;&lt;/a&gt;1. 数值&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;tinyint                    1字节&lt;/li&gt;
-&lt;li&gt;smallint     </summary>
+&lt;li&gt;&lt;p&gt;tinyint                   </summary>
         
       
     
@@ -239,7 +293,7 @@
     <link href="https://www.blog.revelvy.cn/2020/05/04/mysql-shi-wu/"/>
     <id>https://www.blog.revelvy.cn/2020/05/04/mysql-shi-wu/</id>
     <published>2020-05-04T14:22:03.000Z</published>
-    <updated>2021-08-12T14:23:22.899Z</updated>
+    <updated>2021-08-16T04:27:36.035Z</updated>
     
     
       
@@ -247,7 +301,8 @@
         
         
     <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;Transation，将一组 SQL 放在一个批次去执行，要么都成功，要么都失败。&lt;/p&gt;
-&lt;h2 id=&quot;SQL-测试&quot;&gt;&lt;a</summary>
+&lt;blockquote&gt;
+&lt;p&gt;MySQL</summary>
         
       
     
@@ -265,7 +320,7 @@
     <link href="https://www.blog.revelvy.cn/2020/05/03/mysql-cun-chu-yin-qing/"/>
     <id>https://www.blog.revelvy.cn/2020/05/03/mysql-cun-chu-yin-qing/</id>
     <published>2020-05-03T14:20:07.000Z</published>
-    <updated>2021-08-12T14:34:57.469Z</updated>
+    <updated>2021-08-16T04:18:29.346Z</updated>
     
     
       
@@ -517,68 +572,6 @@
     <category term="RDB" scheme="https://www.blog.revelvy.cn/tags/RDB/"/>
     
     <category term="AOF" scheme="https://www.blog.revelvy.cn/tags/AOF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Jedis 快速入门</title>
-    <link href="https://www.blog.revelvy.cn/2020/01/07/jedis-kuai-su-ru-men/"/>
-    <id>https://www.blog.revelvy.cn/2020/01/07/jedis-kuai-su-ru-men/</id>
-    <published>2020-01-07T07:54:48.000Z</published>
-    <updated>2021-08-06T04:16:29.974Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h2&gt;&lt;p&gt;Redis 官方 Java 客户端开发包。&lt;/p&gt;
-&lt;p&gt;作用：使用 Java 操作 Redis 。&lt;/p&gt;
-&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-    <category term="Redis" scheme="https://www.blog.revelvy.cn/tags/Redis/"/>
-    
-    <category term="Jedis" scheme="https://www.blog.revelvy.cn/tags/Jedis/"/>
-    
-    <category term="数据库" scheme="https://www.blog.revelvy.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Redis 事务</title>
-    <link href="https://www.blog.revelvy.cn/2020/01/06/redis-shi-wu/"/>
-    <id>https://www.blog.revelvy.cn/2020/01/06/redis-shi-wu/</id>
-    <published>2020-01-06T03:13:20.000Z</published>
-    <updated>2021-08-05T03:27:02.474Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h3&gt;&lt;p&gt;&lt;span class=&quot;github-emoji&quot;&gt;&lt;span&gt;⚡&lt;/span&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-    <category term="Redis" scheme="https://www.blog.revelvy.cn/tags/Redis/"/>
-    
-    <category term="数据库" scheme="https://www.blog.revelvy.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    <category term="事务" scheme="https://www.blog.revelvy.cn/tags/%E4%BA%8B%E5%8A%A1/"/>
     
   </entry>
   
