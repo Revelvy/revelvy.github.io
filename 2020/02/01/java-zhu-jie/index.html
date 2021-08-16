@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Redis,数据库,事务,transaction">
+    <meta name="keywords" content="Java,注解">
     <meta name="description" content="白竹竹,Spring Boot,Python,Django">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Redis 事务 | 白竹竹</title>
+    <title>Java 注解 | 白竹竹</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -269,12 +269,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Redis 事务</h1>
+                    <h1 class="description center-align post-title">Java 注解</h1>
                 </div>
             </div>
         </div>
@@ -390,16 +390,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Redis/">
-                                <span class="chip bg-color">Redis</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                <span class="chip bg-color">数据库</span>
-                            </a>
-                        
-                            <a href="/tags/%E4%BA%8B%E5%8A%A1/">
-                                <span class="chip bg-color">事务</span>
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
                             </a>
                         
                     </div>
@@ -410,8 +402,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                数据库
+                            <a href="/categories/Java/" class="post-category">
+                                Java
                             </a>
                         
                     </div>
@@ -423,7 +415,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-06
+                    2020-02-01
                 </div>
                 
 
@@ -432,14 +424,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    903
+                    298
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    1 分
                 </div>
                 
 
@@ -457,118 +449,63 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p><span class="github-emoji"><span>⚡</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Redis 事务本质：一组命令的集合。</p>
-<p><span class="github-emoji"><span>⚡</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> Redis 单条命令具有原子性，但 Redis 事务没有原子性、隔离性（不存在隔离级别）。</p>
-<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><p><span class="github-emoji"><span>🌠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f320.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 一次性：一个事务中的所有待执行命令都会被一次性放入队列中，即序列化。<br><span class="github-emoji"><span>🌠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f320.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 顺序性：按顺序执行：先进先出。<br><span class="github-emoji"><span>🌠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f320.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 排他性：互不干扰。</p>
-<h3 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h3><p><span class="github-emoji"><span>1⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> ​开启一组事务：multi<br><span class="github-emoji"><span>2⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0032-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> ​命令入队：……<br><span class="github-emoji"><span>3⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0033-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 废弃这组事务：discard<br><span class="github-emoji"><span>4⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0034-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> ​执行事务：exec</p>
-<p><code>执行一组事务</code></p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> multi
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">set</span> k1 v1
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> get k1
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">exec</span>
-<span class="token number">1</span><span class="token punctuation">)</span> OK
-<span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">"v1"</span>
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">keys</span> <span class="token operator">*</span>
-<span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">"k1"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>注解：Annotation，注释：Comment。<br>作用：对程序作出解释 可被其他程序（编译器）读取。<br>语法：@注解名( )。<br>类型：</p>
+<table>
+<thead>
+<tr>
+<th>注解参数个数</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标记注解</td>
+<td>一个没有成员定义的 Annotation 类型</td>
+</tr>
+<tr>
+<td>单值注解</td>
+<td>单值</td>
+</tr>
+<tr>
+<td>完整注解</td>
+<td>多值</td>
+</tr>
+</tbody></table>
+<h2 id="内置注解"><a href="#内置注解" class="headerlink" title="内置注解"></a>内置注解</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Override</span>  <span class="token comment">// 重写</span>
+<span class="token annotation punctuation">@Deprecated</span><span class="token punctuation">(</span>since <span class="token operator">=</span> <span class="token string">"V1.8"</span><span class="token punctuation">)</span>  <span class="token comment">// 废弃</span>
+<span class="token annotation punctuation">@SuppressWarnings</span><span class="token punctuation">(</span><span class="token string">"all"</span><span class="token punctuation">)</span>  <span class="token comment">// 抑制</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><code>中途废弃事务</code></p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> multi
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">set</span> k1 v1
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> get k1
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">discard</span>
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">keys</span> <span class="token operator">*</span>
-<span class="token punctuation">(</span>empty list <span class="token operator">or</span> <span class="token keyword">set</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h2><p>作用：注解其他注解。<br>语法：public @interface 注解名 { 内容 }。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 自定义元注解 自动继承 Annotation 接口</span>
+<span class="token comment">// 1. 范围（可加在哪些元素上），若@Target没写则默认可使用在任何元素上</span>
+<span class="token comment">//    TYPE（类、接口）, METHOD（方法）, CONSTRUCTOR（构造器）, FIELD（字段）</span>
+<span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token class-name">ElementType</span><span class="token punctuation">.</span>TYPE<span class="token punctuation">,</span> <span class="token class-name">ElementType</span><span class="token punctuation">.</span>METHOD<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">// 2. 生命周期 (SOURCE:在源代码种生效  CLASS:在类中生效  RUNTIME:运行过程中生效，能被反射发现)</span>
+<span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span><span class="token class-name">RetentionPolicy</span><span class="token punctuation">.</span>RUNTIME<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Document</span>  <span class="token comment">// 3. 是否文档化（被例如 javadoc 此类的工具文档化）</span>
+<span class="token annotation punctuation">@Inherited</span>  <span class="token comment">// 4. 是否能被子类自动继承</span>
+<span class="token annotation punctuation">@Native</span>  <span class="token comment">// 5. 底层代码由其他语言构成</span>
+<span class="token keyword">public</span> <span class="token annotation punctuation">@interface</span> <span class="token class-name">MyAnnotation</span> <span class="token punctuation">{</span>
+    <span class="token class-name">String</span> <span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token string">""</span><span class="token punctuation">;</span>
+    <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">schools</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token punctuation">{</span><span class="token string">"aa"</span><span class="token punctuation">,</span><span class="token string">"bb"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><h4 id="bug-编译时异常"><a href="#bug-编译时异常" class="headerlink" title=":bug: 编译时异常"></a><span class="github-emoji"><span>🐛</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f41b.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 编译时异常</h4><p>事务中有语法错误的命令时，所有命令都不会被执行</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> multi
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">set</span> k1 v1
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> getset k1  <span class="token comment"># 语法错误的命令</span>
-<span class="token punctuation">(</span>error<span class="token punctuation">)</span> ERR wrong number <span class="token keyword">of</span> arguments <span class="token keyword">for</span> <span class="token string">'getset'</span> command
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">set</span> k2 v2
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">exec</span>
-<span class="token punctuation">(</span>error<span class="token punctuation">)</span> EXECABORT <span class="token keyword">Transaction</span> discarded because <span class="token keyword">of</span> previous <span class="token keyword">errors</span><span class="token punctuation">.</span>
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">keys</span> <span class="token operator">*</span>
-<span class="token punctuation">(</span>empty list <span class="token operator">or</span> <span class="token keyword">set</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span><span class="token class-name">RetentionPolicy</span><span class="token punctuation">.</span>RUNTIME<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span><span class="token class-name">ElementType</span><span class="token punctuation">.</span>TYPE<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@interface</span> <span class="token class-name">Role</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Position</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token annotation punctuation">@Repeatable</span><span class="token punctuation">(</span><span class="token class-name">Role</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>  <span class="token comment">// 6. 重复</span>
+<span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span><span class="token class-name">RetentionPolicy</span><span class="token punctuation">.</span>RUNTIME<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span><span class="token class-name">ElementType</span><span class="token punctuation">.</span>TYPE<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@interface</span> <span class="token class-name">Position</span> <span class="token punctuation">{</span>
+    <span class="token class-name">String</span> <span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token annotation punctuation">@Position</span><span class="token punctuation">(</span><span class="token string">"军长"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Position</span><span class="token punctuation">(</span><span class="token string">"政治部副主任"</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">Soldier</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="bug-运行时异常"><a href="#bug-运行时异常" class="headerlink" title=":bug: 运行时异常"></a><span class="github-emoji"><span>🐛</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f41b.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 运行时异常</h4><p>除了错误命令不被执行抛异常之外，其他正确命令可以正常执行（说明了 Redis 事务没有原子性）</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> multi
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">set</span> k1 <span class="token string">"v1"</span>
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> incr k1  <span class="token comment"># 语法正确但运行时错误（字符串不能+1）</span>
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">set</span> k2 v2
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">exec</span>
-<span class="token number">1</span><span class="token punctuation">)</span> OK
-<span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> ERR <span class="token keyword">value</span> <span class="token operator">is</span> <span class="token operator">not</span> an <span class="token keyword">integer</span> <span class="token operator">or</span> <span class="token keyword">out</span> <span class="token keyword">of</span> range
-<span class="token number">3</span><span class="token punctuation">)</span> OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">keys</span> <span class="token operator">*</span>
-<span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">"k2"</span>
-<span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">"k1"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h3><blockquote>
-<p> 悲观锁和乐观锁</p>
-<p> 悲观锁：认为什么时候都会出问题，无论做什么都会加锁，性能低。</p>
-<p> 乐观锁：认为什么时候都不会出问题，无论做什么都不会加锁。</p>
-</blockquote>
-<p><strong><code>不同场景实现乐观锁的方式</code></strong></p>
-<p><span class="github-emoji"><span>💜</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f49c.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 数据库 ：用 version 字段，即为数据增加一个版本标识（先获取 version ，更新时再比较 version）</p>
-<p><span class="github-emoji"><span>💛</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f49b.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>  Redis ：用 watch 实现</p>
-<p><span class="github-emoji"><span>1⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span><strong><code>不使用 watch 正常执行事务</code></strong></p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">set</span> money <span class="token number">100</span>
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">set</span> <span class="token keyword">out</span> <span class="token number">0</span>
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> watch money  <span class="token comment"># 监控钱包</span>
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> multi
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> decrby money <span class="token number">2</span>  <span class="token comment"># 钱包扣除 2 块钱</span>
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> incrby <span class="token keyword">out</span> <span class="token number">2</span>  <span class="token comment"># 总计花出去 2 块钱</span>
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">exec</span>  <span class="token comment"># 事务执行成功后，会自动取消监控 watch </span>
-<span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">integer</span><span class="token punctuation">)</span> <span class="token number">98</span>
-<span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">integer</span><span class="token punctuation">)</span> <span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><span class="github-emoji"><span>2⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0032-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span><strong><code>使用 watch 实现乐观锁</code></strong></p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># 开启第一个连接（线程 1）</span>
-$ redis<span class="token operator">-</span>cli <span class="token operator">-</span>p <span class="token number">6379</span>
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">set</span> money <span class="token number">100</span>
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">set</span> <span class="token keyword">out</span> <span class="token number">0</span>
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> watch money  <span class="token comment"># 监控钱包【加监控/加锁】</span>
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> multi
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> decrby money <span class="token number">2</span>  <span class="token comment"># 钱包扣除 2 块钱</span>
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> incrby <span class="token keyword">out</span> <span class="token number">2</span>  <span class="token comment"># 总计花出去 2 块钱</span>
-QUEUED
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">exec</span>  <span class="token comment"># 事务执行失败（执行前，被线程 2 插队修改了值）【比对监视值是否变化，不变则执行成功】</span>
-<span class="token punctuation">(</span>nill<span class="token punctuation">)</span>
-<span class="token comment"># 若事务执行失败，先解除监视/解锁，再重新监视/加锁</span>
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> unwatch
-OK
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> watch
-OK<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># 开启第二个连接（线程 2）</span>
-$ redis<span class="token operator">-</span>cli <span class="token operator">-</span>p <span class="token number">6379</span>
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> get money
-<span class="token number">98</span>
-<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>:<span class="token number">6379</span><span class="token operator">&gt;</span> <span class="token keyword">set</span> money <span class="token number">999</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -595,7 +532,7 @@ $ redis<span class="token operator">-</span>cli <span class="token operator">-</
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.blog.revelvy.cn/2020/01/06/redis-shi-wu/">https://www.blog.revelvy.cn/2020/01/06/redis-shi-wu/</a>
+                    <a href="https://www.blog.revelvy.cn/2020/02/01/java-zhu-jie/">https://www.blog.revelvy.cn/2020/02/01/java-zhu-jie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -633,16 +570,8 @@ $ redis<span class="token operator">-</span>cli <span class="token operator">-</
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Redis/">
-                                    <span class="chip bg-color">Redis</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                    <span class="chip bg-color">数据库</span>
-                                </a>
-                            
-                                <a href="/tags/%E4%BA%8B%E5%8A%A1/">
-                                    <span class="chip bg-color">事务</span>
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
                                 </a>
                             
                         </div>
@@ -818,25 +747,73 @@ $ redis<span class="token operator">-</span>cli <span class="token operator">-</
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/01/07/jedis-kuai-su-ru-men/">
+                <a href="/2020/02/02/java-fan-she/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Jedis 快速入门">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Java 反射">
                         
-                        <span class="card-title">Jedis 快速入门</span>
+                        <span class="card-title">Java 反射</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Jedis 快速入门
+                            详解 Java 反射
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-07
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-02
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/01/20/redis-zhu-cong-fu-zhi/">
+                    <div class="card-image">
+                        
+                        <img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812225839.jpg" class="responsive-img" alt="Redis 主从复制">
+                        
+                        <span class="card-title">Redis 主从复制</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            详解 Redis 的主从复制及其哨兵模式
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -852,76 +829,20 @@ $ redis<span class="token operator">-</span>cli <span class="token operator">-</
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
                     <a href="/tags/Redis/">
                         <span class="chip bg-color">Redis</span>
-                    </a>
-                    
-                    <a href="/tags/Jedis/">
-                        <span class="chip bg-color">Jedis</span>
                     </a>
                     
                     <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
                         <span class="chip bg-color">数据库</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/01/05/spring-mvc/">
-                    <div class="card-image">
-                        
-                        <img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812225707.jpg" class="responsive-img" alt="Spring MVC">
-                        
-                        <span class="card-title">Spring MVC</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            探究 Spring MVC 架构以及实战演示
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-05
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Spring/" class="post-category">
-                                    Spring
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/tags/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">
+                        <span class="chip bg-color">主从复制</span>
                     </a>
                     
-                    <a href="/tags/Spring/">
-                        <span class="chip bg-color">Spring</span>
-                    </a>
-                    
-                    <a href="/tags/Spring-MVC/">
-                        <span class="chip bg-color">Spring MVC</span>
+                    <a href="/tags/%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F/">
+                        <span class="chip bg-color">哨兵模式</span>
                     </a>
                     
                 </div>
