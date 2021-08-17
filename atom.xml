@@ -6,7 +6,7 @@
   <link href="https://www.blog.revelvy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.blog.revelvy.cn/"/>
-  <updated>2021-08-12T15:14:35.849Z</updated>
+  <updated>2021-08-17T08:31:54.575Z</updated>
   <id>https://www.blog.revelvy.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Excel 按指定符号分隔数据</title>
+    <link href="https://www.blog.revelvy.cn/2021/08/17/excel-an-zhi-ding-fu-hao-fen-ge-shu-ju/"/>
+    <id>https://www.blog.revelvy.cn/2021/08/17/excel-an-zhi-ding-fu-hao-fen-ge-shu-ju/</id>
+    <published>2021-08-17T08:30:28.000Z</published>
+    <updated>2021-08-17T08:31:54.575Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;使用 Excel</summary>
+        
+      
+    
+    
+    
+    <category term="Windows" scheme="https://www.blog.revelvy.cn/categories/Windows/"/>
+    
+    
+    <category term="Excel" scheme="https://www.blog.revelvy.cn/tags/Excel/"/>
+    
+    <category term="Windows" scheme="https://www.blog.revelvy.cn/tags/Windows/"/>
+    
+  </entry>
   
   <entry>
     <title>浏览器安装扩展程序的教程</title>
@@ -524,31 +551,6 @@
         
         
     <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;Reflection，代码在运行时可以借助反射 API</summary>
-        
-      
-    
-    
-    
-    <category term="Java" scheme="https://www.blog.revelvy.cn/categories/Java/"/>
-    
-    
-    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 注解</title>
-    <link href="https://www.blog.revelvy.cn/2020/02/01/java-zhu-jie/"/>
-    <id>https://www.blog.revelvy.cn/2020/02/01/java-zhu-jie/</id>
-    <published>2020-02-01T12:30:04.000Z</published>
-    <updated>2021-08-16T12:31:24.079Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;注解：Annotation，注释：Comment。&lt;br&gt;作用：对程序作出解释 可被其他程序（编译器）读取。&lt;br&gt;语法：@注解名(</summary>
         
       
     
