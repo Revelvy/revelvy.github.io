@@ -125,6 +125,31 @@
   </entry>
   
   <entry>
+    <title>有效的括号</title>
+    <link href="https://www.blog.revelvy.cn/2020/11/01/you-xiao-de-gua-hao/"/>
+    <id>https://www.blog.revelvy.cn/2020/11/01/you-xiao-de-gua-hao/</id>
+    <published>2020-11-01T13:50:01.000Z</published>
+    <updated>2021-08-18T13:51:44.003Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;20-有效的括号&quot;&gt;&lt;a href=&quot;#20-有效的括号&quot; class=&quot;headerlink&quot; title=&quot;20. 有效的括号&quot;&gt;&lt;/a&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="数据结构与算法" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="有效的括号" scheme="https://www.blog.revelvy.cn/tags/%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/"/>
+    
+  </entry>
+  
+  <entry>
     <title>RabbitMQ 事务</title>
     <link href="https://www.blog.revelvy.cn/2020/09/03/rabbitmq-shi-wu/"/>
     <id>https://www.blog.revelvy.cn/2020/09/03/rabbitmq-shi-wu/</id>
@@ -535,31 +560,6 @@
     <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
     
     <category term="JVM" scheme="https://www.blog.revelvy.cn/tags/JVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 反射</title>
-    <link href="https://www.blog.revelvy.cn/2020/02/02/java-fan-she/"/>
-    <id>https://www.blog.revelvy.cn/2020/02/02/java-fan-she/</id>
-    <published>2020-02-02T14:27:20.000Z</published>
-    <updated>2021-08-16T14:28:34.244Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;Reflection，代码在运行时可以借助反射 API</summary>
-        
-      
-    
-    
-    
-    <category term="Java" scheme="https://www.blog.revelvy.cn/categories/Java/"/>
-    
-    
-    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
     
   </entry>
   
