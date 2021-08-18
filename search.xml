@@ -222,6 +222,25 @@
     
     
     <entry>
+      <title>数组频数统计</title>
+      <link href="/2020/07/02/shu-zu-pin-shu-tong-ji/"/>
+      <url>/2020/07/02/shu-zu-pin-shu-tong-ji/</url>
+      
+        <content type="html"><![CDATA[<h2 id="数组频数统计"><a href="#数组频数统计" class="headerlink" title="数组频数统计"></a>数组频数统计</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">;</span>    <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> hm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        hm<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> hm<span class="token punctuation">.</span><span class="token function">getOrDefault</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token keyword">int</span> max <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Integer</span> integer <span class="token operator">:</span> hm<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        max <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>max<span class="token punctuation">,</span> integer<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>max<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据结构与算法 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MySQL 四种语言</title>
       <link href="/2020/05/07/mysql-si-chong-yu-yan/"/>
       <url>/2020/05/07/mysql-si-chong-yu-yan/</url>
@@ -824,6 +843,33 @@
             <tag> Spring </tag>
             
             <tag> Spring AOP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Spring</title>
+      <link href="/2020/01/01/spring/"/>
+      <url>/2020/01/01/spring/</url>
+      
+        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>基于分层的 JavaEE 的分布式应用程序、轻量级开源框架（SSM之一）</p><p><span class="github-emoji"><span>📌</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 作用：解耦，即高内聚低耦合，降低组件之间的耦合度，实现软件各层之间的解耦，提高项目开发效率。</p><h2 id="七大模块"><a href="#七大模块" class="headerlink" title="七大模块"></a>七大模块</h2><p>Core、Context、AOP、MVC、Web、ORM、DAO</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210818225110.png"></p><h2 id="现代开发"><a href="#现代开发" class="headerlink" title="现代开发"></a>现代开发</h2><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210818225220.png"></p><pre class="line-numbers language-none"><code class="language-none">Spring Boot快速开发脚手架，可以快速开发单个微服务（约定大于配置）Spring Cloud基于Spring Boot<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h2 id="Controller-和-RestController"><a href="#Controller-和-RestController" class="headerlink" title="@Controller 和 @RestController"></a>@Controller 和 @RestController</h2><p>@Controller：返回⼀个⻚⾯</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210818225641.png"></p><p>@RestController：返回JSON 或 XML 形式数据</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210818225643.png"></p><p>@Controller   + @ResponseBody  =  @RestController</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210818225646.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Spring </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Spring </tag>
             
         </tags>
       

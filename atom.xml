@@ -235,6 +235,29 @@
   </entry>
   
   <entry>
+    <title>数组频数统计</title>
+    <link href="https://www.blog.revelvy.cn/2020/07/02/shu-zu-pin-shu-tong-ji/"/>
+    <id>https://www.blog.revelvy.cn/2020/07/02/shu-zu-pin-shu-tong-ji/</id>
+    <published>2020-07-02T13:56:12.000Z</published>
+    <updated>2021-08-18T13:57:13.010Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;数组频数统计&quot;&gt;&lt;a href=&quot;#数组频数统计&quot; class=&quot;headerlink&quot; title=&quot;数组频数统计&quot;&gt;&lt;/a&gt;数组频数统计&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-java&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="数据结构与算法" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>MySQL 四种语言</title>
     <link href="https://www.blog.revelvy.cn/2020/05/07/mysql-si-chong-yu-yan/"/>
     <id>https://www.blog.revelvy.cn/2020/05/07/mysql-si-chong-yu-yan/</id>
@@ -532,34 +555,6 @@
     
     
     <category term="SpringBoot" scheme="https://www.blog.revelvy.cn/tags/SpringBoot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java JVM</title>
-    <link href="https://www.blog.revelvy.cn/2020/02/03/java-jvm/"/>
-    <id>https://www.blog.revelvy.cn/2020/02/03/java-jvm/</id>
-    <published>2020-02-03T15:03:09.000Z</published>
-    <updated>2021-08-16T15:04:08.954Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;JVM 调优目标：方法区和堆。&lt;/p&gt;
-&lt;h2 id=&quot;架构&quot;&gt;&lt;a href=&quot;#架构&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Java" scheme="https://www.blog.revelvy.cn/categories/Java/"/>
-    
-    
-    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
-    
-    <category term="JVM" scheme="https://www.blog.revelvy.cn/tags/JVM/"/>
     
   </entry>
   
