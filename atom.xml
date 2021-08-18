@@ -208,6 +208,33 @@
   </entry>
   
   <entry>
+    <title>MyBatis</title>
+    <link href="https://www.blog.revelvy.cn/2020/09/01/mybatis/"/>
+    <id>https://www.blog.revelvy.cn/2020/09/01/mybatis/</id>
+    <published>2020-09-01T15:18:24.000Z</published>
+    <updated>2021-08-18T15:20:19.286Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-none&quot;&gt;&lt;code</summary>
+        
+      
+    
+    
+    
+    <category term="MyBatis" scheme="https://www.blog.revelvy.cn/categories/MyBatis/"/>
+    
+    
+    <category term="MyBatis" scheme="https://www.blog.revelvy.cn/tags/MyBatis/"/>
+    
+    <category term="ORM" scheme="https://www.blog.revelvy.cn/tags/ORM/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Redis 缓存穿透 击穿 雪崩</title>
     <link href="https://www.blog.revelvy.cn/2020/08/06/redis-huan-cun-chuan-tou-ji-chuan-xue-beng/"/>
     <id>https://www.blog.revelvy.cn/2020/08/06/redis-huan-cun-chuan-tou-ji-chuan-xue-beng/</id>
@@ -528,31 +555,6 @@
     <category term="Redis" scheme="https://www.blog.revelvy.cn/tags/Redis/"/>
     
     <category term="数据库" scheme="https://www.blog.revelvy.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    <category term="SpringBoot" scheme="https://www.blog.revelvy.cn/tags/SpringBoot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringBoot 自动配置原理</title>
-    <link href="https://www.blog.revelvy.cn/2020/03/05/springboot-zi-dong-pei-zhi-yuan-li/"/>
-    <id>https://www.blog.revelvy.cn/2020/03/05/springboot-zi-dong-pei-zhi-yuan-li/</id>
-    <published>2020-03-05T03:54:45.000Z</published>
-    <updated>2021-08-12T14:53:02.076Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;SpringBoot-主配置类&quot;&gt;&lt;a href=&quot;#SpringBoot-主配置类&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot 主配置类&quot;&gt;&lt;/a&gt;SpringBoot 主配置类&lt;/h2&gt;&lt;p&gt;首先，我们从 SpringBoot</summary>
-        
-      
-    
-    
-    
-    <category term="Java" scheme="https://www.blog.revelvy.cn/categories/Java/"/>
-    
     
     <category term="SpringBoot" scheme="https://www.blog.revelvy.cn/tags/SpringBoot/"/>
     
