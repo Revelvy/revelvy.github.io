@@ -6,7 +6,7 @@
   <link href="https://www.blog.revelvy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.blog.revelvy.cn/"/>
-  <updated>2021-08-17T08:31:54.575Z</updated>
+  <updated>2021-08-19T13:12:42.198Z</updated>
   <id>https://www.blog.revelvy.cn/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>super和this的区别</title>
+    <link href="https://www.blog.revelvy.cn/2021/08/19/super-he-this-de-qu-bie/"/>
+    <id>https://www.blog.revelvy.cn/2021/08/19/super-he-this-de-qu-bie/</id>
+    <published>2021-08-19T13:05:57.000Z</published>
+    <updated>2021-08-19T13:12:42.198Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;super&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;super&lt;/td&gt;
+&lt;td&gt;父类对象（假）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;super.父类属性名&lt;/td&gt;
+&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="Java" scheme="https://www.blog.revelvy.cn/categories/Java/"/>
+    
+    
+    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
+    
+    <category term="面向对象" scheme="https://www.blog.revelvy.cn/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>Excel 按指定符号分隔数据</title>
@@ -526,37 +566,6 @@
     <category term="SpringBoot" scheme="https://www.blog.revelvy.cn/tags/SpringBoot/"/>
     
     <category term="Shiro" scheme="https://www.blog.revelvy.cn/tags/Shiro/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringBoot整合Redis</title>
-    <link href="https://www.blog.revelvy.cn/2020/04/01/springboot-zheng-he-redis/"/>
-    <id>https://www.blog.revelvy.cn/2020/04/01/springboot-zheng-he-redis/</id>
-    <published>2020-04-01T11:10:02.000Z</published>
-    <updated>2021-08-12T14:52:51.304Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;在 SpringBoot 2.x 的版本中，Lettuce 已经取代了 Jedis 成为默认的 Java</summary>
-        
-      
-    
-    
-    
-    <category term="SpringBoot" scheme="https://www.blog.revelvy.cn/categories/SpringBoot/"/>
-    
-    
-    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
-    
-    <category term="Redis" scheme="https://www.blog.revelvy.cn/tags/Redis/"/>
-    
-    <category term="数据库" scheme="https://www.blog.revelvy.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    <category term="SpringBoot" scheme="https://www.blog.revelvy.cn/tags/SpringBoot/"/>
     
   </entry>
   
