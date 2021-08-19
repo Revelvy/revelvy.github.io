@@ -6,7 +6,7 @@
   <link href="https://www.blog.revelvy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.blog.revelvy.cn/"/>
-  <updated>2021-08-19T13:12:42.198Z</updated>
+  <updated>2021-08-19T13:16:50.868Z</updated>
   <id>https://www.blog.revelvy.cn/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面向对象和面向过程的区别</title>
+    <link href="https://www.blog.revelvy.cn/2021/08/19/mian-xiang-dui-xiang-he-mian-xiang-guo-cheng-de-qu-bie/"/>
+    <id>https://www.blog.revelvy.cn/2021/08/19/mian-xiang-dui-xiang-he-mian-xiang-guo-cheng-de-qu-bie/</id>
+    <published>2021-08-19T13:14:12.000Z</published>
+    <updated>2021-08-19T13:16:50.868Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;两种不同的思维方式，即处理问题的角度不一样。&lt;/p&gt;
+&lt;p&gt;面向对象&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;概念：注重完成一件事情，需要哪些对象，这些对象各自要做什么。&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;</summary>
+        
+      
+    
+    
+    
+    <category term="Java" scheme="https://www.blog.revelvy.cn/categories/Java/"/>
+    
+    
+    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
+    
+    <category term="面向对象" scheme="https://www.blog.revelvy.cn/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    
+    <category term="面向过程" scheme="https://www.blog.revelvy.cn/tags/%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>super和this的区别</title>
@@ -537,35 +568,6 @@
     <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
     
     <category term="MySQL" scheme="https://www.blog.revelvy.cn/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shiro 快速入门</title>
-    <link href="https://www.blog.revelvy.cn/2020/04/02/shiro-kuai-su-ru-men/"/>
-    <id>https://www.blog.revelvy.cn/2020/04/02/shiro-kuai-su-ru-men/</id>
-    <published>2020-04-02T12:29:54.000Z</published>
-    <updated>2021-08-12T15:01:45.496Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;Shiro 是一款经典的 Java 安全框架，可以在应用在 JavaSE 和 JavaEE 的场景中，</summary>
-        
-      
-    
-    
-    
-    <category term="Java" scheme="https://www.blog.revelvy.cn/categories/Java/"/>
-    
-    
-    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
-    
-    <category term="SpringBoot" scheme="https://www.blog.revelvy.cn/tags/SpringBoot/"/>
-    
-    <category term="Shiro" scheme="https://www.blog.revelvy.cn/tags/Shiro/"/>
     
   </entry>
   

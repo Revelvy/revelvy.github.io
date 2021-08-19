@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>面向对象和面向过程的区别</title>
+      <link href="/2021/08/19/mian-xiang-dui-xiang-he-mian-xiang-guo-cheng-de-qu-bie/"/>
+      <url>/2021/08/19/mian-xiang-dui-xiang-he-mian-xiang-guo-cheng-de-qu-bie/</url>
+      
+        <content type="html"><![CDATA[<p>两种不同的思维方式，即处理问题的角度不一样。</p><p>面向对象</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;概念：注重完成一件事情，需要哪些对象，这些对象各自要做什么。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;优点：可复用性、可扩展性、可维护性高。</p><p>面向过程</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;概念：注重完成一件事情，的每一个步骤和顺序。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;优点：执行效率高。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 面向对象 </tag>
+            
+            <tag> 面向过程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>super和this的区别</title>
       <link href="/2021/08/19/super-he-this-de-qu-bie/"/>
       <url>/2021/08/19/super-he-this-de-qu-bie/</url>

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Java,面向对象,this,super">
+    <meta name="keywords" content="Java,面向对象,面向过程">
     <meta name="description" content="白竹竹,Spring Boot,Python,Django">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>super和this的区别 | 白竹竹</title>
+    <title>面向对象和面向过程的区别 | 白竹竹</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -269,12 +269,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">super和this的区别</h1>
+                    <h1 class="description center-align post-title">面向对象和面向过程的区别</h1>
                 </div>
             </div>
         </div>
@@ -398,6 +398,10 @@
                                 <span class="chip bg-color">面向对象</span>
                             </a>
                         
+                            <a href="/tags/%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B/">
+                                <span class="chip bg-color">面向过程</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -428,7 +432,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    368
+                    123
                 </div>
                 
 
@@ -453,99 +457,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <table>
-<thead>
-<tr>
-<th>super</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>super</td>
-<td>父类对象（假）</td>
-</tr>
-<tr>
-<td>super.父类属性名</td>
-<td>调用父类对象的属性，前提有访问权限</td>
-</tr>
-<tr>
-<td>super( )</td>
-<td>调用父类对象所属类的构造方法，必须位于子类构造器首行，前提有访问权限</td>
-</tr>
-<tr>
-<td>super.父类方法名( )</td>
-<td>调用父类对象方法，前提有访问权限</td>
-</tr>
-</tbody></table>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Car</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token class-name">String</span> a <span class="token operator">=</span> <span class="token string">"a"</span><span class="token punctuation">;</span>
-    <span class="token keyword">public</span> <span class="token class-name">Car</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token string">"run"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">class</span> <span class="token class-name">Benchi</span> <span class="token keyword">extends</span> <span class="token class-name">Car</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token class-name">Benchi</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 调用父类对象所属类的构造方法，必须位于子类构造器首行</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//class test.Benchi 父类对象（假）</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">super</span><span class="token punctuation">.</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//"a" 调用父类对象属性</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//"run" 调用父类对象方法</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <p>两种不同的思维方式，即处理问题的角度不一样。</p>
+<p>面向对象</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;概念：注重完成一件事情，需要哪些对象，这些对象各自要做什么。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;优点：可复用性、可扩展性、可维护性高。</p>
+<p>面向过程</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;概念：注重完成一件事情，的每一个步骤和顺序。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;优点：执行效率高。</p>
 
-<table>
-<thead>
-<tr>
-<th>this</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>this</td>
-<td>当前类对象</td>
-</tr>
-<tr>
-<td>this.当前类属性名</td>
-<td>调用当前类对象的属性</td>
-</tr>
-<tr>
-<td>this( )</td>
-<td>调用当前类对象所属类的构造方法，必须放在当前类构造器首行</td>
-</tr>
-<tr>
-<td>this.当前类方法名( )</td>
-<td>调用当前类对象的方法</td>
-</tr>
-</tbody></table>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token class-name">Fish</span> fish <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Fish</span><span class="token punctuation">(</span><span class="token string">"fish"</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">class</span> <span class="token class-name">Fish</span> <span class="token punctuation">{</span>
-    <span class="token class-name">String</span> name<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> price<span class="token punctuation">;</span>
-    <span class="token keyword">public</span> <span class="token class-name">Fish</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">public</span> <span class="token class-name">Fish</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">public</span> <span class="token class-name">Fish</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">,</span> <span class="token keyword">int</span> price<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token comment">//        this();</span>
-        <span class="token keyword">this</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//2 调用当前类对象所属类的构造方法，必须放在当前类构造器首行</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//class test.Fish  调用当前类对象</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//"fish" 调用当前类对象的属性</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">swim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//"swim" 调用当前类对象的方法</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">swim</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token string">"swim"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -571,7 +488,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.blog.revelvy.cn/2021/08/19/super-he-this-de-qu-bie/">https://www.blog.revelvy.cn/2021/08/19/super-he-this-de-qu-bie/</a>
+                    <a href="https://www.blog.revelvy.cn/2021/08/19/mian-xiang-dui-xiang-he-mian-xiang-guo-cheng-de-qu-bie/">https://www.blog.revelvy.cn/2021/08/19/mian-xiang-dui-xiang-he-mian-xiang-guo-cheng-de-qu-bie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -615,6 +532,10 @@
                             
                                 <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
                                     <span class="chip bg-color">面向对象</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B/">
+                                    <span class="chip bg-color">面向过程</span>
                                 </a>
                             
                         </div>
@@ -786,9 +707,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/08/19/mian-xiang-dui-xiang-he-mian-xiang-guo-cheng-de-qu-bie/">
                     <div class="card-image">
@@ -806,9 +728,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -821,6 +743,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -847,31 +770,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/08/17/excel-an-zhi-ding-fu-hao-fen-ge-shu-ju/">
+                <a href="/2021/08/19/super-he-this-de-qu-bie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Excel 按指定符号分隔数据">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="super和this的区别">
                         
-                        <span class="card-title">Excel 按指定符号分隔数据</span>
+                        <span class="card-title">super和this的区别</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            手把手教你使用 Excel 分列功能将数据分列
+                            详解 super 和 this 的区别
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-19
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Windows/" class="post-category">
-                                    Windows
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
                                 </a>
                             
                             
@@ -881,12 +804,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Excel/">
-                        <span class="chip bg-color">Excel</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/tags/Windows/">
-                        <span class="chip bg-color">Windows</span>
+                    <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+                        <span class="chip bg-color">面向对象</span>
                     </a>
                     
                 </div>
