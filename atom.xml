@@ -6,7 +6,7 @@
   <link href="https://www.blog.revelvy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.blog.revelvy.cn/"/>
-  <updated>2021-08-19T13:16:50.868Z</updated>
+  <updated>2021-08-20T03:33:00.442Z</updated>
   <id>https://www.blog.revelvy.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>谷歌浏览器禁用版本太旧提示</title>
+    <link href="https://www.blog.revelvy.cn/2021/08/20/gu-ge-liu-lan-qi-jin-yong-ban-ben-tai-jiu-ti-shi/"/>
+    <id>https://www.blog.revelvy.cn/2021/08/20/gu-ge-liu-lan-qi-jin-yong-ban-ben-tai-jiu-ti-shi/</id>
+    <published>2021-08-20T03:31:06.000Z</published>
+    <updated>2021-08-20T03:33:00.442Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在 Google Chrome 快捷方式属性的目标值增加后缀（注意：–前面有空格）：&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-none&quot;&gt;&lt;code</summary>
+        
+      
+    
+    
+    
+    <category term="Windows" scheme="https://www.blog.revelvy.cn/categories/Windows/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>面向对象和面向过程的区别</title>
@@ -541,33 +565,6 @@
     <category term="SpringBoot" scheme="https://www.blog.revelvy.cn/tags/SpringBoot/"/>
     
     <category term="Swagger" scheme="https://www.blog.revelvy.cn/tags/Swagger/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL 存储过程</title>
-    <link href="https://www.blog.revelvy.cn/2020/05/01/mysql-cun-chu-guo-cheng/"/>
-    <id>https://www.blog.revelvy.cn/2020/05/01/mysql-cun-chu-guo-cheng/</id>
-    <published>2020-05-01T11:02:34.000Z</published>
-    <updated>2021-08-12T04:47:58.831Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;存储过程&quot;&gt;&lt;a href=&quot;#存储过程&quot; class=&quot;headerlink&quot; title=&quot;存储过程&quot;&gt;&lt;/a&gt;存储过程&lt;/h2&gt;&lt;p&gt;存储过程 Stored</summary>
-        
-      
-    
-    
-    
-    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
-    
-    <category term="MySQL" scheme="https://www.blog.revelvy.cn/tags/MySQL/"/>
     
   </entry>
   

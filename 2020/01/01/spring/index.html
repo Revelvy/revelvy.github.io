@@ -428,14 +428,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    133
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    7 分
                 </div>
                 
 
@@ -469,6 +469,162 @@ Spring Cloud
 <p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210818225643.png"></p>
 <p>@Controller   + @ResponseBody  =  @RestController</p>
 <p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210818225646.png"></p>
+<h2 id="Spring-Bean-的生命周期"><a href="#Spring-Bean-的生命周期" class="headerlink" title="Spring Bean 的生命周期"></a>Spring Bean 的生命周期</h2><h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210819222553.png"></p>
+<p>Spring会扫描指定包下面的普通 Java 类，将其变成 beanDefinition 对象，然后创建 Spring Bean 对象。</p>
+<p>为什么不直接使用对象的class对象来创建bean呢？</p>
+<p>因为在class对象仅仅能描述一个对象的创建，它不足以用来描述一个Spring bean，而对于是否为懒加载、是否是首要的、初始化方法是哪个、销毁方法是哪个，这个Spring中特有的属性在class对象中并没有。</p>
+<h3 id="普通-Java-类-gt-Bean-定义对象"><a href="#普通-Java-类-gt-Bean-定义对象" class="headerlink" title="普通 Java 类 -> Bean 定义对象"></a>普通 Java 类 -&gt; Bean 定义对象</h3><h4 id="抽象应用上下文中的-refresh-方法"><a href="#抽象应用上下文中的-refresh-方法" class="headerlink" title="抽象应用上下文中的 refresh( ) 方法"></a>抽象应用上下文中的 refresh( ) 方法</h4><p><code>AbstractApplicationContext.java</code></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">refresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">BeansException</span><span class="token punctuation">,</span> <span class="token class-name">IllegalStateException</span> <span class="token punctuation">{</span>
+    <span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>startupShutdownMonitor<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 准备上下文</span>
+        <span class="token function">prepareRefresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 告诉子类刷新内部 Bean 工厂</span>
+        <span class="token class-name">ConfigurableListableBeanFactory</span> beanFactory <span class="token operator">=</span> <span class="token function">obtainFreshBeanFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 准备 Bean 工厂</span>
+        <span class="token function">prepareBeanFactory</span><span class="token punctuation">(</span>beanFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 允许在上下文子类中对 Bean 工厂进行后置处理</span>
+            <span class="token function">postProcessBeanFactory</span><span class="token punctuation">(</span>beanFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 调用在上下文中已被注册为 Bean 的工厂处理器 </span>
+            <span class="token function">invokeBeanFactoryPostProcessors</span><span class="token punctuation">(</span>beanFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 注册 Bean 后置处理器，用来拦截 Bean 创建</span>
+            <span class="token function">registerBeanPostProcessors</span><span class="token punctuation">(</span>beanFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 初始化消息源</span>
+            <span class="token function">initMessageSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 初始化事件多播器</span>
+            <span class="token function">initApplicationEventMulticaster</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 初始化特定上下文子类中的其他特殊 bean。</span>
+            <span class="token function">onRefresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 检查并注册侦听器 bean </span>
+            <span class="token function">registerListeners</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 实例化所有剩余的（非延迟初始化）单例</span>
+            <span class="token function">finishBeanFactoryInitialization</span><span class="token punctuation">(</span>beanFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 最后一步：发布相应的事件</span>
+            <span class="token function">finishRefresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">BeansException</span> ex<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>logger<span class="token punctuation">.</span><span class="token function">isWarnEnabled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                logger<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">"Exception encountered during context initialization - "</span> <span class="token operator">+</span>
+                            <span class="token string">"cancelling refresh attempt: "</span> <span class="token operator">+</span> ex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment">// 销毁已经创建的单例以避免悬空资源</span>
+            <span class="token function">destroyBeans</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// Reset 'active' flag.</span>
+            <span class="token function">cancelRefresh</span><span class="token punctuation">(</span>ex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 将异常传播给调用者</span>
+            <span class="token keyword">throw</span> ex<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 重置 Spring 核心中的常见内省缓存，因为可能不再需要单例 bean 的元数据</span>
+            <span class="token function">resetCommonCaches</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="调用-Bean-工厂的后置处理器-invokeBeanFactoryPostProcessors"><a href="#调用-Bean-工厂的后置处理器-invokeBeanFactoryPostProcessors" class="headerlink" title="调用 Bean 工厂的后置处理器 invokeBeanFactoryPostProcessors( )"></a>调用 Bean 工厂的后置处理器 invokeBeanFactoryPostProcessors( )</h5><p><span class="github-emoji"><span>1⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 先调用 <strong>Bean 定义对象注册的后置处理器</strong>（子接口）的 <strong>Bean 定义对象的注册方法</strong></p>
+<p><code>BeanDefinitionRegistryPostProcessor.java</code></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">BeanDefinitionRegistryPostProcessor</span> <span class="token keyword">extends</span> <span class="token class-name">BeanFactoryPostProcessor</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 扫描指定包下的带有组件注解的普通 Java 类，将其变成 Bean 定义对象，放到一个 Spring 的 Map 中</span>
+	<span class="token keyword">void</span> <span class="token function">postProcessBeanDefinitionRegistry</span><span class="token punctuation">(</span><span class="token class-name">BeanDefinitionRegistry</span> registry<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">BeansException</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><span class="github-emoji"><span>2⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0032-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 再调用 <strong>Bean 工厂的后置处理器</strong>（父接口）的 <strong>Bean 工厂后置处理器方法</strong></p>
+<p><code>BeanFactoryPostProcessor.java</code></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@FunctionalInterface</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">BeanFactoryPostProcessor</span> <span class="token punctuation">{</span>
+	<span class="token keyword">void</span> <span class="token function">postProcessBeanFactory</span><span class="token punctuation">(</span><span class="token class-name">ConfigurableListableBeanFactory</span> beanFactory<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">BeansException</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="注册-Bean-工厂的后置处理器-registerBeanPostProcessors"><a href="#注册-Bean-工厂的后置处理器-registerBeanPostProcessors" class="headerlink" title="注册 Bean 工厂的后置处理器 registerBeanPostProcessors( )"></a>注册 Bean 工厂的后置处理器 registerBeanPostProcessors( )</h5><p>根据实现了 PriorityOrdered、Ordered 接口，排序后注册所有的 Bean 后置处理器，主要用于 Spring Bean 创建时，执行这些后置处理器的方法，这也是 Spring 中提供的扩展点，在此处能插手 Spring bean 的创建过程。</p>
+<h5 id="结束-Bean-工厂的后置处理器-finishBeanFactoryInitialization"><a href="#结束-Bean-工厂的后置处理器-finishBeanFactoryInitialization" class="headerlink" title="结束 Bean 工厂的后置处理器 finishBeanFactoryInitialization( )"></a>结束 Bean 工厂的后置处理器 finishBeanFactoryInitialization( )</h5><p>结束 Bean 工厂的初始化，完成非懒加载的Spring bean的创建工作。</p>
+<h3 id="Bean-定义对象-gt-Spring-Bean-对象"><a href="#Bean-定义对象-gt-Spring-Bean-对象" class="headerlink" title="Bean 定义对象 -> Spring Bean 对象"></a>Bean 定义对象 -&gt; Spring Bean 对象</h3><h5 id="流程-1"><a href="#流程-1" class="headerlink" title="流程"></a>流程</h5><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210820155828.png"></p>
+<p><strong>4个后置处理器接口 + 8个后置处理器的方法 贯穿在 Bean 对象的实例化、属性赋值、初始化、销毁的过程中。</strong></p>
+<h5 id="4个后置处理器接口"><a href="#4个后置处理器接口" class="headerlink" title="4个后置处理器接口"></a>4个后置处理器接口</h5><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210820121149.png"></p>
+<h6 id="BeanPostProcessor"><a href="#BeanPostProcessor" class="headerlink" title="BeanPostProcessor"></a>BeanPostProcessor</h6><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">BeanPostProcessor</span> <span class="token punctuation">{</span>
+	<span class="token annotation punctuation">@Nullable</span>
+	<span class="token keyword">default</span> <span class="token class-name">Object</span> <span class="token function">postProcessBeforeInitialization</span><span class="token punctuation">(</span><span class="token class-name">Object</span> bean<span class="token punctuation">,</span> <span class="token class-name">String</span> beanName<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">BeansException</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> bean<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token annotation punctuation">@Nullable</span>
+	<span class="token keyword">default</span> <span class="token class-name">Object</span> <span class="token function">postProcessAfterInitialization</span><span class="token punctuation">(</span><span class="token class-name">Object</span> bean<span class="token punctuation">,</span> <span class="token class-name">String</span> beanName<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">BeansException</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> bean<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h6 id="InstantiationAwareBeanPostProcessor"><a href="#InstantiationAwareBeanPostProcessor" class="headerlink" title="InstantiationAwareBeanPostProcessor"></a>InstantiationAwareBeanPostProcessor</h6><p>实例化已知的 Bean 后置处理器。</p>
+<p>内部提供了3个方法，再加上BeanPostProcessor接口内部的2个方法，所以实现这个接口需要实现5个方法。</p>
+<p>作用：目标对象的实例化过程中需要处理的事情，包括实例化对象的前后过程以及实例的属性设置</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">InstantiationAwareBeanPostProcessor</span> <span class="token keyword">extends</span> <span class="token class-name">BeanPostProcessor</span> <span class="token punctuation">{</span>
+	<span class="token annotation punctuation">@Nullable</span>
+	<span class="token keyword">default</span> <span class="token class-name">Object</span> <span class="token function">postProcessBeforeInstantiation</span><span class="token punctuation">(</span><span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span> beanClass<span class="token punctuation">,</span> <span class="token class-name">String</span> beanName<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">BeansException</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">default</span> <span class="token keyword">boolean</span> <span class="token function">postProcessAfterInstantiation</span><span class="token punctuation">(</span><span class="token class-name">Object</span> bean<span class="token punctuation">,</span> <span class="token class-name">String</span> beanName<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">BeansException</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token annotation punctuation">@Nullable</span>
+	<span class="token keyword">default</span> <span class="token class-name">PropertyValues</span> <span class="token function">postProcessProperties</span><span class="token punctuation">(</span><span class="token class-name">PropertyValues</span> pvs<span class="token punctuation">,</span> <span class="token class-name">Object</span> bean<span class="token punctuation">,</span> <span class="token class-name">String</span> beanName<span class="token punctuation">)</span>
+			<span class="token keyword">throws</span> <span class="token class-name">BeansException</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory#createBean()方法的Object bean = resolveBeforeInstantiation(beanName, mbdToUse);方法里面执行了这个后置处理器</p>
+<h6 id="SmartInstantiationAwareBeanPostProcessor"><a href="#SmartInstantiationAwareBeanPostProcessor" class="headerlink" title="SmartInstantiationAwareBeanPostProcessor"></a>SmartInstantiationAwareBeanPostProcessor</h6><p>智能实例化已知的 Bean 后置处理器。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">SmartInstantiationAwareBeanPostProcessor</span> <span class="token keyword">extends</span> <span class="token class-name">InstantiationAwareBeanPostProcessor</span> <span class="token punctuation">{</span>
+	<span class="token annotation punctuation">@Nullable</span>
+	<span class="token keyword">default</span> <span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span> <span class="token function">predictBeanType</span><span class="token punctuation">(</span><span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span> beanClass<span class="token punctuation">,</span> <span class="token class-name">String</span> beanName<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">BeansException</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token annotation punctuation">@Nullable</span>
+	<span class="token keyword">default</span> <span class="token class-name">Constructor</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">determineCandidateConstructors</span><span class="token punctuation">(</span><span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span> beanClass<span class="token punctuation">,</span> <span class="token class-name">String</span> beanName<span class="token punctuation">)</span>
+			<span class="token keyword">throws</span> <span class="token class-name">BeansException</span> <span class="token punctuation">{</span>
+
+		<span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">default</span> <span class="token class-name">Object</span> <span class="token function">getEarlyBeanReference</span><span class="token punctuation">(</span><span class="token class-name">Object</span> bean<span class="token punctuation">,</span> <span class="token class-name">String</span> beanName<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">BeansException</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> bean<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h6 id="MergedBeanDefinitionPostProcessor"><a href="#MergedBeanDefinitionPostProcessor" class="headerlink" title="MergedBeanDefinitionPostProcessor"></a>MergedBeanDefinitionPostProcessor</h6><p>合并 Bean 定义对象的后置处理器。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">MergedBeanDefinitionPostProcessor</span> <span class="token keyword">extends</span> <span class="token class-name">BeanPostProcessor</span> <span class="token punctuation">{</span>
+	<span class="token keyword">void</span> <span class="token function">postProcessMergedBeanDefinition</span><span class="token punctuation">(</span><span class="token class-name">RootBeanDefinition</span> beanDefinition<span class="token punctuation">,</span> <span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span> beanType<span class="token punctuation">,</span> <span class="token class-name">String</span> beanName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">resetBeanDefinition</span><span class="token punctuation">(</span><span class="token class-name">String</span> beanName<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h6 id="SmartInitializingSingleton"><a href="#SmartInitializingSingleton" class="headerlink" title="SmartInitializingSingleton"></a>SmartInitializingSingleton</h6><p>智能初始化单例，只有一个方法，在所有的非懒加载单实例bean都成功创建并且放到Spring IOC容器之后进行执行的。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">SmartInitializingSingleton</span> <span class="token punctuation">{</span>
+	<span class="token keyword">void</span> <span class="token function">afterSingletonsInstantiated</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="8个后置处理器的方法"><a href="#8个后置处理器的方法" class="headerlink" title="8个后置处理器的方法"></a>8个后置处理器的方法</h5><h6 id="1-InstantiationAwareBeanPostProcessor-的-postProcessBeforeInstantiation"><a href="#1-InstantiationAwareBeanPostProcessor-的-postProcessBeforeInstantiation" class="headerlink" title="1. InstantiationAwareBeanPostProcessor 的 postProcessBeforeInstantiation( )"></a>1. InstantiationAwareBeanPostProcessor 的 postProcessBeforeInstantiation( )</h6><p>时机：在 Bean 对象实例化之前。</p>
+<p>作用：获取已知的 Bean 的实例对象，若成功获取，则这个返回值可以作为当前该生成的目标对象，即当前 Bean 实例，后续只需调用 5.和8. postProcessAfterInitialization 方法；否则按照正常的调用流程走。</p>
+<h6 id="2-SmartInstantiationAwareBeanPostProcessor-的-determineCandidateConstructors"><a href="#2-SmartInstantiationAwareBeanPostProcessor-的-determineCandidateConstructors" class="headerlink" title="2. SmartInstantiationAwareBeanPostProcessor 的 determineCandidateConstructors( )"></a>2. SmartInstantiationAwareBeanPostProcessor 的 determineCandidateConstructors( )</h6><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210820144506.png"></p>
+<p>时机：在 Bean 对象实例化之前。</p>
+<p>作用：Spring 提供的 Bean 候选构造器接口，返回 Bean 候选构造器列表，允许开发者自定义决定使用哪个候选构造器。</p>
+<p>实现类：AutowiredAnnotationBeanPostProcess。</p>
+<p>实现：返回 Bean 候选的构造器接口，返回构造器中标注了@Autowired 注解的的方法，查找最适合创建 Bean 的构造器。</p>
+<h6 id="3-MergedBeanDefinitionPostProcessor-的-postProcessMergedBeanDefinition"><a href="#3-MergedBeanDefinitionPostProcessor-的-postProcessMergedBeanDefinition" class="headerlink" title="3. MergedBeanDefinitionPostProcessor 的 postProcessMergedBeanDefinition( )"></a>3. MergedBeanDefinitionPostProcessor 的 postProcessMergedBeanDefinition( )</h6><p>时机：在 Bean 对象实例化之后。</p>
+<p>作用：查找并缓存 Bean 注入信息，此时仍未完成注入。</p>
+<h6 id="4-SmartInstantiationAwareBeanPostProcessor-的-getEarlyBeanReference"><a href="#4-SmartInstantiationAwareBeanPostProcessor-的-getEarlyBeanReference" class="headerlink" title="4. SmartInstantiationAwareBeanPostProcessor 的 getEarlyBeanReference( )"></a>4. SmartInstantiationAwareBeanPostProcessor 的 getEarlyBeanReference( )</h6><p>时机：在 Bean 对象实例化之后。</p>
+<p>作用：获得提前暴露的 Bean 引用，解决属性的循环依赖问题，只有单例对象才会调用此方法。</p>
+<h6 id="5-InstantiationAwareBeanPostProcessor-的-postProcessAfterInstantiation"><a href="#5-InstantiationAwareBeanPostProcessor-的-postProcessAfterInstantiation" class="headerlink" title="5. InstantiationAwareBeanPostProcessor 的 postProcessAfterInstantiation( )"></a>5. InstantiationAwareBeanPostProcessor 的 postProcessAfterInstantiation( )</h6><p>时机：在 Bean 对象实例化之后。</p>
+<p>作用：判断是否给 Bean 对象注入属性，如果该方法返回 false，会忽略属性值的设置；如果返回true，会按照正常流程设置属性值。</p>
+<h6 id="6-InstantiationAwareBeanPostProcessor-的-postProcessProperties"><a href="#6-InstantiationAwareBeanPostProcessor-的-postProcessProperties" class="headerlink" title="6. InstantiationAwareBeanPostProcessor 的 postProcessProperties( )"></a>6. InstantiationAwareBeanPostProcessor 的 postProcessProperties( )</h6><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210820150427.png"></p>
+<p>作用：Bean 属性赋值。</p>
+<p>实现类：</p>
+<p>AutowiredAnnotationBeanPostProcessor ：对 @Autowire  @Value 标注的字段和方法注入值。</p>
+<p>CommonAnnotationBeanPostProcessor ： 对 @Resource 标注的字段和方法注入值。</p>
+<h6 id="7-BeanPostProcessor-的-postProcessBeforeInitialization"><a href="#7-BeanPostProcessor-的-postProcessBeforeInitialization" class="headerlink" title="7. BeanPostProcessor 的  postProcessBeforeInitialization( )"></a>7. BeanPostProcessor 的  postProcessBeforeInitialization( )</h6><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210820151429.png"></p>
+<p>时机：在 Bean 对象初始化之前。</p>
+<p>实现类：</p>
+<p>ApplicationContextAwareProcessor ：</p>
+<p>如果 Bean 实现了EnvironmentAware、EmbeddedValueResolverAware、ResourceLoaderAware、ApplicationEventPublisherAware、MessageSourceAware、ApplicationContextAware 接口时，会调用其  postProcessBeforeInitialization( ) 方法将 Aware 前缀对应的对象注入到 Bean 对象中。</p>
+<p>CommonAnnotationBeanPostProcessor ：调用其  postProcessBeforeInitialization( ) 方法，调用 Bean 中标注 @PostConstruct 注解的方法。</p>
+<h6 id="8-BeanPostProcessor-的-postProcessAfterInitialization"><a href="#8-BeanPostProcessor-的-postProcessAfterInitialization" class="headerlink" title="8. BeanPostProcessor 的 postProcessAfterInitialization( )"></a>8. BeanPostProcessor 的 postProcessAfterInitialization( )</h6><p>时机：在 Bean 对象初始化之后。</p>
+<p>作用：判断该 Bean 对象是否需要 AOP 代理增强，如果需要的话，则会在该步骤返回一个代理对象。</p>
+<h6 id="9-SmartInitializingSingleton-的-afterSingletonsInstantiated"><a href="#9-SmartInitializingSingleton-的-afterSingletonsInstantiated" class="headerlink" title="9.SmartInitializingSingleton 的 afterSingletonsInstantiated( )"></a>9.SmartInitializingSingleton 的 afterSingletonsInstantiated( )</h6><p>该方法会在所有的非懒加载单实例 Bean 都成功创建并且放到 Spring IOC 容器之后，依次遍历所有的 Bean，如果当前这个 Bean 是SmartInitializingSingleton 的子类，那么就强转成 SmartInitializingSingleton 类，然后调用 afterSingletonsInstantiated( ) 方法。</p>
+<p>这个扩展点可以让我们自定义注解，完成我们想要实现的逻辑。</p>
 
                 
             </div>
