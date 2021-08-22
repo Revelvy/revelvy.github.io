@@ -424,14 +424,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    783
+                    837
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -470,15 +470,16 @@
 <p><span class="github-emoji"><span>🐋</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f40b.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 栗子：</p>
 <p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812212146.png"></p>
 <p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210812212527.png"></p>
-<h2 id="事务隔离级别-InnoDB"><a href="#事务隔离级别-InnoDB" class="headerlink" title="事务隔离级别 InnoDB"></a>事务隔离级别 InnoDB</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><ol>
-<li><p>脏读：一个事务读取到了另一个事务未提交的数据，导致前后数据不一致。</p>
-</li>
-<li><p>不可重复读：在同一个事务中重复读取同一数据时，导致前后数据不一致。（不一定是错误，可能是场合不对） —— 违背一致性原则</p>
-</li>
-<li><p>幻读：一个事务读取到了另一个事务插入的数据，导致前后数据不一致。（数据变多了 一般是影响行 多了一行）</p>
-</li>
-</ol>
-<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><table>
+<h2 id="事务并发问题"><a href="#事务并发问题" class="headerlink" title="事务并发问题"></a>事务并发问题</h2><p><span class="github-emoji"><span>1⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 更新丢失</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一个事务的更新覆盖了另一个事务的更新。</p>
+<p><span class="github-emoji"><span>2⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0032-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 脏读</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一个事务读取到到了另一个事务未提交的数据。</p>
+<p><span class="github-emoji"><span>3⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0033-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 不可重复读</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在同一个事务中重复读取同一数据时，数据不一致（不一定是错误，可能是场合不对） – 违背一致性原则。</p>
+<p><span class="github-emoji"><span>4⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0034-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 幻读</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 一个事务内读取到了别的事务插入的数据，导致前后数据不一致（数据变多了 一般是影响行 多了一行）</p>
+<h2 id="事务隔离级别-InnoDB"><a href="#事务隔离级别-InnoDB" class="headerlink" title="事务隔离级别 InnoDB"></a>事务隔离级别 InnoDB</h2><p><span class="github-emoji"><span>📌</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 作用：解决事务并发问题。</p>
+<h3 id="事务隔离级别"><a href="#事务隔离级别" class="headerlink" title="事务隔离级别"></a>事务隔离级别</h3><table>
 <thead>
 <tr>
 <th>事务隔离级别（由低到高）</th>
@@ -515,7 +516,7 @@
 <p>读未提交，不能避免所有问题；</p>
 <p>读已提交，避免了脏读；</p>
 <p>可重复读，避免了脏读、不可重复读；</p>
-<p>可串行化，避免所有问题，但是不用，因为这样会让 SQL 排队，即不能并发，会降低性能。</p>
+<p>可串行化，避免所有问题，但是一般不用，因为这样会让 SQL 排队，即不能并发，会降低性能。</p>
 <h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ SELECT @@tx_isolation  <span class="token comment"># 查看 MySQL 默认隔离级别</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="事务传播机制"><a href="#事务传播机制" class="headerlink" title="事务传播机制"></a>事务传播机制</h2><pre class="line-numbers language-none"><code class="language-none">REQUIRE   好男人 有事务就加入，没就自己创建

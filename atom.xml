@@ -380,6 +380,31 @@
   </entry>
   
   <entry>
+    <title>MySQL 设计</title>
+    <link href="https://www.blog.revelvy.cn/2020/05/10/mysql-she-ji/"/>
+    <id>https://www.blog.revelvy.cn/2020/05/10/mysql-she-ji/</id>
+    <published>2020-05-10T04:33:30.000Z</published>
+    <updated>2021-08-21T04:35:46.971Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;流程&quot;&gt;&lt;a href=&quot;#流程&quot; class=&quot;headerlink&quot; title=&quot;流程&quot;&gt;&lt;/a&gt;流程&lt;/h2&gt;&lt;p&gt;&lt;span class=&quot;github-emoji&quot;&gt;&lt;span&gt;1⃣&lt;/span&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="MySQL" scheme="https://www.blog.revelvy.cn/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>MySQL 四种语言</title>
     <link href="https://www.blog.revelvy.cn/2020/05/07/mysql-si-chong-yu-yan/"/>
     <id>https://www.blog.revelvy.cn/2020/05/07/mysql-si-chong-yu-yan/</id>
@@ -411,7 +436,7 @@
     <link href="https://www.blog.revelvy.cn/2020/05/06/mysql-suo-yin/"/>
     <id>https://www.blog.revelvy.cn/2020/05/06/mysql-suo-yin/</id>
     <published>2020-05-06T14:24:24.000Z</published>
-    <updated>2021-08-16T04:48:19.490Z</updated>
+    <updated>2021-08-21T08:54:08.950Z</updated>
     
     
       
@@ -436,7 +461,7 @@
     <link href="https://www.blog.revelvy.cn/2020/05/06/mysql-yue-shu/"/>
     <id>https://www.blog.revelvy.cn/2020/05/06/mysql-yue-shu/</id>
     <published>2020-05-06T03:40:14.000Z</published>
-    <updated>2021-08-16T03:42:04.867Z</updated>
+    <updated>2021-08-21T03:37:24.571Z</updated>
     
     
       
@@ -490,7 +515,7 @@
     <link href="https://www.blog.revelvy.cn/2020/05/04/mysql-shi-wu/"/>
     <id>https://www.blog.revelvy.cn/2020/05/04/mysql-shi-wu/</id>
     <published>2020-05-04T14:22:03.000Z</published>
-    <updated>2021-08-16T04:27:36.035Z</updated>
+    <updated>2021-08-21T04:47:03.569Z</updated>
     
     
       
@@ -535,36 +560,6 @@
     
     
     <category term="MySQL" scheme="https://www.blog.revelvy.cn/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Swagger 快速入门</title>
-    <link href="https://www.blog.revelvy.cn/2020/05/02/swagger-kuai-su-ru-men/"/>
-    <id>https://www.blog.revelvy.cn/2020/05/02/swagger-kuai-su-ru-men/</id>
-    <published>2020-05-02T10:34:52.000Z</published>
-    <updated>2021-08-07T10:36:27.580Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;原生-UI&quot;&gt;&lt;a href=&quot;#原生-UI&quot; class=&quot;headerlink&quot; title=&quot;原生 UI&quot;&gt;&lt;/a&gt;原生 UI&lt;/h2&gt;&lt;p&gt;我们将使用 SpringBoot 集成 Swagger 2 ，快速体验。&lt;/p&gt;
-&lt;h3 id=&quot;环境&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Java" scheme="https://www.blog.revelvy.cn/categories/Java/"/>
-    
-    
-    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
-    
-    <category term="SpringBoot" scheme="https://www.blog.revelvy.cn/tags/SpringBoot/"/>
-    
-    <category term="Swagger" scheme="https://www.blog.revelvy.cn/tags/Swagger/"/>
     
   </entry>
   

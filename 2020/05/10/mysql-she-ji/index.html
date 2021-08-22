@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Redis,数据库,发布,订阅">
+    <meta name="keywords" content="MySQL,MySQL 表设计三范式">
     <meta name="description" content="白竹竹,Spring Boot,Python,Django">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Redis 发布订阅 | 白竹竹</title>
+    <title>MySQL 设计 | 白竹竹</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -269,12 +269,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Redis 发布订阅</h1>
+                    <h1 class="description center-align post-title">MySQL 设计</h1>
                 </div>
             </div>
         </div>
@@ -390,12 +390,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Redis/">
-                                <span class="chip bg-color">Redis</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                <span class="chip bg-color">数据库</span>
+                            <a href="/tags/MySQL/">
+                                <span class="chip bg-color">MySQL</span>
                             </a>
                         
                     </div>
@@ -419,7 +415,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-16
+                    2020-05-10
                 </div>
                 
 
@@ -428,7 +424,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    419
+                    190
                 </div>
                 
 
@@ -453,48 +449,18 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>Redis 的发布订阅( publish/subscribe )，是一种消息通信模式，消息发送者发布信息，消息订阅者（ Redis-client ）接收消息，可以用来构建网络聊天室、实时广播、实时提醒等即时通信应用，复杂点的就用消息中间件 MQ 。</p>
-<h3 id="发布订阅的流程图"><a href="#发布订阅的流程图" class="headerlink" title="发布订阅的流程图"></a>发布订阅的流程图</h3><p><img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210806150601.png"></p>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>subscribe channel</td>
-<td>订阅一个或多个频道</td>
-</tr>
-<tr>
-<td>unsubscribe channel</td>
-<td>取消订阅</td>
-</tr>
-<tr>
-<td>publish channel</td>
-<td>发布消息到频道</td>
-</tr>
-</tbody></table>
-<p>消息订阅者可以订阅多个频道，此处有 3 个订阅者同时订阅了 channel1 频道。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210806150613.png"></p>
-<p>消息发布者通过 PUBLISH 命令把消息发送到频道 channel1 ，所有的订阅者就可以收到消息 。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210806150618.png"></p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p><code>订阅端</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> SUBSCRIBE channel1  <span class="token comment"># 订阅频道 channel1</span>
-channel1 Reading messages<span class="token punctuation">..</span>. <span class="token punctuation">(</span>press Ctrl-C to quit<span class="token punctuation">)</span>  <span class="token comment"># 等待读取频道推送的消息 </span>
-<span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">"subscribe"</span> 
-<span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">"channel1"</span> 
-<span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span> 
-
-<span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">"message"</span>  <span class="token comment"># 消息</span>
-<span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">"channel1"</span>  <span class="token comment"># 频道 </span>
-<span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">"hello"</span>  <span class="token comment"># 消息的具体内容 </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><code>发布端</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> PUBLISH kuangshenshuo <span class="token string">"hello"</span>   <span class="token comment"># 发布者发布消息到频道！</span>
-<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>通过 SUBSCRIBE 命令订阅某频道后，redis-server 里维护了一个字典，字典的键就是很多频道，而字典的值则是一个链表，链表中保存了所有订阅这个 channel 的客户端。SUBSCRIBE 命令的关键， 就是将客户端添加到给定 channel 的订阅链表中。 通过 PUBLISH 命令向订阅者发送消息，redis-server 会使用给定的频道作为键，在它所维护的 channel 字典中查找记录了订阅这个频道的所有客户端的链表，遍历这个链表，将消息发布给所有订阅者。 </p>
+                <h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><p><span class="github-emoji"><span>1⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 分析需求：分析业务需求。<br><span class="github-emoji"><span>2⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0032-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 概要设计：ER关系图。</p>
+<h2 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h2><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210821123113.png"></p>
+<p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210821123118.png"></p>
+<p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210821123121.png"></p>
+<p><span class="github-emoji"><span>1⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 第一范式 1NF</p>
+<p>保证每列的原子性，数据库表的每一列都是不可分割的原子数据项，即 <strong>列不可拆分</strong> 。</p>
+<p><span class="github-emoji"><span>2⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0032-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 第二范式 2NF</p>
+<p>一范基础上，保证一张表只描述一件事。</p>
+<p>一范基础上，表中的每条记录必须是唯一被区分的，即 <strong>列被主键唯一标识</strong> 。</p>
+<p><span class="github-emoji"><span>3⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0033-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 第三范式 3NF</p>
+<p>二范基础上，保证每列都和主键直接相关，说白了，决定某字段值的必须是主键。</p>
+<p>二范基础上，任何非主属性不依赖与其他非主属性（消除传递依赖），即 <strong>列和主键直接相关</strong> 。</p>
 
                 
             </div>
@@ -521,7 +487,7 @@ channel1 Reading messages<span class="token punctuation">..</span>. <span class=
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.blog.revelvy.cn/2020/01/16/redis-fa-bu-ding-yue/">https://www.blog.revelvy.cn/2020/01/16/redis-fa-bu-ding-yue/</a>
+                    <a href="https://www.blog.revelvy.cn/2020/05/10/mysql-she-ji/">https://www.blog.revelvy.cn/2020/05/10/mysql-she-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -559,12 +525,8 @@ channel1 Reading messages<span class="token punctuation">..</span>. <span class=
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Redis/">
-                                    <span class="chip bg-color">Redis</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                    <span class="chip bg-color">数据库</span>
+                                <a href="/tags/MySQL/">
+                                    <span class="chip bg-color">MySQL</span>
                                 </a>
                             
                         </div>
@@ -740,48 +702,36 @@ channel1 Reading messages<span class="token punctuation">..</span>. <span class=
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/01/18/servlet/">
+                <a href="/2020/07/02/shu-zu-pin-shu-tong-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Servlet">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="数组频数统计">
                         
-                        <span class="card-title">Servlet</span>
+                        <span class="card-title">数组频数统计</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Servlet
+                            
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-18
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-02
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category">
-                                    Java
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
+                                    数据结构与算法
                                 </a>
                             
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
-                    <a href="/tags/Servlet/">
-                        <span class="chip bg-color">Servlet</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -793,24 +743,24 @@ channel1 Reading messages<span class="token punctuation">..</span>. <span class=
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/01/10/redis-shu-ju-chi-jiu-hua/">
+                <a href="/2020/05/07/mysql-si-chong-yu-yan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Redis 数据持久化">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="MySQL 四种语言">
                         
-                        <span class="card-title">Redis 数据持久化</span>
+                        <span class="card-title">MySQL 四种语言</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            详解 Redis 数据持久化的两种方式及其配置： RDB 和 AOF
+                            详解 MySQL 的四种语言
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-07
                             </span>
                         <span class="publish-author">
                             
@@ -827,24 +777,12 @@ channel1 Reading messages<span class="token punctuation">..</span>. <span class=
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Redis/">
-                        <span class="chip bg-color">Redis</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%8C%81%E4%B9%85%E5%8C%96/">
-                        <span class="chip bg-color">持久化</span>
-                    </a>
-                    
-                    <a href="/tags/RDB/">
-                        <span class="chip bg-color">RDB</span>
-                    </a>
-                    
-                    <a href="/tags/AOF/">
-                        <span class="chip bg-color">AOF</span>
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
                     </a>
                     
                 </div>
