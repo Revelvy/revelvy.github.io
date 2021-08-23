@@ -485,7 +485,7 @@
 <p>  它到底做了什么呢，我们把 Debug 断点打在此方法上，查看 metadata 的值，可得知其包含了主配置类的信息。</p>
 <p>  <img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210804144254.png"></p>
 <p>  那么此处就是通过 getPackageName() 方法获取主配置类 Application 所在的包路径，这也从侧面说明了主配置类要放在最外层目录的原因。</p>
-<p>  所以，@AutoConfigurationPackage 这个注解的作用是 <strong>自动配置包，即将主配置类所在包及其子包中的所有组件扫描加载到 Spring 容器中</strong> 。</p>
+<p>  所以，@AutoConfigurationPackage 这个注解的作用是 <strong>自动配置包，即通过导入注册类 Registrar.class 从元数据中 metadata 中找到主配置类的所在包路径，将主配置类所在包及其子包中的所有组件扫描加载到 Spring 容器中</strong> 。</p>
 <h3 id="自动配置选择器"><a href="#自动配置选择器" class="headerlink" title="自动配置选择器"></a>自动配置选择器</h3><p>  <strong>AutoConfigurationImportSelector</strong> 的源码如下：</p>
 <p>  <code>AutoConfigurationImportSelector.java</code></p>
   <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Override</span>
@@ -566,7 +566,7 @@ org<span class="token punctuation">.</span>springframework<span class="token pun
 org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>autoconfigure<span class="token punctuation">.</span>aop<span class="token punctuation">.</span>AopAutoConfiguration<span class="token punctuation">,</span>\<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>  通过 Debug ，可以看到获取的所有的候选自动配置类<br>  <img src="https://cdn.jsdelivr.net/gh/Revelvy/picbed/blog/img/20210804144258.png"></p>
-<p>  所以，AutoConfigurationImportSelector 的作用是： <strong>自动配置选择器，即从路径 “META-INF/spring.factories” 中获取系统预先加载好的候选自动配置类，将所需的自动配置类导入 Spring 容器。</strong></p>
+<p>  所以，AutoConfigurationImportSelector 的作用是： <strong>自动配置选择器，即从路径 “META-INF/spring.factories” 元信息的Spring工厂文件中获取系统预先加载好的候选自动配置类，将所需的自动配置类导入 Spring 容器。</strong></p>
 <h2 id="自动配置类的生效条件"><a href="#自动配置类的生效条件" class="headerlink" title="自动配置类的生效条件"></a>自动配置类的生效条件</h2><p>介绍完 SpringBoot 是如何导入自动配置类的，接下来就是分析这些自动配置类在什么情况下才会生效，我们以自动配置类 WebMvcAutoConfiguration 为例，其源码如下：</p>
 <p><code>WebMvcAutoConfiguration.java</code></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span><span class="token punctuation">(</span>proxyBeanMethods <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
