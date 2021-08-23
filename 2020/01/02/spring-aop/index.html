@@ -1389,7 +1389,7 @@ userService<span class="token punctuation">.</span><span class="token function">
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            深入浅出 Spring 框架
                         
                     </div>
                     <div class="publish-info">
@@ -1512,7 +1512,7 @@ userService<span class="token punctuation">.</span><span class="token function">
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
+            headingSelector: 'h2, h3, h4, h5, h6'
         });
 
         // modify the toc link href to support Chinese.
@@ -1524,7 +1524,7 @@ userService<span class="token punctuation">.</span><span class="token function">
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
+        $('#articleContent').children('h2, h3, h4, h5, h6').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
