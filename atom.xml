@@ -6,7 +6,7 @@
   <link href="https://www.blog.revelvy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.blog.revelvy.cn/"/>
-  <updated>2021-08-20T03:33:00.442Z</updated>
+  <updated>2021-08-27T11:55:26.686Z</updated>
   <id>https://www.blog.revelvy.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>网络协议分层</title>
+    <link href="https://www.blog.revelvy.cn/2021/08/27/wang-luo-xie-yi-fen-ceng/"/>
+    <id>https://www.blog.revelvy.cn/2021/08/27/wang-luo-xie-yi-fen-ceng/</id>
+    <published>2021-08-27T11:31:32.000Z</published>
+    <updated>2021-08-27T11:55:26.686Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;通信协议&quot;&gt;&lt;a href=&quot;#通信协议&quot; class=&quot;headerlink&quot; title=&quot;通信协议&quot;&gt;&lt;/a&gt;通信协议&lt;/h2&gt;&lt;p&gt;&lt;span class=&quot;github-emoji&quot;&gt;&lt;span&gt;⭐&lt;/span&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="计算机基础" scheme="https://www.blog.revelvy.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="网络协议" scheme="https://www.blog.revelvy.cn/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>谷歌浏览器禁用版本太旧提示</title>
@@ -525,32 +550,6 @@
     <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;Transation，将一组 SQL 放在一个批次去执行，要么都成功，要么都失败。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;MySQL</summary>
-        
-      
-    
-    
-    
-    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-    <category term="MySQL" scheme="https://www.blog.revelvy.cn/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL 存储引擎</title>
-    <link href="https://www.blog.revelvy.cn/2020/05/03/mysql-cun-chu-yin-qing/"/>
-    <id>https://www.blog.revelvy.cn/2020/05/03/mysql-cun-chu-yin-qing/</id>
-    <published>2020-05-03T14:20:07.000Z</published>
-    <updated>2021-08-16T04:18:29.346Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;存储引擎 / 表格类型&lt;/p&gt;
-&lt;h2 id=&quot;种类&quot;&gt;&lt;a href=&quot;#种类&quot; class=&quot;headerlink&quot;</summary>
         
       
     
