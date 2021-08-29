@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>美图秀秀添加文字</title>
+      <link href="/2021/08/29/mei-tu-xiu-xiu-tian-jia-wen-zi/"/>
+      <url>/2021/08/29/mei-tu-xiu-xiu-tian-jia-wen-zi/</url>
+      
+        <content type="html"><![CDATA[<p><span class="github-emoji"><span>1⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 在 <strong>首页</strong> 选择 <strong>美化图片</strong>，选中需要操作的图片。</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210829090941.png"></p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210829085208.png"></p><p><span class="github-emoji"><span>2⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0032-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 选择 <strong>文字水印</strong> ，点击 <strong>输入文字</strong> ，设置相关属性即可。</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210829085919.png"></p><p>通过设置颜色的 RGB 值，调整颜色。</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210829085612.png"></p><p>通过设置描边的 RGB 值，调整描边颜色。</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210829085927.png"></p><p><span class="github-emoji"><span>3⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0033-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 打开 <strong>PS</strong> ，使用 <strong>模糊工具</strong> 改变文字的透明度。</p><p><img src="https://gitee.com/revelvy/picbed/raw/master/blog/img/20210829090423.png"></p><p>​    </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 美图秀秀 </tag>
+            
+            <tag> Photoshop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Maven 使用指南</title>
       <link href="/2021/08/27/maven-shi-yong-zhi-nan/"/>
       <url>/2021/08/27/maven-shi-yong-zhi-nan/</url>

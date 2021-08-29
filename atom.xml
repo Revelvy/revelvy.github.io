@@ -6,7 +6,7 @@
   <link href="https://www.blog.revelvy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.blog.revelvy.cn/"/>
-  <updated>2021-08-27T15:00:14.908Z</updated>
+  <updated>2021-08-29T01:09:55.506Z</updated>
   <id>https://www.blog.revelvy.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>美图秀秀添加文字</title>
+    <link href="https://www.blog.revelvy.cn/2021/08/29/mei-tu-xiu-xiu-tian-jia-wen-zi/"/>
+    <id>https://www.blog.revelvy.cn/2021/08/29/mei-tu-xiu-xiu-tian-jia-wen-zi/</id>
+    <published>2021-08-29T01:08:10.000Z</published>
+    <updated>2021-08-29T01:09:55.506Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;span class=&quot;github-emoji&quot;&gt;&lt;span&gt;1⃣&lt;/span&gt;&lt;img src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Windows" scheme="https://www.blog.revelvy.cn/categories/Windows/"/>
+    
+    
+    <category term="美图秀秀" scheme="https://www.blog.revelvy.cn/tags/%E7%BE%8E%E5%9B%BE%E7%A7%80%E7%A7%80/"/>
+    
+    <category term="Photoshop" scheme="https://www.blog.revelvy.cn/tags/Photoshop/"/>
+    
+  </entry>
   
   <entry>
     <title>Maven 使用指南</title>
@@ -531,32 +558,6 @@
     
     
     <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
-    
-    <category term="MySQL" scheme="https://www.blog.revelvy.cn/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL 数据类型</title>
-    <link href="https://www.blog.revelvy.cn/2020/05/05/mysql-shu-ju-lei-xing/"/>
-    <id>https://www.blog.revelvy.cn/2020/05/05/mysql-shu-ju-lei-xing/</id>
-    <published>2020-05-05T14:23:40.000Z</published>
-    <updated>2021-08-16T04:32:45.813Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1-数值&quot;&gt;&lt;a href=&quot;#1-数值&quot; class=&quot;headerlink&quot; title=&quot;1. 数值&quot;&gt;&lt;/a&gt;1. 数值&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;tinyint                   </summary>
-        
-      
-    
-    
-    
-    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
     
     <category term="MySQL" scheme="https://www.blog.revelvy.cn/tags/MySQL/"/>
     
