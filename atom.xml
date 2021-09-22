@@ -6,7 +6,7 @@
   <link href="https://www.blog.revelvy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.blog.revelvy.cn/"/>
-  <updated>2021-08-29T01:09:55.506Z</updated>
+  <updated>2021-09-22T14:52:54.860Z</updated>
   <id>https://www.blog.revelvy.cn/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java-枚举</title>
+    <link href="https://www.blog.revelvy.cn/2021/09/22/java-mei-ju/"/>
+    <id>https://www.blog.revelvy.cn/2021/09/22/java-mei-ju/</id>
+    <published>2021-09-22T14:52:09.000Z</published>
+    <updated>2021-09-22T14:52:54.860Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;&lt;span class=&quot;github-emoji&quot;&gt;&lt;span&gt;🌠&lt;/span&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Java" scheme="https://www.blog.revelvy.cn/categories/Java/"/>
+    
+    
+    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java-可变参数</title>
+    <link href="https://www.blog.revelvy.cn/2021/09/21/java-ke-bian-can-shu/"/>
+    <id>https://www.blog.revelvy.cn/2021/09/21/java-ke-bian-can-shu/</id>
+    <published>2021-09-21T09:42:23.000Z</published>
+    <updated>2021-09-21T09:43:51.960Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h3&gt;&lt;p&gt;&lt;span class=&quot;github-emoji&quot;&gt;&lt;span&gt;🌠&lt;/span&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Java" scheme="https://www.blog.revelvy.cn/categories/Java/"/>
+    
+    
+    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>美图秀秀添加文字</title>
@@ -496,59 +546,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;DDL-数据定义语言&quot;&gt;&lt;a href=&quot;#DDL-数据定义语言&quot; class=&quot;headerlink&quot; title=&quot;DDL 数据定义语言&quot;&gt;&lt;/a&gt;DDL</summary>
-        
-      
-    
-    
-    
-    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-    <category term="Java" scheme="https://www.blog.revelvy.cn/tags/Java/"/>
-    
-    <category term="MySQL" scheme="https://www.blog.revelvy.cn/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL 索引</title>
-    <link href="https://www.blog.revelvy.cn/2020/05/06/mysql-suo-yin/"/>
-    <id>https://www.blog.revelvy.cn/2020/05/06/mysql-suo-yin/</id>
-    <published>2020-05-06T14:24:24.000Z</published>
-    <updated>2021-08-21T08:54:08.950Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;&lt;span class=&quot;github-emoji&quot;&gt;&lt;span&gt;🌠&lt;/span&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="数据库" scheme="https://www.blog.revelvy.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-    <category term="MySQL" scheme="https://www.blog.revelvy.cn/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL 约束</title>
-    <link href="https://www.blog.revelvy.cn/2020/05/06/mysql-yue-shu/"/>
-    <id>https://www.blog.revelvy.cn/2020/05/06/mysql-yue-shu/</id>
-    <published>2020-05-06T03:40:14.000Z</published>
-    <updated>2021-08-21T03:37:24.571Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;CONSTRAINT，往表中插入数据时，对数据的约束。&lt;/p&gt;
-&lt;h2 id=&quot;非空&quot;&gt;&lt;a href=&quot;#非空&quot;</summary>
         
       
     
