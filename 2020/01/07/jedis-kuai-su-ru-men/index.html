@@ -477,38 +477,38 @@
 <h4 id="设置公网接口、关闭保护模式"><a href="#设置公网接口、关闭保护模式" class="headerlink" title="设置公网接口、关闭保护模式"></a>设置公网接口、关闭保护模式</h4><p>Redis 默认只能从本机访问，我们想要从本地连接到服务器上的 Redis 服务，需要修改配置文件，首先设置 bind ，bind 绑定的 IP 不是请求来源 IP ，而是 Redis 上服务器本身接收请求的网络接口的 IP ，此处设置监听接口的配置有两种方案：第一种是直接取消 Redis 默认只能从本机访问的注释，此时就允许了所有公网 IP 都可以连接该服务器上的 Redis 服务。第二种是绑定公网接口 IP ，让 Redis 只监听 IPv4 的本地回环接口和公网接口（推荐），然后关闭 Redis 的保护模式。</p>
 <p>针对不同的环境，查看公网接口的方式是一样的，都是使用 ifconfig 查看当前服务器的网络接口。</p>
 <p><span class="github-emoji"><span>📌</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 本机虚拟机</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ <span class="token function">ifconfig</span>
-docker0: <span class="token assign-left variable">flags</span><span class="token operator">=</span><span class="token number">416</span><span class="token operator"><span class="token file-descriptor important">3</span>&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">&gt;</span>  mtu <span class="token number">1500</span>
-        inet <span class="token number">172.17</span>.0.1  netmask <span class="token number">255.255</span>.0.0  broadcast <span class="token number">172.17</span>.255.255
-        inet6 fe80::42:a4ff:fe2a:17fd  prefixlen <span class="token number">64</span>  scopeid 0x2<span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>link<span class="token operator">&gt;</span>
-        ether 02:42:a4:2a:17:fd  txqueuelen <span class="token number">0</span>  <span class="token punctuation">(</span>Ethernet<span class="token punctuation">)</span>
-        RX packets <span class="token number">101375</span>  bytes <span class="token number">17406789</span> <span class="token punctuation">(</span><span class="token number">16.6</span> MiB<span class="token punctuation">)</span>
-        RX errors <span class="token number">0</span>  dropped <span class="token number">0</span>  overruns <span class="token number">0</span>  frame <span class="token number">0</span>
-        TX packets <span class="token number">138351</span>  bytes <span class="token number">372190211</span> <span class="token punctuation">(</span><span class="token number">354.9</span> MiB<span class="token punctuation">)</span>
-        TX errors <span class="token number">0</span>  dropped <span class="token number">0</span> overruns <span class="token number">0</span>  carrier <span class="token number">0</span>  collisions <span class="token number">0</span>
-ens33: <span class="token assign-left variable">flags</span><span class="token operator">=</span><span class="token number">416</span><span class="token operator"><span class="token file-descriptor important">3</span>&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">&gt;</span>  mtu <span class="token number">1500</span>
-        inet <span class="token number">192.168</span>.34.130  netmask <span class="token number">255.255</span>.255.0  broadcast <span class="token number">192.168</span>.34.255
-        inet6 fe80::b060:e396:f9fb:f8ee  prefixlen <span class="token number">64</span>  scopeid 0x2<span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>link<span class="token operator">&gt;</span>
-        ether 00:0c:29:39:24:89  txqueuelen <span class="token number">1000</span>  <span class="token punctuation">(</span>Ethernet<span class="token punctuation">)</span>
-        RX packets <span class="token number">1031326</span>  bytes <span class="token number">1493603587</span> <span class="token punctuation">(</span><span class="token number">1.3</span> GiB<span class="token punctuation">)</span>
-        RX errors <span class="token number">0</span>  dropped <span class="token number">0</span>  overruns <span class="token number">0</span>  frame <span class="token number">0</span>
-        TX packets <span class="token number">408748</span>  bytes <span class="token number">39063819</span> <span class="token punctuation">(</span><span class="token number">37.2</span> MiB<span class="token punctuation">)</span>
-        TX errors <span class="token number">0</span>  dropped <span class="token number">0</span> overruns <span class="token number">0</span>  carrier <span class="token number">0</span>  collisions <span class="token number">0</span>
-lo: <span class="token assign-left variable">flags</span><span class="token operator">=</span><span class="token number">7</span><span class="token operator"><span class="token file-descriptor important">3</span>&lt;</span>UP,LOOPBACK,RUNNING<span class="token operator">&gt;</span>  mtu <span class="token number">65536</span>
-        inet <span class="token number">127.0</span>.0.1  netmask <span class="token number">255.0</span>.0.0
-        inet6 ::1  prefixlen <span class="token number">128</span>  scopeid 0x1<span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>host<span class="token operator">&gt;</span>
-        loop  txqueuelen <span class="token number">1000</span>  <span class="token punctuation">(</span>Local Loopback<span class="token punctuation">)</span>
-        RX packets <span class="token number">68</span>  bytes <span class="token number">5916</span> <span class="token punctuation">(</span><span class="token number">5.7</span> KiB<span class="token punctuation">)</span>
-        RX errors <span class="token number">0</span>  dropped <span class="token number">0</span>  overruns <span class="token number">0</span>  frame <span class="token number">0</span>
-        TX packets <span class="token number">68</span>  bytes <span class="token number">5916</span> <span class="token punctuation">(</span><span class="token number">5.7</span> KiB<span class="token punctuation">)</span>
-        TX errors <span class="token number">0</span>  dropped <span class="token number">0</span> overruns <span class="token number">0</span>  carrier <span class="token number">0</span>  collisions <span class="token number">0</span>
-virbr0: <span class="token assign-left variable">flags</span><span class="token operator">=</span><span class="token number">409</span><span class="token operator"><span class="token file-descriptor important">9</span>&lt;</span>UP,BROADCAST,MULTICAST<span class="token operator">&gt;</span>  mtu <span class="token number">1500</span>
-        inet <span class="token number">192.168</span>.122.1  netmask <span class="token number">255.255</span>.255.0  broadcast <span class="token number">192.168</span>.122.255
-        ether <span class="token number">52</span>:54:00:30:98:90  txqueuelen <span class="token number">1000</span>  <span class="token punctuation">(</span>Ethernet<span class="token punctuation">)</span>
-        RX packets <span class="token number">0</span>  bytes <span class="token number">0</span> <span class="token punctuation">(</span><span class="token number">0.0</span> B<span class="token punctuation">)</span>
-        RX errors <span class="token number">0</span>  dropped <span class="token number">0</span>  overruns <span class="token number">0</span>  frame <span class="token number">0</span>
-        TX packets <span class="token number">0</span>  bytes <span class="token number">0</span> <span class="token punctuation">(</span><span class="token number">0.0</span> B<span class="token punctuation">)</span>
-        TX errors <span class="token number">0</span>  dropped <span class="token number">0</span> overruns <span class="token number">0</span>  carrier <span class="token number">0</span>  collisions <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ ifconfig
+docker0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+        inet6 fe80::42:a4ff:fe2a:17fd  prefixlen 64  scopeid 0x20&lt;link&gt;
+        ether 02:42:a4:2a:17:fd  txqueuelen 0  (Ethernet)
+        RX packets 101375  bytes 17406789 (16.6 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 138351  bytes 372190211 (354.9 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+ens33: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
+        inet 192.168.34.130  netmask 255.255.255.0  broadcast 192.168.34.255
+        inet6 fe80::b060:e396:f9fb:f8ee  prefixlen 64  scopeid 0x20&lt;link&gt;
+        ether 00:0c:29:39:24:89  txqueuelen 1000  (Ethernet)
+        RX packets 1031326  bytes 1493603587 (1.3 GiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 408748  bytes 39063819 (37.2 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 68  bytes 5916 (5.7 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 68  bytes 5916 (5.7 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+virbr0: flags=4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu 1500
+        inet 192.168.122.1  netmask 255.255.255.0  broadcast 192.168.122.255
+        ether 52:54:00:30:98:90  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <table>
 <thead>
@@ -532,39 +532,39 @@ virbr0: <span class="token assign-left variable">flags</span><span class="token 
 </tbody></table>
 <p>此时 Redis 配置文件应设置为：</p>
 <p><code>redis.conf</code></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">bind</span> <span class="token number">127.0</span>.0.1 <span class="token number">192.168</span>.34.130
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">bind 127.0.0.1 192.168.34.130
 protected-mode no<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p><span class="github-emoji"><span>📌</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> ​云服务器</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ <span class="token function">ifconfig</span>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ ifconfig
 docker0   Link encap:Ethernet  HWaddr 3A:F3:20:12:AE:6A
           inet addr:192.168.42.1  Bcast:0.0.0.0  Mask:255.255.255.0
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
           RX packets:362879 errors:0 dropped:0 overruns:0 frame:0
           TX packets:894703 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0
-          RX bytes:28218097 <span class="token punctuation">(</span><span class="token number">26.9</span> MiB<span class="token punctuation">)</span>  TX bytes:1326305089 <span class="token punctuation">(</span><span class="token number">1.2</span> GiB<span class="token punctuation">)</span>
+          RX bytes:28218097 (26.9 MiB)  TX bytes:1326305089 (1.2 GiB)
 eth0      Link encap:Ethernet  HWaddr 00:16:3E:08:18:35
           inet addr:10.25.102.37  Bcast:10.25.103.255  Mask:255.255.252.0
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
           RX packets:4958304 errors:0 dropped:0 overruns:0 frame:0
           TX packets:2766733 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000
-          RX bytes:534516269 <span class="token punctuation">(</span><span class="token number">509.7</span> MiB<span class="token punctuation">)</span>  TX bytes:13382719049 <span class="token punctuation">(</span><span class="token number">12.4</span> GiB<span class="token punctuation">)</span>
+          RX bytes:534516269 (509.7 MiB)  TX bytes:13382719049 (12.4 GiB)
 eth1      Link encap:Ethernet  HWaddr 00:16:3E:08:13:6B
           inet addr:120.76.207.156  Bcast:120.76.207.255  Mask:255.255.252.0
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
           RX packets:13183600 errors:0 dropped:0 overruns:0 frame:0
           TX packets:14070363 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000
-          RX bytes:6460933699 <span class="token punctuation">(</span><span class="token number">6.0</span> GiB<span class="token punctuation">)</span>  TX bytes:8462002985 <span class="token punctuation">(</span><span class="token number">7.8</span> GiB<span class="token punctuation">)</span>
+          RX bytes:6460933699 (6.0 GiB)  TX bytes:8462002985 (7.8 GiB)
 lo        Link encap:Local Loopback
           inet addr:127.0.0.1  Mask:255.0.0.0
           UP LOOPBACK RUNNING  MTU:65536  Metric:1
           RX packets:156288093 errors:0 dropped:0 overruns:0 frame:0
           TX packets:156288093 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0
-          RX bytes:19039024606 <span class="token punctuation">(</span><span class="token number">17.7</span> GiB<span class="token punctuation">)</span>  TX bytes:19039024606 <span class="token punctuation">(</span><span class="token number">17.7</span> GiB<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+          RX bytes:19039024606 (17.7 GiB)  TX bytes:19039024606 (17.7 GiB)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <table>
 <thead>
@@ -592,7 +592,7 @@ lo        Link encap:Local Loopback
 </tbody></table>
 <p>此时 Redis 配置文件应设置为：</p>
 <p><code>redis.conf</code></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">bind</span> <span class="token number">127.0</span>.0.1 <span class="token number">120.76</span>.207.156
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">bind 127.0.0.1 120.76.207.156
 protected-mode no<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h4 id="重启-Redis"><a href="#重启-Redis" class="headerlink" title="重启 Redis"></a>重启 Redis</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 启动 Redis 服务端 （默认无密码）</span>

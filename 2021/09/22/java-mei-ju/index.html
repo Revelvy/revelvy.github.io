@@ -588,60 +588,60 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+
 <p>场景2：实现接口，在枚举类的各个对象中分别实现抽象方法</p>
-<p>```java<br>enum Season implements Song{</p>
-<pre><code>// 在枚举类的各个对象中分别实现抽象方法
-SPRING("春", "春暖花开") {
-    @Override
-    public void sing() {
-        System.out.println("春天在哪里呀~");
-    }
-},
-SUMMER("夏", "夏日炎炎"){
-    @Override
-    public void sing() {
-        System.out.println("夏天的风我永远记得~");
-    }
-},
-AUTUMN("秋", "秋高气爽"){
-    @Override
-    public void sing() {
-        System.out.println("缓缓掉落的枫叶像思念~");
-    }
-},
-WINTER("冬", "冰天雪地"){
-    @Override
-    public void sing() {
-        System.out.println("你发如雪凄美了离别~");
-    }
-};
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">enum</span> <span class="token class-name">Season</span> <span class="token keyword">implements</span> <span class="token class-name">Song</span><span class="token punctuation">{</span>
 
-private final String seasonName;
-private final String seasonDesc;
+    <span class="token comment">// 在枚举类的各个对象中分别实现抽象方法</span>
+    <span class="token function">SPRING</span><span class="token punctuation">(</span><span class="token string">"春"</span><span class="token punctuation">,</span> <span class="token string">"春暖花开"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sing</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"春天在哪里呀~"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">SUMMER</span><span class="token punctuation">(</span><span class="token string">"夏"</span><span class="token punctuation">,</span> <span class="token string">"夏日炎炎"</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sing</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"夏天的风我永远记得~"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">AUTUMN</span><span class="token punctuation">(</span><span class="token string">"秋"</span><span class="token punctuation">,</span> <span class="token string">"秋高气爽"</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sing</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"缓缓掉落的枫叶像思念~"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">WINTER</span><span class="token punctuation">(</span><span class="token string">"冬"</span><span class="token punctuation">,</span> <span class="token string">"冰天雪地"</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sing</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"你发如雪凄美了离别~"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-private Season(String seasonName, String seasonDesc) {
-    this.seasonName = seasonName;
-    this.seasonDesc = seasonDesc;
-}
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">String</span> seasonName<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">String</span> seasonDesc<span class="token punctuation">;</span>
 
-public String getSeasonName() {
-    return seasonName;
-}
+    <span class="token keyword">private</span> <span class="token class-name">Season</span><span class="token punctuation">(</span><span class="token class-name">String</span> seasonName<span class="token punctuation">,</span> <span class="token class-name">String</span> seasonDesc<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>seasonName <span class="token operator">=</span> seasonName<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>seasonDesc <span class="token operator">=</span> seasonDesc<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-public String getSeasonDesc() {
-    return seasonDesc;
-}
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getSeasonName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> seasonName<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-@Override
-public String toString() {
-    return "Season{" +
-            "seasonName='" + seasonName + '\'' +
-            ", seasonDesc='" + seasonDesc + '\'' +
-            '}';
-}
-</code></pre>
-<p>}</p>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getSeasonDesc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> seasonDesc<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"Season{"</span> <span class="token operator">+</span>
+                <span class="token string">"seasonName='"</span> <span class="token operator">+</span> seasonName <span class="token operator">+</span> <span class="token string">'\''</span> <span class="token operator">+</span>
+                <span class="token string">", seasonDesc='"</span> <span class="token operator">+</span> seasonDesc <span class="token operator">+</span> <span class="token string">'\''</span> <span class="token operator">+</span>
+                <span class="token string">'}'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
